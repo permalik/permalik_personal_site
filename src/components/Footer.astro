@@ -1,0 +1,28 @@
+---
+import github from '../../public/icon-github.svg';
+import linkedin from '../../public/icon-linkedin.svg';
+import mail from '../../public/icon-mail.svg';
+---
+
+<footer>
+  <nav>
+    <a href='https://github.com/permalik/'>
+      <img src={github} alt='Github icon' />
+    </a>
+    <a href='https://linkedin.com/permalik/'>
+      <img src={linkedin} alt='Linkedin icon' />
+    </a>
+    <a href='mailto:permalik@pm.me'>
+      <img src={mail} alt='Email icon' />
+    </a>
+    <a href='/pdf'>
+      <p class='resume-link'>resume</p>
+    </a>
+  </nav>
+</footer>
+
+<style lang='scss'>
+  p.resume-link {
+    color: #d57a12;
+  }
+</style>
