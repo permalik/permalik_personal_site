@@ -1,6 +1,7 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import '../styles/global.scss';
 
 export interface Props {
   title: string;
@@ -19,30 +20,10 @@ const { title } = Astro.props;
     <meta name='generator' content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body class='px-1.5 py-1 sm:px-4 sm:py-3 md:px-6 md:py-5'>
+  <body class='px-1.5 py-1 sm:px-4 sm:py-3 md:px-6 md:py-5 bg-stone-900'>
     <Header />
     <slot />
     <Footer />
   </body>
 </html>
-<style is:global lang='scss'>
-  :root {
-    --accent: 124, 58, 237;
-    --accent-gradient: linear-gradient(
-      45deg,
-      rgb(var(--accent)),
-      #da62c4 30%,
-      white 60%
-    );
-  }
-  html {
-    background-color: #151210;
-    color: #fff8f1;
-  }
-  body {
-    font-family: 'Roboto Serif', serif;
-  }
-  /* main {
-
-  } */
-</style>
+<style is:global lang='scss'></style>

@@ -8,13 +8,15 @@ export interface Props {
 const { href, title, body } = Astro.props;
 ---
 
-<header>
+<header class='mb-12'>
   <a href='/'>
-    <p>Ty Malik</p>
+    <p class='text-2xl md:text-3xl font-light'>Ty Malik</p>
   </a>
-  <p>developer</p>
+  <p class='text-base md:text-lg font-thin'>developer</p>
 </header>
 
-<style>
-  /* font-family: 'Fira Sans', sans; */
+<style lang='scss'>
+  header {
+    font-family: 'Fira Sans', sans;
+  }
 </style>
