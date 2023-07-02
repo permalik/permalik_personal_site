@@ -1,0 +1,20 @@
+---
+export interface Props {
+  title: string;
+  body: string;
+  href: string;
+}
+
+const { href, title, body } = Astro.props;
+---
+
+<header>
+  <a href='/'>
+    <p>Ty Malik</p>
+  </a>
+  <p>developer</p>
+</header>
+
+<style>
+  /* font-family: 'Fira Sans', sans; */
+</style>
