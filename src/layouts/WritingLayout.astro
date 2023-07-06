@@ -1,0 +1,32 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Section from '../components/Section.astro';
+import '../styles/global.scss';
+
+export interface Props {
+  title: string;
+}
+
+const { frontmatter } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='description' content='Astro description' />
+    <meta name='viewport' content='width=device-width' />
+    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+    <meta name='generator' content={Astro.generator} />
+    <title>{frontmatter.title}</title>
+  </head>
+  <body class='px-1.5 py-1 sm:px-4 sm:py-3 md:px-6 md:py-5 bg-stone-900'>
+    <Header />
+    <Section>
+      <slot />
+    </Section>
+    <Footer />
+  </body>
+</html>
+<style is:global lang='scss'></style>

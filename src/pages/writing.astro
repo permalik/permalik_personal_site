@@ -1,18 +1,23 @@
 ---
-import Base from '../layouts/Base.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 import Section from '../components/Section.astro';
+const allPosts = await Astro.glob('./writing/*.md');
 ---
 
-<Base>
+<BaseLayout>
   <main>
     <Section>
       <ul>
-        <li>Article One</li>
-        <li>Article One</li>
-        <li>Article One</li>
-        <li>Article One</li>
-        <li>Article One</li>
+        {
+          allPosts.map((post) => (
+            <li>
+              <a href={post.url}>
+                00{post.frontmatter.edition}. {post.frontmatter.title}
+              </a>
+            </li>
+          ))
+        }
       </ul>
     </Section>
   </main>
-</Base>
+</BaseLayout>
