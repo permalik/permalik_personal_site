@@ -1,17 +1,59 @@
 ---
 import Base from '../layouts/BaseLayout.astro';
 import Section from '../components/Section.astro';
+import { Octokit } from 'octokit';
+
+const octokit = new Octokit();
+
+const { data } = await octokit.request('GET /users/{username}/repos', {
+  username: `permalik`,
+  sort: `created`
+});
+console.log(`MEIN DATA`, data);
 ---
 
 <Base>
   <main>
     <Section>
       <ul>
-        <li>Project One</li>
-        <li>Project One</li>
-        <li>Project One</li>
-        <li>Project One</li>
-        <li>Project One</li>
+        {
+          data.map((repo) => (
+            <li>
+              <p>{repo.name.split('-').join(' ')}</p>
+              <p>
+                {repo.description
+                  .split(':')
+                  .map((k) => k)
+                  .slice(0, -1)}
+              </p>
+              <a href={repo.html_url}>
+                <p>code</p>
+              </a>
+              <a href={repo.homepage}>
+                <p>demo</p>
+              </a>
+              <p>
+                Created At: {repo.created_at.slice(0, -10).split(`-`).join(`.`)}
+              </p>
+              <p>
+                Last Updated:{' '}
+                {repo.pushed_at.slice(0, -10).split(`-`).join(`.`)}
+              </p>
+              <ul>
+                {repo.topics.map((topic) => (
+                  <li>{topic}</li>
+                ))}
+              </ul>
+              <p>
+                Use:{' '}
+                {repo.description
+                  .split(`:`)
+                  .map((e) => e)
+                  .slice(1)}
+              </p>
+            </li>
+          ))
+        }
       </ul>
     </Section>
   </main>
