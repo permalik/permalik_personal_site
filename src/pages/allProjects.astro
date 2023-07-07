@@ -1,0 +1,55 @@
+---
+import Base from '../layouts/BaseLayout.astro';
+import Section from '../components/Section.astro';
+
+<!-- import { Octokit } from 'octokit';
+
+const octokit = new Octokit();
+
+const { data } = await octokit.request('GET /users/{username}/repos', {
+  username: `permalik`,
+  sort: `created`
+}); -->
+---
+
+<Base>
+  <main>
+    <Section>
+      <ul>
+        {
+          data.map((repo) => (
+            <li class='hover:bg-stone-700/10'>
+              <a href={repo.html_url}>
+                <p class='font-sans font-medium capitalize'>
+                  {repo.name.split('-').join(' ')}
+                  <span class='tracking-wide text-teal-300 uppercase'>
+                    •{' '}
+                    {repo.description
+                      .split(':')
+                      .map((k) => k)
+                      .slice(0, -1)}
+                  </span>
+                </p>
+                <p>
+                  {repo.description
+                    .split(`:`)
+                    .map((e) => e)
+                    .slice(1)}
+                </p>
+              </a>
+              <ul class='flex space-x-2'>
+                {repo.topics.map((topic) => (
+                  <a href=`/projects/${topic}`>
+                    <li class='tracking-wide text-teal-300/80 hover:text-teal-300'>
+                      #{topic}
+                    </li>
+                  </a>
+                ))}
+              </ul>
+            </li>
+          ))
+        }
+      </ul>
+    </Section>
+  </main>
+</Base>

@@ -1,0 +1,7 @@
+---
+export function getStaticPaths() {
+  return [{ params: { writing: 'betterment' } }];
+}
+
+const { writing } = Astro.params;
+---
