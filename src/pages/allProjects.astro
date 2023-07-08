@@ -1,6 +1,6 @@
 ---
 import Base from '../layouts/BaseLayout.astro';
-import Section from '../components/Section.astro';
+import ProjectCard from '../components/ProjectCard.astro';
 
 <!-- import { Octokit } from 'octokit';
 
@@ -14,11 +14,15 @@ const { data } = await octokit.request('GET /users/{username}/repos', {
 
 <Base>
   <main>
-    <Section>
       <ul>
         {
           data.map((repo) => (
-            <li class='hover:bg-stone-700/10'>
+            <ProjectCard
+              name={repo.name}
+              description={repo.description}
+              html_url={repo.html_url}
+              topics={repo.topics} />
+            <!-- <li class='hover:bg-stone-700/10'>
               <a href={repo.html_url}>
                 <p class='font-sans font-medium capitalize'>
                   {repo.name.split('-').join(' ')}
@@ -46,10 +50,9 @@ const { data } = await octokit.request('GET /users/{username}/repos', {
                   </a>
                 ))}
               </ul>
-            </li>
+            </li> -->
           ))
         }
       </ul>
-    </Section>
   </main>
 </Base>

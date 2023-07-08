@@ -8,15 +8,39 @@ export interface Props {
 const { href, title, body } = Astro.props;
 ---
 
-<header class='mb-12'>
+<header>
   <a href='/'>
-    <p class='text-2xl md:text-3xl font-light'>Ty Malik</p>
+    <p>Ty Malik</p>
   </a>
-  <p class='text-base md:text-lg font-thin'>developer</p>
+  <p>developer</p>
+  <nav>
+    <a href='/'>about</a>
+    <a href='/allWriting'>writing</a>
+    <a href='/allProjects'>projects</a>
+    <a href='/allPens'>pens</a>
+  </nav>
 </header>
 
 <style lang='scss'>
   header {
-    font-family: 'Fira Sans', sans;
+    font-family: var(--sans-font);
+    color: var(--primary);
+
+    & a > p {
+      font-size: clamp(2rem, 5vw, 2.75rem);
+      font-weight: 600;
+      letter-spacing: 0.01rem;
+    }
+
+    & p {
+      font-size: clamp(1.125rem, 5vw, 1.3rem);
+      letter-spacing: 0.025rem;
+      text-transform: capitalize;
+    }
+  }
+
+  nav {
+    display: flex;
+    flex-flow: column nowrap;
   }
 </style>

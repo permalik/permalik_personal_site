@@ -1,7 +1,6 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import Section from '../components/Section.astro';
 import '../styles/global.scss';
 
 export interface Props {
@@ -22,11 +21,11 @@ const { frontmatter } = Astro.props;
     <title>{frontmatter.title}</title>
   </head>
   <body class='px-1.5 py-1 sm:px-4 sm:py-3 md:px-6 md:py-5 bg-stone-900'>
-    <Header />
-    <Section>
+    <section class='mx-auto sm:max-w-lg'>
+      <Header />
       <slot />
-    </Section>
-    <Footer />
+      <Footer />
+    </section>
   </body>
 </html>
 <style is:global lang='scss'></style>
