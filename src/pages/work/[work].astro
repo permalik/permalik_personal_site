@@ -1,9 +1,9 @@
 ---
 export function getStaticPaths() {
-  return [{ params: { projects: 'typescript' } }];
+  return [{ params: { work: 'typescript' } }];
 }
 
-const { projects } = Astro.params;
+const { work } = Astro.params;
 
 <!-- import { Octokit } from 'octokit';
 
@@ -14,17 +14,17 @@ const { data } = await octokit.request('GET /users/{username}/repos', {
   sort: `created`
 }); -->
 
-const taggedProjects = [];
+const taggedWork = [];
 
 data.forEach((repo) => {
   repo.topics.map((topic) => {
-    if (topic === projects) {
-      taggedProjects.push(repo);
+    if (topic === work) {
+      taggedWork.push(repo);
     }
   });
 });
 ---
 
 <ul>
-  {taggedProjects.map((project) => <li>{project.name}</li>)}
+  {taggedWork.map((project) => <li>{project.name}</li>)}
 </ul>

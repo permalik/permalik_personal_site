@@ -15,8 +15,20 @@ import mail from '../../icon-mail.svg';
     <a href='mailto:permalik@pm.me'>
       <img src={mail} alt='Email icon' />
     </a>
-    <a href='/pdf'>
-      <p class='text-orange-400 resume-link'>resume</p>
-    </a>
   </nav>
 </footer>
+
+<style>
+  footer {
+    display: flex;
+    align-items: flex-end;
+  }
+  nav {
+    align-items: center;
+    display: flex;
+
+    & a:not(:first-child) {
+      padding-left: 1rem;
+    }
+  }
+</style>

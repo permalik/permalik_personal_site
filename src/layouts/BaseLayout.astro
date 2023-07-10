@@ -23,24 +23,44 @@ const { title } = Astro.props;
   <body>
     <section>
       <Header />
-      <!-- <slot />
-      <Footer /> -->
+      <slot />
+      <Footer />
     </section>
   </body>
 </html>
 
-<style>
+<style lang='scss'>
   body {
     background-color: #04110b;
+    min-height: 100vh;
   }
   section {
+    display: grid;
+    grid-template-areas:
+      'header'
+      'main'
+      'footer';
+    height: 100vh;
     max-width: 60rem;
     margin: 0 auto;
     padding: 0 0.5rem;
+
+    & header {
+      grid-area: header;
+    }
+    & main {
+      grid-area: main;
+    }
+    & footer {
+      grid-area: footer;
+    }
   }
   @media (min-width: 25rem) {
     section {
-      padding-top: 10rem;
+      grid-template-areas:
+        'header main'
+        'footer main';
+      padding: 5rem 0.5rem;
     }
   }
 </style>
