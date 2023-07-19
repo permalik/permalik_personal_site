@@ -9,12 +9,18 @@ const { href, title, body } = Astro.props;
 ---
 
 <header>
-  <div>
-    <a href='/'>
-      <p id='logo'>Ty Malik</p>
+  <img src='/profile.jpg' width='80' height='80' alt='Ty Malik' />
+  <nav>
+    <a href='https://github.com/permalik/'>
+      <img src='/icon-github.svg' alt='Github icon' />
     </a>
-    <p>developer</p>
-  </div>
+    <a href='https://linkedin.com/permalik/'>
+      <img src='/icon-linkedin.svg' alt='Linkedin icon' />
+    </a>
+    <a href='mailto:permalik@pm.me'>
+      <img src='/icon-mail.svg' alt='Email icon' />
+    </a>
+  </nav>
   <nav>
     <a href='/'>about</a>
     <a href='/allWriting'>writing</a>
@@ -26,24 +32,31 @@ const { href, title, body } = Astro.props;
 <style lang='scss'>
   header {
     color: var(--primary);
-    font-family: var(--sans-font);
-
-    & a > p {
-      font-size: clamp(2rem, 5vw, 2.75rem);
-      font-weight: 600;
-      letter-spacing: 0.01rem;
+    font-family: var(--serif-font);
+  }
+  img {
+    border-radius: 5%;
+  }
+  p {
+    font-size: clamp(1.75rem, 5vw, 2.5rem);
+    font-weight: 600;
+    letter-spacing: 0.06rem;
+    padding-top: 0.5rem;
+  }
+  nav:first-of-type {
+    display: flex;
+    padding-top: 1.5rem;
+    & a > img {
+      width: 1.5rem;
     }
-
-    & p {
-      font-size: clamp(1.125rem, 5vw, 1.3rem);
-      letter-spacing: 0.025rem;
-      text-transform: capitalize;
+    & a:not(:first-child) {
+      padding: 0 0 0 2rem;
     }
   }
-  nav {
+  nav:last-of-type {
     display: flex;
     flex-flow: row nowrap;
-    padding-top: 1rem;
+    padding-top: 1.5rem;
 
     & a {
       font-size: clamp(1.125rem, 5vw, 1.3rem);
@@ -54,8 +67,8 @@ const { href, title, body } = Astro.props;
       padding: 0 0 0 1rem;
     }
   }
-  @media (min-width: 25rem) {
-    nav {
+  /* @media (min-width: 25rem) {
+    nav:last-of-type {
       flex-flow: column nowrap;
       padding-top: 5rem;
 
@@ -65,8 +78,8 @@ const { href, title, body } = Astro.props;
       }
 
       & a:not(:first-child) {
-        padding: 3rem 0 0 0;
+        padding: 2rem 0 0 0;
       }
     }
-  }
+  } */
 </style>

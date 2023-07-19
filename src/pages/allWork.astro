@@ -13,7 +13,7 @@ const { data } = await octokit.request('GET /users/{username}/repos', {
 ---
 
 <Base>
-  <main>
+  <section>
       <ul>
         {
           data.map((repo) => (
@@ -54,5 +54,5 @@ const { data } = await octokit.request('GET /users/{username}/repos', {
           ))
         }
       </ul>
-  </main>
+  </section>
 </Base>

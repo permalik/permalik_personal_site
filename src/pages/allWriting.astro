@@ -4,7 +4,7 @@ const allPosts = await Astro.glob('./writing/*.md');
 ---
 
 <BaseLayout>
-  <main>
+  <section>
     <ul>
       {
         allPosts.map((post) => (
@@ -16,5 +16,5 @@ const allPosts = await Astro.glob('./writing/*.md');
         ))
       }
     </ul>
-  </main>
+  </section>
 </BaseLayout>
