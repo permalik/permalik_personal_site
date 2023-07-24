@@ -10,9 +10,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@fontsource-variable/roboto-serif": "^5.0.4",
-    "@fontsource/oxygen": "^5.0.5",
-    "@fontsource/rufina": "^5.0.5",
+    "@fontsource-variable/karla": "^5.0.6",
+    "@fontsource/merriweather": "^5.0.5",
     "@octokit/types": "^10.0.0",
     "astro": "^2.7.2",
     "octokit": "^2.1.0",

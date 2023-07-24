@@ -9,8 +9,7 @@ const { href, title, body } = Astro.props;
 ---
 
 <header>
-  <img src='/profile.jpg' width='80' height='80' alt='Ty Malik' />
-  <nav>
+  <nav class='nav-secondary'>
     <a href='https://github.com/permalik/'>
       <img src='/icon-github.svg' alt='Github icon' />
     </a>
@@ -21,7 +20,7 @@ const { href, title, body } = Astro.props;
       <img src='/icon-mail.svg' alt='Email icon' />
     </a>
   </nav>
-  <nav>
+  <nav class='nav-primary'>
     <a href='/'>about</a>
     <a href='/allWriting'>writing</a>
     <a href='/allWork'>work</a>
@@ -32,39 +31,32 @@ const { href, title, body } = Astro.props;
 <style lang='scss'>
   header {
     color: var(--primary);
-    font-family: var(--serif-font);
+    font-family: var(--sans-font);
   }
-  img {
-    border-radius: 5%;
-  }
-  p {
-    font-size: clamp(1.75rem, 5vw, 2.5rem);
-    font-weight: 600;
-    letter-spacing: 0.06rem;
-    padding-top: 0.5rem;
-  }
-  nav:first-of-type {
+  .nav-secondary {
+    align-items: baseline;
     display: flex;
-    padding-top: 1.5rem;
+    justify-content: center;
+    padding: 0 0 2rem;
+    & a:not(:last-child) {
+      padding-right: 3rem;
+    }
     & a > img {
+      height: 1.5rem;
       width: 1.5rem;
     }
-    & a:not(:first-child) {
-      padding: 0 0 0 2rem;
-    }
   }
-  nav:last-of-type {
+  .nav-primary {
     display: flex;
     flex-flow: row nowrap;
-    padding-top: 1.5rem;
-
+    justify-content: center;
     & a {
-      font-size: clamp(1.125rem, 5vw, 1.3rem);
-      font-weight: 300;
+      font-size: clamp(1rem, 5vw, 1.25rem);
+      font-weight: 400;
+      text-transform: uppercase;
     }
-
     & a:not(:first-child) {
-      padding: 0 0 0 1rem;
+      padding: 0 0 0 1.5rem;
     }
   }
   /* @media (min-width: 25rem) {

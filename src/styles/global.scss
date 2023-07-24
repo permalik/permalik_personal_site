@@ -1,17 +1,43 @@
 :root {
   --base-light: #FEFBFB;
   // Rufina: 400, 700
-  --serif-font: 'Rufina', serif;
+  --sans-font: 'Karla Variable', sans-serif;
 }
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+}
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+input, button, textarea, select {
+  font: inherit;
+}
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
 html {
   color: var(--base-light);
 }
 body {
   // Oxygen: 300, 400, 700
-  font-family: 'Oxygen', sans-serif;
+  font-family: 'Merriweather', serif;
   font-weight: 300;
 }
 a {
   color: #FEFBFB;
   text-decoration: none;
+  &:hover {
+    opacity: 80%;
+    text-decoration: underline;
+  }
 }
