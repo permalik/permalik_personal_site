@@ -3,7 +3,9 @@
   // Rufina: 400, 700
   --sans-font: 'Karla Variable', sans-serif;
 }
-
+html {
+  color: var(--base-light);
+}
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -11,6 +13,9 @@
   margin: 0;
 }
 body {
+  // Oxygen: 300, 400, 700
+  font-family: 'Merriweather', serif;
+  font-weight: 300;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 }
@@ -24,20 +29,22 @@ input, button, textarea, select {
 p, h1, h2, h3, h4, h5, h6 {
   overflow-wrap: break-word;
 }
-
-html {
-  color: var(--base-light);
-}
-body {
-  // Oxygen: 300, 400, 700
-  font-family: 'Merriweather', serif;
-  font-weight: 300;
+// Font Sizing
+p, a {
+  font-size: clamp(1rem, 5vw, 1.125rem);
 }
 a {
   color: #FEFBFB;
   text-decoration: none;
-  &:hover {
-    opacity: 80%;
-    text-decoration: underline;
-  }
 }
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+/* Positioning */
+/* Box Model */
+/* Display */
+/* Color */
+/* Text */
+/* Other */

@@ -21,23 +21,31 @@ const { href, title, body } = Astro.props;
     </a>
   </nav>
   <nav class='nav-primary'>
-    <a href='/'>about</a>
-    <a href='/allWriting'>writing</a>
-    <a href='/allWork'>work</a>
-    <a href='/resume'>resume</a>
+    <a class='primary-link' href='/'>about</a>
+    <a class='primary-link' href='/allWriting'>writing</a>
+    <a class='primary-link' href='/allWork'>work</a>
+    <a class='primary-link' href='/resume'>resume</a>
   </nav>
 </header>
 
 <style lang='scss'>
   header {
+    padding: 2rem 0 6rem;
+
+    display: flex;
+    flex-flow: column nowrap;
+
     color: var(--primary);
+
     font-family: var(--sans-font);
   }
   .nav-secondary {
-    align-items: baseline;
+    padding: 0 0.25rem 2rem;
+
     display: flex;
+    align-items: baseline;
     justify-content: center;
-    padding: 0 0 2rem;
+
     & a:not(:last-child) {
       padding-right: 3rem;
     }
@@ -50,28 +58,45 @@ const { href, title, body } = Astro.props;
     display: flex;
     flex-flow: row nowrap;
     justify-content: center;
+
     & a {
       font-size: clamp(1rem, 5vw, 1.25rem);
       font-weight: 400;
       text-transform: uppercase;
     }
     & a:not(:first-child) {
-      padding: 0 0 0 1.5rem;
+      margin: 0 0 0 clamp(1rem, 3vw, 1.5rem);
     }
   }
-  /* @media (min-width: 25rem) {
-    nav:last-of-type {
+  .primary-link {
+    position: relative;
+    display: inline-block;
+  }
+
+  .primary-link::after {
+    content: '';
+    position: absolute;
+    bottom: -0.25rem;
+    left: 0;
+    height: 0;
+    width: 100%;
+    background-color: #fb5640;
+    /* transform: scaleY(0);
+    transform-origin: bottom; */
+    transition: bottom 0.3s ease; /* Add a transition for the transform property */
+  }
+
+  .primary-link:hover::after {
+    bottom: -0.0125rem;
+    height: 0.125rem;
+  }
+  @media (max-width: 20rem) {
+    .nav-primary {
       flex-flow: column nowrap;
-      padding-top: 5rem;
-
-      & a {
-        font-size: clamp(1.125rem, 5vw, 1.3rem);
-        font-weight: 300;
-      }
-
+      align-items: center;
       & a:not(:first-child) {
-        padding: 2rem 0 0 0;
+        padding: 0 0 0 0;
       }
     }
-  } */
+  }
 </style>
