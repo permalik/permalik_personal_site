@@ -27,6 +27,8 @@ input, button, textarea, select {
   font: inherit;
 }
 p, h1, h2, h3, h4, h5, h6 {
+  letter-spacing: .03rem;
+
   overflow-wrap: break-word;
 }
 // Font Sizing
@@ -35,11 +37,13 @@ p, a {
 }
 a {
   color: #FEFBFB;
+
   text-decoration: none;
 }
 ul {
-  list-style: none;
   padding: 0;
+
+  list-style: none;
 }
 
 /* Positioning */

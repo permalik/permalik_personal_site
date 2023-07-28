@@ -72,7 +72,6 @@ const { href, title, body } = Astro.props;
     position: relative;
     display: inline-block;
   }
-
   .primary-link::after {
     content: '';
     position: absolute;
@@ -85,7 +84,6 @@ const { href, title, body } = Astro.props;
     transform-origin: bottom; */
     transition: bottom 0.3s ease; /* Add a transition for the transform property */
   }
-
   .primary-link:hover::after {
     bottom: -0.0125rem;
     height: 0.125rem;
@@ -95,7 +93,7 @@ const { href, title, body } = Astro.props;
       flex-flow: column nowrap;
       align-items: center;
       & a:not(:first-child) {
-        padding: 0 0 0 0;
+        margin: 0;
       }
     }
   }
