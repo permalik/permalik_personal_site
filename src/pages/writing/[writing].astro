@@ -1,7 +1,12 @@
 ---
+import WritingLayout from '../../layouts/WritingLayout.astro';
 export function getStaticPaths() {
   return [{ params: { writing: 'betterment' } }];
 }
 
-const { writing } = Astro.params;
+const { title } = Astro.params;
 ---
+
+<WritingLayout>
+  <h1>{title}</h1>
+</WritingLayout>
