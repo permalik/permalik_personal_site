@@ -10,9 +10,9 @@ const { href, title, body } = Astro.props;
 
 <section>
   <nav>
-    <a href='/'>
-      <img src='message.svg' alt='Contact icon' />
-    </a>
+    <button contact-button>
+      <img src='message.svg' alt='Contact icon' contact-image />
+    </button>
     <a class='primary-link' href='/'>home</a>
     <a class='primary-link' href='/allWriting'>writing</a>
     <a class='primary-link' href='/allWork'>work</a>
@@ -33,6 +33,17 @@ const { href, title, body } = Astro.props;
   </nav> -->
 </section>
 
+<script>
+  const contactButton = document.querySelector('[contact-button]');
+  const contactImage = document.querySelector('[contact-image]');
+  contactButton.addEventListener('mouseover', () => {
+    contactImage.classList.add('contact-image');
+  });
+  contactButton.addEventListener('mouseout', () => {
+    contactImage.classList.remove('contact-image');
+  });
+</script>
+
 <style lang='scss'>
   section {
     position: fixed;
@@ -46,9 +57,9 @@ const { href, title, body } = Astro.props;
 
     padding: 1rem;
 
-    background-color: #141414;
+    /* background-color: #141414;
 
-    box-shadow: 0px 3px 10px 3px rgba(0, 0, 0, 0.85);
+    box-shadow: 0px 3px 10px 3px rgba(0, 0, 0, 0.4); */
 
     z-index: 1000;
   }
@@ -63,7 +74,10 @@ const { href, title, body } = Astro.props;
     padding: 0.5rem;
     border-radius: 0.5rem;
 
-    background-color: rgba(255, 255, 255, 0.05);
+    background-color: rgba(255, 255, 255, 0.015);
+
+    backdrop-filter: blur(15px);
+    box-shadow: 0px 3px 5px 2px rgba(0, 0, 0, 0.25);
 
     & a {
       font-family: var(--sans-font);
@@ -75,5 +89,44 @@ const { href, title, body } = Astro.props;
     & a:hover {
       text-decoration: underline;
     }
+  }
+  button {
+    display: inline-block;
+
+    margin: 0;
+    border: none;
+    border-radius: 50%;
+
+    background-color: transparent;
+    color: #ffffff;
+
+    font-family: sans-serif;
+    text-align: center;
+    text-decoration: none;
+
+    transition: background 250ms ease-in-out, transform 150ms ease;
+
+    cursor: pointer;
+
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  }
+
+  button:hover,
+  button:focus {
+    /* background: rgba(255, 255, 255, 0.075); */
+  }
+
+  /* button:focus {
+    outline: 1px solid #fff;
+    outline-offset: -4px;
+  } */
+
+  button:active {
+    transform: scale(0.99);
+  }
+  .contact-image {
+    filter: invert(46%) sepia(37%) saturate(4698%) hue-rotate(337deg)
+      brightness(102%) contrast(97%);
   }
 </style>
