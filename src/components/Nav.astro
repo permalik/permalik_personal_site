@@ -9,28 +9,27 @@ const { href, title, body } = Astro.props;
 ---
 
 <section>
-  <nav>
-    <button contact-button>
-      <img src='message.svg' alt='Contact icon' contact-image />
-    </button>
-    <a class='primary-link' href='/'>home</a>
-    <a class='primary-link' href='/allWriting'>writing</a>
-    <a class='primary-link' href='/allWork'>work</a>
-    <a class='primary-link' href='/resume'>resume</a>
-  </nav>
-  <!-- <nav class='nav-secondary'>
-    <a href='https://github.com/permalik/'>
-      <img src='/icon-github.svg' alt='Github icon' />
+  <div>
+    <nav>
+      <a href='https://github.com/permalik/'>
+        <img src='/icon-github.svg' alt='Github icon' />
+      </a>
+      <a href='https://linkedin.com/permalik/'>
+        <img src='/icon-linkedin.svg' alt='Linkedin icon' />
+      </a>
+      <a href='mailto:permalik@pm.me'>
+        <img src='/icon-mail.svg' alt='Email icon' />
+      </a>
+    </nav>
+    <!-- TODO: Create a tooltip component -->
+    <a href='/' class='divider'>
+      <img src='divider.svg' alt='Three-dot divider' />
     </a>
-    <a href='https://linkedin.com/permalik/'>
-      <img src='/icon-linkedin.svg' alt='Linkedin icon' />
-    </a>
-    <a href='mailto:permalik@pm.me'>
-      <img src='/icon-mail.svg' alt='Email icon' />
-    </a>
-  </nav>
-  <nav class='nav-primary'>
-  </nav> -->
+    <nav>
+      <a class='primary-link' href='/allWriting'>writing</a>
+      <a class='primary-link' href='/allWork'>work</a>
+    </nav>
+  </div>
 </section>
 
 <script>
@@ -63,16 +62,15 @@ const { href, title, body } = Astro.props;
 
     z-index: 1000;
   }
-
-  nav {
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    justify-content: space-around;
-
+  div {
     width: 25rem;
     padding: 0.5rem;
     border-radius: 0.5rem;
+
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
 
     background-color: rgba(255, 255, 255, 0.015);
 
@@ -90,40 +88,83 @@ const { href, title, body } = Astro.props;
       text-decoration: underline;
     }
   }
-  button {
-    display: inline-block;
+  nav:first-of-type {
+    padding-left: 0.5rem;
 
+    display: flex;
+    flex-flow: row nowrap;
+
+    & a:not(:first-child) {
+      padding-left: 2rem;
+    }
+
+    & a > img {
+      height: 1.5rem;
+      width: 1.5rem;
+      min-height: 1.5rem;
+      min-width: 1.5rem;
+    }
+  }
+  .divider {
+    padding: 0;
     margin: 0;
     border: none;
-    border-radius: 50%;
+    border-radius: 0.5rem;
+
+    display: inline-block;
 
     background-color: transparent;
     color: #ffffff;
 
     font-family: sans-serif;
-    text-align: center;
+    font-size: 1rem;
     text-decoration: none;
+    text-align: center;
 
-    transition: background 250ms ease-in-out, transform 150ms ease;
+    transition: background-color 250ms ease-in-out, transform 150ms ease;
 
     cursor: pointer;
 
     -webkit-appearance: none;
     -moz-appearance: none;
+
+    & img {
+      height: 1.5rem;
+      width: 1.5rem;
+      min-height: 1.5rem;
+      min-width: 1.5rem;
+
+      opacity: 65%;
+    }
   }
-
-  button:hover,
-  button:focus {
-    /* background: rgba(255, 255, 255, 0.075); */
+  .divider:hover,
+  .divider:focus {
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0px 3px 5px 2px rgba(0, 0, 0, 0.25);
   }
+  .divider:focus {
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0px 3px 5px 2px rgba(0, 0, 0, 0.25);
+  }
+  .divider:active {
+    background: rgba(255, 255, 255, 0.1);
 
-  /* button:focus {
-    outline: 1px solid #fff;
-    outline-offset: -4px;
-  } */
+    transform: scale(1.2);
+  }
+  nav:last-of-type {
+    padding-right: 0.5rem;
 
-  button:active {
-    transform: scale(0.99);
+    display: flex;
+    flex-flow: row nowrap;
+
+    & a {
+      font-weight: 600;
+      letter-spacing: 0.0125rem;
+    }
+
+    & a:not(:first-child) {
+      padding-left: 2rem;
+    }
   }
   .contact-image {
     filter: invert(46%) sepia(37%) saturate(4698%) hue-rotate(337deg)
