@@ -28,7 +28,11 @@ const allPosts = await Astro.glob('./writing/*.md');
     padding-top: 2.5rem;
   }
   li:not(:first-child) {
-    padding: 1.5rem 0 0;
+    padding: 2rem 0 0;
+  }
+  li:not(:last-child) {
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
   h2 {
     display: inline;
@@ -38,24 +42,25 @@ const allPosts = await Astro.glob('./writing/*.md');
   }
   h2 {
     position: relative;
+    display: inline-block;
   }
-
   h2::after {
     content: '';
     position: absolute;
-    bottom: -0.125rem;
+    bottom: -0.15rem;
     left: 0;
-    height: 0.125rem;
+    height: 0;
     width: 100%;
-    background-color: var(--base-light);
-    transform: scaleX(0); /* Initially hidden, set scale to 0 */
-    transform-origin: left; /* Set the transform origin to left to expand to the right */
-    transition: transform 0.3s ease; /* Add a transition for the transform property */
+    background-color: #fb5640;
+    /* transform: scaleY(0);
+    transform-origin: bottom; */
+    transition: bottom 0.3s ease; /* Add a transition for the transform property */
   }
-
   h2:hover::after {
-    transform: scaleX(
-      1
-    ); /* On hover, expand the underline to its original width */
+    bottom: -0.001rem;
+    height: 0.125rem;
+  }
+  p {
+    padding-top: 0.5rem;
   }
 </style>
