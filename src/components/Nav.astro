@@ -9,27 +9,17 @@ const { href, title, body } = Astro.props;
 ---
 
 <section>
-  <div>
-    <nav>
-      <a href='https://github.com/permalik/' contact-link>
-        <img src='/icon-github.svg' alt='Github icon' contact-image />
-      </a>
-      <a href='https://linkedin.com/permalik/' contact-link>
-        <img src='/icon-linkedin.svg' alt='Linkedin icon' contact-image />
-      </a>
-      <a href='mailto:permalik@pm.me' contact-link>
-        <img src='/icon-mail.svg' alt='Email icon' contact-image />
-      </a>
-    </nav>
-    <!-- TODO: Create a tooltip component -->
-    <a href='/' class='divider'>
-      <img src='divider.svg' alt='Three-dot divider' />
+  <nav>
+    <a class='secondary-link' href='/' contact-link>
+      <img src='home.svg' alt='Home icon' contact-image />
     </a>
-    <nav>
-      <a class='primary-link' href='/allWriting'>writing</a>
-      <a class='primary-link' href='/allWork'>work</a>
-    </nav>
-  </div>
+    <button class='secondary-link' contact-link>
+      <img src='message.svg' alt='Message bubble' contact-image />
+    </button>
+    <!-- TODO: Create a tooltip component -->
+    <a class='primary-link' href='/allWriting'>writing</a>
+    <a class='primary-link' href='/allWork'>work</a>
+  </nav>
 </section>
 
 <script>
@@ -68,15 +58,11 @@ const { href, title, body } = Astro.props;
 
     padding: 1rem;
 
-    /* background-color: #141414;
-
-    box-shadow: 0px 3px 10px 3px rgba(0, 0, 0, 0.4); */
-
     z-index: 1000;
   }
-  div {
-    width: 25rem;
-    padding: 0.5rem;
+  nav {
+    width: 30rem;
+    padding: 0.5rem clamp(0.5rem, 5vw, 2rem);
     border-radius: 0.5rem;
 
     display: flex;
@@ -100,25 +86,18 @@ const { href, title, body } = Astro.props;
       text-decoration: underline;
     }
   }
-  nav:first-of-type {
-    padding-left: 0.5rem;
-
-    display: flex;
-    flex-flow: row nowrap;
-
-    & a:not(:first-child) {
-      padding-left: 2rem;
-    }
-
-    & a > img {
-      height: 1.5rem;
-      width: 1.5rem;
-      min-height: 1.5rem;
-      min-width: 1.5rem;
-    }
+  .secondary-link > img {
+    height: 1.5rem;
+    width: 1.5rem;
+    min-height: 1.5rem;
+    min-width: 1.5rem;
   }
-  .divider {
-    padding: 0;
+  .contact-image {
+    filter: invert(46%) sepia(37%) saturate(4698%) hue-rotate(337deg)
+      brightness(102%) contrast(97%);
+  }
+  .secondary-link {
+    padding: 0.25rem;
     margin: 0;
     border: none;
     border-radius: 0.5rem;
@@ -145,41 +124,38 @@ const { href, title, body } = Astro.props;
       width: 1.5rem;
       min-height: 1.5rem;
       min-width: 1.5rem;
-
-      opacity: 65%;
     }
   }
-  .divider:hover,
-  .divider:focus {
+  .secondary-link:hover,
+  .secondary-link:focus {
     background-color: rgba(255, 255, 255, 0.1);
     box-shadow: 0px 3px 5px 2px rgba(0, 0, 0, 0.25);
   }
-  .divider:focus {
+  .secondary-link:focus {
     background: rgba(255, 255, 255, 0.1);
     box-shadow: 0px 3px 5px 2px rgba(0, 0, 0, 0.25);
   }
-  .divider:active {
+  .secondary-link:active {
     background: rgba(255, 255, 255, 0.1);
 
     transform: scale(1.2);
   }
-  nav:last-of-type {
-    padding-right: 0.5rem;
-
-    display: flex;
-    flex-flow: row nowrap;
-
-    & a {
-      font-weight: 600;
-      letter-spacing: 0.0125rem;
-    }
-
-    & a:not(:first-child) {
-      padding-left: 2rem;
-    }
-  }
-  .contact-image {
-    filter: invert(46%) sepia(37%) saturate(4698%) hue-rotate(337deg)
-      brightness(102%) contrast(97%);
+  .primary-link {
+    font-weight: 600;
+    letter-spacing: 0.0125rem;
   }
 </style>
+
+<!-- <a href='https://github.com/permalik/' target='_blank' contact-link>
+      <img src='icon-github.svg' alt='Github icon' contact-image />
+    </a> -->
+<!-- <a
+      href='https://www.linkedin.com/in/permalik/'
+      target='_blank'
+      contact-link
+    >
+      <img src='/icon-linkedin.svg' alt='Linkedin icon' contact-image />
+    </a> -->
+<!-- <a href='mailto:tymalik@pm.me' contact-link>
+      <img src='/icon-mail.svg' alt='Email icon' contact-image />
+    </a> -->
