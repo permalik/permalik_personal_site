@@ -11,14 +11,14 @@ const { href, title, body } = Astro.props;
 <section>
   <div>
     <nav>
-      <a href='https://github.com/permalik/'>
-        <img src='/icon-github.svg' alt='Github icon' />
+      <a href='https://github.com/permalik/' contact-link>
+        <img src='/icon-github.svg' alt='Github icon' contact-image />
       </a>
-      <a href='https://linkedin.com/permalik/'>
-        <img src='/icon-linkedin.svg' alt='Linkedin icon' />
+      <a href='https://linkedin.com/permalik/' contact-link>
+        <img src='/icon-linkedin.svg' alt='Linkedin icon' contact-image />
       </a>
-      <a href='mailto:permalik@pm.me'>
-        <img src='/icon-mail.svg' alt='Email icon' />
+      <a href='mailto:permalik@pm.me' contact-link>
+        <img src='/icon-mail.svg' alt='Email icon' contact-image />
       </a>
     </nav>
     <!-- TODO: Create a tooltip component -->
@@ -33,13 +33,25 @@ const { href, title, body } = Astro.props;
 </section>
 
 <script>
-  const contactButton = document.querySelector('[contact-button]');
-  const contactImage = document.querySelector('[contact-image]');
-  contactButton.addEventListener('mouseover', () => {
-    contactImage.classList.add('contact-image');
+  const contactButtons = document.querySelectorAll('[contact-link]');
+  const contactImages = document.querySelectorAll('[contact-image]');
+  contactButtons.forEach((contactButton) => {
+    contactButton.addEventListener('mouseover', () => {
+      contactImages.forEach((contactImage) => {
+        if (contactButton.children[0] == contactImage) {
+          contactImage.classList.add('contact-image');
+        }
+      });
+    });
   });
-  contactButton.addEventListener('mouseout', () => {
-    contactImage.classList.remove('contact-image');
+  contactButtons.forEach((contactButton) => {
+    contactButton.addEventListener('mouseout', () => {
+      contactImages.forEach((contactImage) => {
+        if (contactButton.children[0] == contactImage) {
+          contactImage.classList.remove('contact-image');
+        }
+      });
+    });
   });
 </script>
 
