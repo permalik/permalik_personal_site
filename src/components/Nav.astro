@@ -29,7 +29,8 @@ const { href, title, body } = Astro.props;
   const secondaryButtons = document.querySelectorAll('[secondary-link]');
   const secondaryImages = document.querySelectorAll('[contact-image]');
   const messageLink = document.querySelector('[message-link]');
-  const contactModalClose = document.getElementById('contact-modal-close');
+  const contactModal = document.querySelector('[contact-modal]');
+  const contactModalClose = document.querySelector('[contact-modal-close]');
 
   secondaryButtons.forEach((secondaryButton) => {
     secondaryButton.addEventListener('mouseover', () => {
@@ -49,8 +50,11 @@ const { href, title, body } = Astro.props;
       });
     });
   });
-  messageLink.addEventListener('focus', () => {
+  messageLink.addEventListener('click', () => {
+    contactModal.classList.remove('hidden');
+    contactModal.classList.add('visible');
     contactModalClose.focus();
+    messageLink.blur();
   });
 </script>
 

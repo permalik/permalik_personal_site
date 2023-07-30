@@ -1,4 +1,4 @@
-<nav>
+<nav contact-modal>
   <a href='https://github.com/permalik/' target='_blank' contact-link>
     <img src='icon-github.svg' alt='Github icon' contact-image />
   </a>
@@ -8,10 +8,20 @@
   <a href='mailto:tymalik@pm.me' contact-link>
     <img src='/icon-mail.svg' alt='Email icon' contact-image />
   </a>
-  <button id='contact-modal-close'>
+  <button contact-modal-close>
     <img src='x.svg' alt='Close icon' contact-image />
   </button>
 </nav>
+
+<script>
+  const contactModalClose = document.querySelector('[contact-modal-close]');
+  const contactModal = document.querySelector('[contact-modal]');
+
+  contactModalClose.addEventListener('click', () => {
+    contactModal.classList.remove('visible');
+    contactModal.classList.add('hidden');
+  });
+</script>
 
 <style>
   nav {
@@ -22,7 +32,7 @@
     padding: 0.5rem clamp(0.25rem, 5vw, 1.125rem);
     border-radius: 0.5rem;
 
-    display: flex;
+    display: none;
     flex-flow: row nowrap;
     align-items: center;
     justify-content: space-between;
@@ -94,5 +104,11 @@
 
       transform: scale(1.2);
     }
+  }
+  .visible {
+    display: flex;
+  }
+  .hidden {
+    display: none;
   }
 </style>
