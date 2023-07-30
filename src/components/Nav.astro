@@ -1,4 +1,6 @@
 ---
+import ContactModal from './ContactModal.astro';
+
 export interface Props {
   title: string;
   body: string;
@@ -9,11 +11,12 @@ const { href, title, body } = Astro.props;
 ---
 
 <section>
+  <ContactModal />
   <nav>
-    <a class='secondary-link' href='/' contact-link>
+    <a class='secondary-link' href='/' secondary-link>
       <img src='home.svg' alt='Home icon' contact-image />
     </a>
-    <button class='secondary-link' contact-link>
+    <button class='secondary-link' secondary-link message-link>
       <img src='message.svg' alt='Message bubble' contact-image />
     </button>
     <!-- TODO: Create a tooltip component -->
@@ -23,25 +26,31 @@ const { href, title, body } = Astro.props;
 </section>
 
 <script>
-  const contactButtons = document.querySelectorAll('[contact-link]');
-  const contactImages = document.querySelectorAll('[contact-image]');
-  contactButtons.forEach((contactButton) => {
-    contactButton.addEventListener('mouseover', () => {
-      contactImages.forEach((contactImage) => {
-        if (contactButton.children[0] == contactImage) {
-          contactImage.classList.add('contact-image');
+  const secondaryButtons = document.querySelectorAll('[secondary-link]');
+  const secondaryImages = document.querySelectorAll('[contact-image]');
+  const messageLink = document.querySelector('[message-link]');
+  const contactModalClose = document.getElementById('contact-modal-close');
+
+  secondaryButtons.forEach((secondaryButton) => {
+    secondaryButton.addEventListener('mouseover', () => {
+      secondaryImages.forEach((secondaryImage) => {
+        if (secondaryButton.children[0] == secondaryImage) {
+          secondaryImage.classList.add('contact-image');
         }
       });
     });
   });
-  contactButtons.forEach((contactButton) => {
-    contactButton.addEventListener('mouseout', () => {
-      contactImages.forEach((contactImage) => {
-        if (contactButton.children[0] == contactImage) {
-          contactImage.classList.remove('contact-image');
+  secondaryButtons.forEach((secondaryButton) => {
+    secondaryButton.addEventListener('mouseout', () => {
+      secondaryImages.forEach((secondaryImage) => {
+        if (secondaryButton.children[0] == secondaryImage) {
+          secondaryImage.classList.remove('contact-image');
         }
       });
     });
+  });
+  messageLink.addEventListener('focus', () => {
+    contactModalClose.focus();
   });
 </script>
 
@@ -75,26 +84,9 @@ const { href, title, body } = Astro.props;
     backdrop-filter: blur(15px);
     box-shadow: 0px 3px 5px 2px rgba(0, 0, 0, 0.25);
 
-    & a {
-      font-family: var(--sans-font);
-      font-size: 0.9rem;
-      font-weight: 500;
-      text-transform: uppercase;
+    & > a:nth-child(4) {
+      padding-left: 0.3rem;
     }
-
-    & a:hover {
-      text-decoration: underline;
-    }
-  }
-  .secondary-link > img {
-    height: 1.5rem;
-    width: 1.5rem;
-    min-height: 1.5rem;
-    min-width: 1.5rem;
-  }
-  .contact-image {
-    filter: invert(46%) sepia(37%) saturate(4698%) hue-rotate(337deg)
-      brightness(102%) contrast(97%);
   }
   .secondary-link {
     padding: 0.25rem;
@@ -105,12 +97,6 @@ const { href, title, body } = Astro.props;
     display: inline-block;
 
     background-color: transparent;
-    color: #ffffff;
-
-    font-family: sans-serif;
-    font-size: 1rem;
-    text-decoration: none;
-    text-align: center;
 
     transition: background-color 250ms ease-in-out, transform 150ms ease;
 
@@ -140,22 +126,24 @@ const { href, title, body } = Astro.props;
 
     transform: scale(1.2);
   }
+  .secondary-link > img {
+    height: 1.5rem;
+    width: 1.5rem;
+    min-height: 1.5rem;
+    min-width: 1.5rem;
+  }
+  .contact-image {
+    filter: invert(46%) sepia(37%) saturate(4698%) hue-rotate(337deg)
+      brightness(102%) contrast(97%);
+  }
   .primary-link {
+    font-family: var(--sans-font);
+    font-size: 0.9rem;
     font-weight: 600;
     letter-spacing: 0.0125rem;
+    text-transform: uppercase;
+  }
+  .primary-link:hover {
+    text-decoration: underline;
   }
 </style>
-
-<!-- <a href='https://github.com/permalik/' target='_blank' contact-link>
-      <img src='icon-github.svg' alt='Github icon' contact-image />
-    </a> -->
-<!-- <a
-      href='https://www.linkedin.com/in/permalik/'
-      target='_blank'
-      contact-link
-    >
-      <img src='/icon-linkedin.svg' alt='Linkedin icon' contact-image />
-    </a> -->
-<!-- <a href='mailto:tymalik@pm.me' contact-link>
-      <img src='/icon-mail.svg' alt='Email icon' contact-image />
-    </a> -->
