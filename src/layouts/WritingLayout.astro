@@ -21,19 +21,33 @@ const edition = () => {
 
 <BaseLayout>
   <div class='writing-layout'>
-    <h1>{frontmatter.title}</h1>
-    <p class='description'>{frontmatter.description}</p>
+    <header>
+      <h1>{frontmatter.title}</h1>
+      <p class='description'>{frontmatter.description}</p>
+    </header>
+    <img src={frontmatter.imageUrl} alt='' />
     <div class='metrics'>
       <p>
         {edition}
       </p>
+      <span>•</span>
       <time datetime={frontmatter.createdAt.slice(0, 10)}>
         {frontmatter.createdAt.slice(0, 10).split('-').join('.')}
       </time>
+      <span>•</span>
       <p>
         {frontmatter.author}
       </p>
     </div>
+    <ul class='tags'>
+      {
+        frontmatter.tags.map((tag) => (
+          <li>
+            <a href='/'>{tag}</a>
+          </li>
+        ))
+      }
+    </ul>
     <div class='content'>
       <slot />
     </div>
@@ -42,58 +56,82 @@ const edition = () => {
 
 <style>
   .writing-layout {
-    & h1 {
-      font-family: var(--sans-font);
-    }
-    & .description {
-      color: hsla(0, 60%, 99%, 0.75);
+    & header {
+      & h1 {
+        font-family: var(--sans-font);
+      }
+      & .description {
+        color: hsla(0, 60%, 99%, 0.75);
 
-      font-family: var(--sans-font);
-      font-size: clamp(0.75rem, 5vw, 0.9rem);
-      font-weight: 600;
+        font-family: var(--sans-font);
+        font-size: clamp(0.75rem, 5vw, 0.9rem);
+        font-weight: 600;
+      }
+    }
+    & img {
+      padding: 4rem 0;
     }
     & .metrics {
-      padding-top: 0.75rem;
-
       display: flex;
       align-items: baseline;
 
       & > * {
-        padding: 0.125rem 0.3rem;
-        border: 1px solid hsla(0, 60%, 99%, 0.45);
-        /* border-radius: 0.25rem; */
-        border-image-slice: 1;
-        border-image-source: linear-gradient(
-          90deg,
-          rgba(125, 124, 124, 1) 0%,
-          rgba(195, 193, 193, 1) 100%
-        );
-
         background: -webkit-linear-gradient(
           180deg,
           hsla(0, 60%, 99%, 0.75),
           hsla(0, 60%, 99%, 0.45)
         );
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-
-        /* background: rgb(195, 193, 193);
-        background: linear-gradient(
-          90deg,
-          rgba(195, 193, 193, 1) 0%,
-          rgba(125, 124, 124, 1) 100%
-        ); */
-
-        /* background-color: #141414;
-        color: hsla(0, 60%, 99%, 0.45); */
 
         font-family: Monaco, 'Courier New', Courier;
         font-size: 0.8rem;
         font-weight: 600;
+        letter-spacing: 0.045rem;
+
+        white-space: nowrap;
+
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      & > span {
+        padding: 0 0.5rem;
+      }
+      & > p:last-of-type {
+        letter-spacing: normal;
+      }
+    }
+    & .tags {
+      padding-top: 0.75rem;
+
+      display: flex;
+      flex-flow: row wrap;
+
+      & li {
+        display: flex;
+        justify-content: center;
+
+        line-height: 2.5;
       }
 
-      & > :not(:first-child) {
-        margin-left: 0.85rem;
+      & li:not(:last-child) {
+        margin-right: 0.85rem;
+      }
+
+      & li > a {
+        display: inline;
+
+        font-family: var(--sans-font);
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-transform: uppercase;
+
+        color: #40fbb4;
+        opacity: 0.75;
+
+        white-space: nowrap;
+      }
+
+      & li > a:hover {
+        opacity: 1;
       }
     }
   }

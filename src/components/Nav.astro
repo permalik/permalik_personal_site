@@ -56,6 +56,12 @@ const { href, title, body } = Astro.props;
     contactModalClose.focus();
     messageLink.blur();
   });
+  document.addEventListener('keydown', () => {
+    if (event.key == 'Escape') {
+      contactModal.classList.remove('visible');
+      contactModal.classList.add('hidden');
+    }
+  });
 </script>
 
 <style lang='scss'>

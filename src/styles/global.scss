@@ -32,6 +32,21 @@ p, h1, h2, h3, h4, h5, h6 {
   overflow-wrap: break-word;
 }
 // Font Sizing
+// Minor Third
+h1 {font-size: 2.488rem;}
+
+h2 {font-size: 2.074rem;}
+
+h3 {font-size: 1.728rem;}
+
+h4 {font-size: 1.44rem;}
+
+h5 {font-size: 1.2rem;}
+
+h6 {font-size: 1.1rem;}
+
+small, .text_small {font-size: 0.8rem;}
+
 p, a {
   font-size: clamp(1rem, 5vw, 1.125rem);
 }
@@ -46,17 +61,19 @@ ul {
   list-style: none;
 }
 .content {
+  display: grid;
+
+  & h1 {
+    font-size: clamp(2rem, 5vw, 2.25rem);
+  }
   & h2, h3, h4, h5, h6 {
     font-family: var(--sans-font);
   }
   & h3, h4, h5, h6 {
     padding-top: 2rem;
   }
-  & h1 {
-    font-size: clamp(2rem, 5vw, 2.25rem);
-  }
   & h2 {
-    padding-top: 5rem;
+    padding-top: .75rem;
   }
   & h4 {
     font-weight: 400;
@@ -69,9 +86,11 @@ ul {
     text-transform: uppercase;
   }
   & p {
-    padding-top: 1rem;
+    padding-top: .75rem;
 
-    font-size: 1rem;
+    place-self: center;
+
+    font-size: 1.1rem;
   }
 }
 
