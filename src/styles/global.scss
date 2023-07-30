@@ -45,8 +45,8 @@ ul {
 
   list-style: none;
 }
-.writing-layout {
-  & h1, h2, h3, h4, h5, h6 {
+.content {
+  & h2, h3, h4, h5, h6 {
     font-family: var(--sans-font);
   }
   & h3, h4, h5, h6 {
@@ -69,34 +69,9 @@ ul {
     text-transform: uppercase;
   }
   & p {
+    padding-top: 1rem;
+
     font-size: 1rem;
-  }
-  & p:not(:first-of-type) {
-    padding-top: .5rem;
-  }
-  & .metrics {
-    padding-top: 1.5rem;
-
-    display: flex;
-    align-items: baseline;
-
-    & > * {
-      font-family: Monaco, 'Courier New', Courier;
-      font-size: 0.85rem;
-      font-weight: 600;
-    }
-
-    & p:not(:last-of-type) {
-      padding-right: .5rem;
-      margin-right: .5rem;
-      border-right: 1px solid rgba(255, 255, 255, 0.25);
-    }
-
-    & time {
-      padding-right: .5rem;
-      margin-right: .5rem;
-      border-right: 1px solid rgba(255, 255, 255, 0.25);
-    }
   }
 }
 

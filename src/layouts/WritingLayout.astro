@@ -25,7 +25,7 @@ const edition = () => {
     <p class='description'>{frontmatter.description}</p>
     <div class='metrics'>
       <p>
-        No. {edition}
+        {edition}
       </p>
       <time datetime={frontmatter.createdAt.slice(0, 10)}>
         {frontmatter.createdAt.slice(0, 10).split('-').join('.')}
@@ -34,14 +34,67 @@ const edition = () => {
         {frontmatter.author}
       </p>
     </div>
-    <slot />
+    <div class='content'>
+      <slot />
+    </div>
   </div>
 </BaseLayout>
 
 <style>
-  .description {
-    font-family: var(--sans-font);
-    font-size: clamp(0.75rem, 5vw, 0.9rem);
-    font-weight: 500;
+  .writing-layout {
+    & h1 {
+      font-family: var(--sans-font);
+    }
+    & .description {
+      color: hsla(0, 60%, 99%, 0.75);
+
+      font-family: var(--sans-font);
+      font-size: clamp(0.75rem, 5vw, 0.9rem);
+      font-weight: 600;
+    }
+    & .metrics {
+      padding-top: 0.75rem;
+
+      display: flex;
+      align-items: baseline;
+
+      & > * {
+        padding: 0.125rem 0.3rem;
+        border: 1px solid hsla(0, 60%, 99%, 0.45);
+        /* border-radius: 0.25rem; */
+        border-image-slice: 1;
+        border-image-source: linear-gradient(
+          90deg,
+          rgba(125, 124, 124, 1) 0%,
+          rgba(195, 193, 193, 1) 100%
+        );
+
+        background: -webkit-linear-gradient(
+          180deg,
+          hsla(0, 60%, 99%, 0.75),
+          hsla(0, 60%, 99%, 0.45)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+
+        /* background: rgb(195, 193, 193);
+        background: linear-gradient(
+          90deg,
+          rgba(195, 193, 193, 1) 0%,
+          rgba(125, 124, 124, 1) 100%
+        ); */
+
+        /* background-color: #141414;
+        color: hsla(0, 60%, 99%, 0.45); */
+
+        font-family: Monaco, 'Courier New', Courier;
+        font-size: 0.8rem;
+        font-weight: 600;
+      }
+
+      & > :not(:first-child) {
+        margin-left: 0.85rem;
+      }
+    }
   }
 </style>
