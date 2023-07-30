@@ -45,6 +45,30 @@ ul {
 
   list-style: none;
 }
+.writing-layout {
+  & h1, h2, h3, h4, h5, h6 {
+    font-family: var(--sans-font);
+    color: grey;
+  }
+  & h3, h4, h5, h6 {
+    padding-top: 2rem;
+  }
+  & h1 {
+    font-size: clamp(2rem, 5vw, 2.25rem);
+  }
+  & h2 {
+    padding-top: 2.5rem;
+  }
+  & h5 {
+    font-weight: 400;
+  }
+  & h6 {
+    text-transform: uppercase;
+  }
+  & p:not(:first-of-type) {
+    padding-top: .5rem;
+  }
+}
 
 /* Positioning */
 /* Box Model */

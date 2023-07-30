@@ -1,4 +1,4 @@
-<h1 class='intro'>Hi, I'm Ty</h1>
+<h1>Hi, I'm Ty</h1>
 <!-- <img
         class='profile'
         src='/profile.jpg'
@@ -29,18 +29,19 @@
 </p>
 
 <style lang='scss'>
-  .intro {
+  h1,
+  h2 {
+    font-family: var(--sans-font);
+  }
+  h1 {
     color: var(--base-light);
     font-size: clamp(2rem, 5vw, 2.25rem);
     font-weight: 600;
   }
-  h1,
-  h2 {
-    font-family: var(--sans-font);
-    font-weight: 400;
-  }
   h2 {
     padding: 2.5rem 0 0;
+
+    font-weight: 400;
   }
   p {
     padding: 1rem 0 0;
