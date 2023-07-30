@@ -7,6 +7,16 @@ export interface Props {
 }
 
 const { frontmatter } = Astro.props;
+
+const edition = () => {
+  if (frontmatter.edition < 10) {
+    return `00${frontmatter.edition}`;
+  } else if (frontmatter.edition < 100) {
+    return `0${frontmatter.edition}`;
+  } else {
+    return frontmatter.edition;
+  }
+};
 ---
 
 <BaseLayout>
@@ -15,11 +25,14 @@ const { frontmatter } = Astro.props;
     <p class='description'>{frontmatter.description}</p>
     <div class='metrics'>
       <p>
-        No. {frontmatter.edition}
+        No. {edition}
       </p>
       <time datetime={frontmatter.createdAt.slice(0, 10)}>
         {frontmatter.createdAt.slice(0, 10).split('-').join('.')}
       </time>
+      <p>
+        {frontmatter.author}
+      </p>
     </div>
     <slot />
   </div>
@@ -29,19 +42,6 @@ const { frontmatter } = Astro.props;
   .description {
     font-family: var(--sans-font);
     font-size: clamp(0.75rem, 5vw, 0.9rem);
-    font-style: italic;
     font-weight: 500;
-  }
-  .metrics {
-    padding-top: 2.5rem;
-
-    display: flex;
-    align-items: baseline;
-
-    & > * {
-      font-family: Monaco, 'Courier New', Courier;
-      font-size: 0.85rem;
-      font-weight: 600;
-    }
   }
 </style>
