@@ -48,7 +48,6 @@ ul {
 .writing-layout {
   & h1, h2, h3, h4, h5, h6 {
     font-family: var(--sans-font);
-    color: grey;
   }
   & h3, h4, h5, h6 {
     padding-top: 2rem;
@@ -60,9 +59,10 @@ ul {
     padding-top: 2.5rem;
   }
   & h5 {
-    font-weight: 400;
+    text-transform: uppercase;
   }
   & h6 {
+    font-weight: 400;
     text-transform: uppercase;
   }
   & p:not(:first-of-type) {

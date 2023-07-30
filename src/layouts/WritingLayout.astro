@@ -12,6 +12,7 @@ const { frontmatter } = Astro.props;
 <BaseLayout>
   <div class='writing-layout'>
     <h1>{frontmatter.title}</h1>
+    <p class='description'>{frontmatter.description}</p>
     <div class='metrics'>
       <p>
         No. {frontmatter.edition}
@@ -25,7 +26,15 @@ const { frontmatter } = Astro.props;
 </BaseLayout>
 
 <style>
+  .description {
+    font-family: var(--sans-font);
+    font-size: clamp(0.75rem, 5vw, 0.9rem);
+    font-style: italic;
+    font-weight: 500;
+  }
   .metrics {
+    padding-top: 2.5rem;
+
     display: flex;
     align-items: baseline;
 
