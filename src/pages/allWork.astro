@@ -1,28 +1,22 @@
 ---
-import Base from '../layouts/BaseLayout.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 import ProjectCard from '../components/WorkCard.astro';
-
-<!-- import { Octokit } from 'octokit';
-
-const octokit = new Octokit();
-
-const { data } = await octokit.request('GET /users/{username}/repos', {
-  username: `permalik`,
-  sort: `created`
-}); -->
 ---
 
-<Base>
+<BaseLayout>
   <section>
-      <ul>
-        {
+    <ul>
+      <li>
+        <h2>Permalik Primary</h2>
+      </li>
+      <!-- {
           data.map((repo) => (
             <ProjectCard
               name={repo.name}
               description={repo.description}
               html_url={repo.html_url}
               topics={repo.topics} />
-            <!-- <li class='hover:bg-stone-700/10'>
+            <li class='hover:bg-stone-700/10'>
               <a href={repo.html_url}>
                 <p class='font-sans font-medium capitalize'>
                   {repo.name.split('-').join(' ')}
@@ -50,9 +44,25 @@ const { data } = await octokit.request('GET /users/{username}/repos', {
                   </a>
                 ))}
               </ul>
-            </li> -->
+            </li>
           ))
-        }
-      </ul>
+        } -->
+    </ul>
   </section>
-</Base>
+</BaseLayout>
+
+<!-- import { Octokit } from 'octokit';
+
+const octokit = new Octokit();
+
+const { data } = await octokit.request('GET /users/{username}/repos', {
+  username: `permalik`,
+  sort: `created`
+}); -->
+
+<style>
+  h2 {
+    font-family: var(--sans-font);
+    font-size: 1.44rem;
+  }
+</style>

@@ -1,0 +1,19 @@
+---
+export interface Props {
+  header: string;
+}
+
+const { header } = Astro.props;
+---
+
+<header>
+  <h1>
+    {header}
+  </h1>
+</header>
+
+<style>
+  h1 {
+    font-family: var(--sans-font);
+  }
+</style>

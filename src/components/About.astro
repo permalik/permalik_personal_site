@@ -1,20 +1,26 @@
-<h1>Hi, I'm Ty</h1>
-<img
-  class='profile'
-  src='/profile.jpg'
-  width='100'
-  height='100'
-  alt='Ty Malik'
-/>
+---
+import Header from './Header.astro';
+---
+
+<Header header="Hi, I'm Ty" />
+<div>
+  <img
+    class='profile'
+    src='/profile.jpg'
+    width='100'
+    height='100'
+    alt='Ty Malik'
+  />
+</div>
 <nav>
   <a href='https://github.com/permalik/' target='_blank' contact-link>
-    <img src='/public/icon-github.svg' alt='Github icon' contact-image />
+    <img src='/icon-github.svg' alt='Github icon' contact-image />
   </a>
   <a href='https://www.linkedin.com/in/permalik/' target='_blank' contact-link>
-    <img src='/public/icon-linkedin.svg' alt='Linkedin icon' contact-image />
+    <img src='/icon-linkedin.svg' alt='Linkedin icon' contact-image />
   </a>
   <a href='mailto:tymalik@pm.me' contact-link>
-    <img src='/public/icon-mail.svg' alt='Email icon' contact-image />
+    <img src='/icon-mail.svg' alt='Email icon' contact-image />
   </a>
 </nav>
 <h2>Who are you?</h2>
@@ -40,6 +46,9 @@
 </p>
 
 <style lang='scss'>
+  div {
+    padding: 10rem 0 0;
+  }
   h1,
   h2 {
     font-family: var(--sans-font);

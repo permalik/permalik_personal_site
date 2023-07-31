@@ -1,10 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+
 const allPosts = await Astro.glob('./writing/*.md');
 ---
 
 <BaseLayout>
-  <h1>Writing</h1>
+  <Header header='Writing' />
   <ul>
     {
       allPosts.map((post) => (
@@ -20,9 +22,6 @@ const allPosts = await Astro.glob('./writing/*.md');
 </BaseLayout>
 
 <style>
-  h1 {
-    font-family: var(--sans-font);
-  }
   ul {
     padding-top: 2.5rem;
   }
