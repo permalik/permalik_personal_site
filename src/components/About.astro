@@ -1,11 +1,22 @@
 <h1>Hi, I'm Ty</h1>
-<!-- <img
-        class='profile'
-        src='/profile.jpg'
-        width='80'
-        height='80'
-        alt='Ty Malik'
-      /> -->
+<img
+  class='profile'
+  src='/profile.jpg'
+  width='100'
+  height='100'
+  alt='Ty Malik'
+/>
+<nav>
+  <a href='https://github.com/permalik/' target='_blank' contact-link>
+    <img src='/public/icon-github.svg' alt='Github icon' contact-image />
+  </a>
+  <a href='https://www.linkedin.com/in/permalik/' target='_blank' contact-link>
+    <img src='/public/icon-linkedin.svg' alt='Linkedin icon' contact-image />
+  </a>
+  <a href='mailto:tymalik@pm.me' contact-link>
+    <img src='/public/icon-mail.svg' alt='Email icon' contact-image />
+  </a>
+</nav>
 <h2>Who are you?</h2>
 <p>
   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
@@ -34,12 +45,35 @@
     font-family: var(--sans-font);
   }
   h1 {
+    padding: 0 0 10rem;
+
     color: var(--base-light);
-    font-size: clamp(2rem, 5vw, 2.25rem);
+
     font-weight: 600;
   }
+  img {
+    border-radius: 0.25rem;
+  }
+  nav {
+    padding: 1.5rem 0 0;
+
+    display: flex;
+    flex-flow: row nowrap;
+
+    & > a {
+      opacity: 0.65;
+    }
+
+    & a:not(:last-child) {
+      padding-right: 1.5rem;
+    }
+
+    & > a:hover {
+      opacity: 1;
+    }
+  }
   h2 {
-    padding: 2.5rem 0 0;
+    padding: 1.5rem 0 0;
 
     font-weight: 400;
   }

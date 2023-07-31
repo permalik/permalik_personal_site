@@ -1,6 +1,4 @@
 ---
-import ContactModal from './ContactModal.astro';
-
 export interface Props {
   title: string;
   body: string;
@@ -11,14 +9,10 @@ const { href, title, body } = Astro.props;
 ---
 
 <section>
-  <ContactModal />
   <nav>
     <a class='secondary-link' href='/' secondary-link>
-      <img src='/public/home.svg' alt='Home icon' contact-image />
+      <img src='/public/home.svg' alt='Home icon' secondary-image />
     </a>
-    <button class='secondary-link' secondary-link message-link>
-      <img src='/public/message.svg' alt='Message bubble' contact-image />
-    </button>
     <!-- TODO: Create a tooltip component -->
     <a class='primary-link' href='/allWriting'>writing</a>
     <a class='primary-link' href='/allWork'>work</a>
@@ -27,16 +21,13 @@ const { href, title, body } = Astro.props;
 
 <script>
   const secondaryButtons = document.querySelectorAll('[secondary-link]');
-  const secondaryImages = document.querySelectorAll('[contact-image]');
-  const messageLink = document.querySelector('[message-link]');
-  const contactModal = document.querySelector('[contact-modal]');
-  const contactModalClose = document.querySelector('[contact-modal-close]');
+  const secondaryImages = document.querySelectorAll('[secondary-image]');
 
   secondaryButtons.forEach((secondaryButton) => {
     secondaryButton.addEventListener('mouseover', () => {
       secondaryImages.forEach((secondaryImage) => {
         if (secondaryButton.children[0] == secondaryImage) {
-          secondaryImage.classList.add('contact-image');
+          secondaryImage.classList.add('secondary-image');
         }
       });
     });
@@ -45,22 +36,10 @@ const { href, title, body } = Astro.props;
     secondaryButton.addEventListener('mouseout', () => {
       secondaryImages.forEach((secondaryImage) => {
         if (secondaryButton.children[0] == secondaryImage) {
-          secondaryImage.classList.remove('contact-image');
+          secondaryImage.classList.remove('secondary-image');
         }
       });
     });
-  });
-  messageLink.addEventListener('click', () => {
-    contactModal.classList.remove('hidden');
-    contactModal.classList.add('visible');
-    contactModalClose.focus();
-    messageLink.blur();
-  });
-  document.addEventListener('keydown', () => {
-    if (event.key == 'Escape') {
-      contactModal.classList.remove('visible');
-      contactModal.classList.add('hidden');
-    }
   });
 </script>
 
@@ -80,7 +59,7 @@ const { href, title, body } = Astro.props;
     z-index: 1000;
   }
   nav {
-    width: 30rem;
+    width: 20rem;
     padding: 0.5rem clamp(0.5rem, 5vw, 2rem);
     border-radius: 0.5rem;
 
@@ -142,11 +121,13 @@ const { href, title, body } = Astro.props;
     min-height: 1.5rem;
     min-width: 1.5rem;
   }
-  .contact-image {
+  .secondary-image {
     filter: invert(46%) sepia(37%) saturate(4698%) hue-rotate(337deg)
       brightness(102%) contrast(97%);
   }
   .primary-link {
+    padding: 0.25rem;
+
     font-family: var(--sans-font);
     font-size: 0.9rem;
     font-weight: 600;
