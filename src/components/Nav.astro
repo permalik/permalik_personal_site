@@ -10,14 +10,14 @@ const { href, title, body } = Astro.props;
 
 <section>
   <nav>
-    <a class='secondary-link' href='/' secondary-link>
-      <img src='/home.svg' alt='Home icon' secondary-image />
+    <a class='primary-link' href='/' secondary-link home-link>
+      <span>home</span>
     </a>
     <!-- TODO: Create a tooltip component -->
-    <a class='primary-link' href='/allWriting' secondary-link>
+    <a class='primary-link' href='/allWriting' secondary-link writing-link>
       <span secondary-image>writing</span>
     </a>
-    <a class='primary-link' href='/allWork' secondary-link>
+    <a class='primary-link' href='/allWork' secondary-link work-link>
       <span secondary-image>work</span>
     </a>
   </nav>
@@ -81,54 +81,6 @@ const { href, title, body } = Astro.props;
       padding-left: 0.3rem;
     }
   }
-  .secondary-link {
-    padding: 0.25rem;
-    margin: 0;
-    border: none;
-    border-radius: 0.5rem;
-
-    display: inline-block;
-
-    background-color: transparent;
-
-    transition: background-color 250ms ease-in-out, transform 150ms ease;
-
-    cursor: pointer;
-
-    -webkit-appearance: none;
-    -moz-appearance: none;
-
-    & img {
-      height: 1.5rem;
-      width: 1.5rem;
-      min-height: 1.5rem;
-      min-width: 1.5rem;
-    }
-  }
-  .secondary-link:hover,
-  .secondary-link:focus {
-    background-color: rgba(255, 255, 255, 0.1);
-    box-shadow: 0px 3px 5px 2px rgba(0, 0, 0, 0.25);
-  }
-  .secondary-link:focus {
-    background: rgba(255, 255, 255, 0.1);
-    box-shadow: 0px 3px 5px 2px rgba(0, 0, 0, 0.25);
-  }
-  .secondary-link:active {
-    background: rgba(255, 255, 255, 0.1);
-
-    transform: scale(1.05);
-  }
-  .secondary-link > img {
-    height: 1.5rem;
-    width: 1.5rem;
-    min-height: 1.5rem;
-    min-width: 1.5rem;
-  }
-  .secondary-image {
-    filter: invert(46%) sepia(37%) saturate(4698%) hue-rotate(337deg)
-      brightness(102%) contrast(97%);
-  }
   .primary-link {
     padding: 0.15rem 0.3rem;
     border: none;
@@ -146,11 +98,15 @@ const { href, title, body } = Astro.props;
   }
   .primary-link:hover {
     background-color: rgba(255, 255, 255, 0.1);
+    color: #fb5640;
     box-shadow: 0px 3px 5px 2px rgba(0, 0, 0, 0.25);
   }
   .primary-link:active {
     background: rgba(255, 255, 255, 0.1);
 
     transform: scale(1.05);
+  }
+  .active-link {
+    color: #fb5640;
   }
 </style>
