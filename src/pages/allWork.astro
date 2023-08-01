@@ -15,13 +15,29 @@ const octokit = new Octokit(); --><!-- const { data } = await octokit.request('G
   <Header header='Work' />
   <section>
     <GithubList />
-    <a class='view-all' href='/' view-all>
+    <a class='view-all' href='/github' view-all>
       view all <span arrow-right>→</span></a
     >
+    <p
+      class='codepen'
+      data-height='300'
+      data-theme-id='dark'
+      data-slug-hash='jOQMOdO'
+      data-user='permalik'
+      style='height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;'
+    >
+      <span
+        >See the Pen <a href='https://codepen.io/permalik/pen/jOQMOdO'>
+          001-100_days_css</a
+        > by permalik (<a href='https://codepen.io/permalik'>@permalik</a>) on <a
+          href='https://codepen.io'>CodePen</a
+        >.</span
+      >
+    </p>
   </section>
 </BaseLayout>
 
-<script>
+<script async src='https://cpwebassets.codepen.io/assets/embed/ei.js'>
   const viewAll = document.querySelector('[view-all]');
   const arrowRight = document.querySelector('[arrow-right]');
 
