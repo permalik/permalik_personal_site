@@ -26,21 +26,19 @@ const allPosts = await Astro.glob('./writing/*.md');
     padding-top: 2.5rem;
   }
   li:not(:first-child) {
-    padding: 2rem 0 0;
+    padding-top: 1rem;
   }
   li:not(:last-child) {
-    padding-bottom: 2rem;
+    padding-bottom: 1rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
   h2 {
-    display: inline;
+    position: relative;
+
+    display: inline-block;
 
     font-family: var(--sans-font);
     font-weight: 400;
-  }
-  h2 {
-    position: relative;
-    display: inline-block;
   }
   h2::after {
     content: '';
