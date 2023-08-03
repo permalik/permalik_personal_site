@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Header from '../components/Header.astro';
+import Header from '../components/global/Header.astro';
 import ProjectCard from '../components/WorkCard.astro';
 ---
 
@@ -160,80 +160,6 @@ const octokit = new Octokit(); --><!-- const { data } = await octokit.request('G
               box-shadow: 0px 3px 5px 2px rgba(0, 0, 0, 0.25);
             }
           }
-
-          /* .primary-link {
-          .primary-link:hover {
-          }
-          .primary-link:active {
-            background: rgba(255, 255, 255, 0.1);
-
-            transform: scale(1.05);
-          }
-          .active-link {
-            color: #fb5640;
-          } */
-
-          /* & > ul {
-            padding-top: 0.5rem;
-
-            display: flex;
-            flex-flow: row wrap;
-
-            & > li {
-              color: #40fbb4;
-
-              white-space: nowrap;
-
-              & > a {
-                color: #40fbb4;
-                opacity: 0.75;
-
-                font-family: var(--sans-font);
-                font-size: 0.8rem;
-                font-weight: 600;
-                text-transform: uppercase;
-                white-space: nowrap;
-
-                &:hover {
-                  opacity: 1;
-                }
-              }
-            }
-
-            & li:not(:last-child) {
-              margin-right: 0.85rem;
-            }
-
-            & > li hover {
-              opacity: 1;
-            }
-          } */
-
-          /* & .tags {
-        & li {
-          display: flex;
-          justify-content: center;
-        }
-
-        & li > a {
-          display: inline;
-        }
-      } */
-
-          /* & > nav {
-          position: absolute;
-          right: 0;
-          bottom: -1.5rem;
-
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-
-          & > img {
-            width: 1.5rem;
-            height: 1.5rem;
-          }
-        } */
         }
         & > li:not(:last-child) {
           margin-bottom: 1.5rem;
@@ -243,13 +169,7 @@ const octokit = new Octokit(); --><!-- const { data } = await octokit.request('G
   </section>
 </BaseLayout>
 
-<!-- <img src='/codepen.svg' alt='Codepen icon' /> -->
-<!-- <nav>
-            <img src='/code.svg' alt='Code icon' />
-            <img src='/site.svg' alt='External link icon' />
-          </nav> -->
-
-<!-- Add tags to the dedicated github page -->
+<!-- TODO: Add tags to the dedicated github page TODO: -->
 <!-- <!-- <ul>
           <li>
             <a href='/'> javascript</a>
@@ -261,42 +181,3 @@ const octokit = new Octokit(); --><!-- const { data } = await octokit.request('G
             <a href='/'> html</a>
           </li>
         </ul> -->
-
-<!-- {
-          data.map((repo) => (
-            <ProjectCard
-              name={repo.name}
-              description={repo.description}
-              html_url={repo.html_url}
-              topics={repo.topics} />
-            <li class='hover:bg-stone-700/10'>
-              <a href={repo.html_url}>
-                <p class='font-sans font-medium capitalize'>
-                  {repo.name.split('-').join(' ')}
-                  <span class='tracking-wide text-teal-300 uppercase'>
-                    •{' '}
-                    {repo.description
-                      .split(':')
-                      .map((k) => k)
-                      .slice(0, -1)}
-                  </span>
-                </p>
-                <p>
-                  {repo.description
-                    .split(`:`)
-                    .map((e) => e)
-                    .slice(1)}
-                </p>
-              </a>
-              <ul class='flex space-x-2'>
-                {repo.topics.map((topic) => (
-                  <a href=`/projects/${topic}`>
-                    <li class='tracking-wide text-teal-300/80 hover:text-teal-300'>
-                      #{topic}
-                    </li>
-                  </a>
-                ))}
-              </ul>
-            </li>
-          ))
-        } -->

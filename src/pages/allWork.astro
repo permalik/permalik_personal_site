@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CodepenList from '../components/Codepen/List.astro';
 import GithubList from '../components/github/List.astro';
-import Header from '../components/Header.astro';
+import Header from '../components/global/Header.astro';
 import ProjectCard from '../components/WorkCard.astro';
 ---
 
@@ -116,63 +116,3 @@ const octokit = new Octokit(); --><!-- const { data } = await octokit.request('G
     }
   }
 </style>
-
-<!-- TODO: -->
-
-<!-- <img src='/codepen.svg' alt='Codepen icon' /> -->
-<!-- <nav>
-            <img src='/code.svg' alt='Code icon' />
-            <img src='/site.svg' alt='External link icon' />
-          </nav> -->
-
-<!-- Add tags to the dedicated github page -->
-<!-- <!-- <ul>
-          <li>
-            <a href='/'> javascript</a>
-          </li>
-          <li>
-            <a href='/'> css</a>
-          </li>
-          <li>
-            <a href='/'> html</a>
-          </li>
-        </ul> -->
-
-<!-- {
-          data.map((repo) => (
-            <ProjectCard
-              name={repo.name}
-              description={repo.description}
-              html_url={repo.html_url}
-              topics={repo.topics} />
-            <li class='hover:bg-stone-700/10'>
-              <a href={repo.html_url}>
-                <p class='font-sans font-medium capitalize'>
-                  {repo.name.split('-').join(' ')}
-                  <span class='tracking-wide text-teal-300 uppercase'>
-                    •{' '}
-                    {repo.description
-                      .split(':')
-                      .map((k) => k)
-                      .slice(0, -1)}
-                  </span>
-                </p>
-                <p>
-                  {repo.description
-                    .split(`:`)
-                    .map((e) => e)
-                    .slice(1)}
-                </p>
-              </a>
-              <ul class='flex space-x-2'>
-                {repo.topics.map((topic) => (
-                  <a href=`/projects/${topic}`>
-                    <li class='tracking-wide text-teal-300/80 hover:text-teal-300'>
-                      #{topic}
-                    </li>
-                  </a>
-                ))}
-              </ul>
-            </li>
-          ))
-        } -->
