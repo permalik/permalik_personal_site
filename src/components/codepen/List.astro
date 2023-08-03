@@ -1,10 +1,14 @@
+---
+import CardHeader from '../work/CardHeader.astro';
+---
+
 <ul>
   <li>
-    <h2>
-      <span> pen</span>
-      Particular CSS Animation
-    </h2>
-    <p>Details about this specific codepen</p>
+    <CardHeader
+      category='pen'
+      title='Particular CSS Animation'
+      description='Details about this specific codepen'
+    />
     <iframe
       scrolling='no'
       title='001-100_days_css'
@@ -24,6 +28,8 @@
 
 <style>
   iframe {
+    margin: 0.5rem 0 0;
+
     height: 250px;
     width: 250px;
   }
