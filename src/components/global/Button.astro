@@ -1,0 +1,49 @@
+---
+export interface Props {
+  content: string;
+  href: string;
+}
+
+const { content, href, propOne, propTwo } = Astro.props;
+---
+
+<a href={href}>
+  {content}
+  <slot />
+</a>
+
+<style>
+  a {
+    padding: 0.25rem;
+    border: none;
+    border-radius: 0.5rem;
+
+    background-color: transparent;
+
+    transition: background-color 250ms ease-in-out, transform 150ms ease;
+
+    font-family: var(--sans-font);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.0125rem;
+    text-transform: uppercase;
+
+    opacity: 0.75;
+  }
+  a:not(:last-of-type) {
+    margin-right: 1rem;
+  }
+  a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    opacity: 1;
+    box-shadow: 0px 3px 5px 2px rgba(0, 0, 0, 0.25);
+  }
+  a:active {
+    background: rgba(255, 255, 255, 0.1);
+
+    transform: scale(1.05);
+  }
+  .active-link {
+    color: #fb5640;
+  }
+</style>

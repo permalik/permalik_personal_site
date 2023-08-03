@@ -1,4 +1,5 @@
 ---
+import Button from './Button.astro';
 import Header from './Header.astro';
 ---
 
@@ -13,15 +14,15 @@ import Header from './Header.astro';
   />
 </div>
 <nav>
-  <a href='https://github.com/permalik/' target='_blank' contact-link>
+  <Button href='https://github.com/permalik/'>
     <img src='/icon-github.svg' alt='Github icon' contact-image />
-  </a>
-  <a href='https://www.linkedin.com/in/permalik/' target='_blank' contact-link>
+  </Button>
+  <Button href='https://www.linkedin.com/in/permalik/'>
     <img src='/icon-linkedin.svg' alt='Linkedin icon' contact-image />
-  </a>
-  <a href='mailto:tymalik@pm.me' contact-link>
+  </Button>
+  <Button href='mailto:tymalik@pm.me'>
     <img src='/icon-mail.svg' alt='Email icon' contact-image />
-  </a>
+  </Button>
 </nav>
 <h2>Who are you?</h2>
 <p>

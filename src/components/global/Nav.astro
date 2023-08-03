@@ -1,4 +1,6 @@
 ---
+import Button from './Button.astro';
+
 export interface Props {
   title: string;
   body: string;
@@ -10,42 +12,18 @@ const { href, title, body } = Astro.props;
 
 <section>
   <nav>
-    <a class='primary-link' href='/' secondary-link home-link>
+    <Button href='/'>
       <span>home</span>
-    </a>
-    <!-- TODO: Create a tooltip component -->
-    <a class='primary-link' href='/allWriting' secondary-link writing-link>
-      <span secondary-image>writing</span>
-    </a>
-    <a class='primary-link' href='/allWork' secondary-link work-link>
-      <span secondary-image>work</span>
-    </a>
+    </Button>
+    <!-- TODO: Create a tooltip component TODO: -->
+    <Button href='/allWriting'>
+      <span>writing</span>
+    </Button>
+    <Button href='/allWork'>
+      <span>work</span>
+    </Button>
   </nav>
 </section>
-
-<script>
-  const secondaryButtons = document.querySelectorAll('[secondary-link]');
-  const secondaryImages = document.querySelectorAll('[secondary-image]');
-
-  secondaryButtons.forEach((secondaryButton) => {
-    secondaryButton.addEventListener('mouseover', () => {
-      secondaryImages.forEach((secondaryImage) => {
-        if (secondaryButton.children[0] == secondaryImage) {
-          secondaryImage.classList.add('secondary-image');
-        }
-      });
-    });
-  });
-  secondaryButtons.forEach((secondaryButton) => {
-    secondaryButton.addEventListener('mouseout', () => {
-      secondaryImages.forEach((secondaryImage) => {
-        if (secondaryButton.children[0] == secondaryImage) {
-          secondaryImage.classList.remove('secondary-image');
-        }
-      });
-    });
-  });
-</script>
 
 <style lang='scss'>
   section {
@@ -80,33 +58,5 @@ const { href, title, body } = Astro.props;
     & > a:nth-child(4) {
       padding-left: 0.3rem;
     }
-  }
-  .primary-link {
-    padding: 0.15rem 0.3rem;
-    border: none;
-    border-radius: 0.5rem;
-
-    background-color: transparent;
-
-    transition: background-color 250ms ease-in-out, transform 150ms ease;
-
-    font-family: var(--sans-font);
-    font-size: 0.9rem;
-    font-weight: 600;
-    letter-spacing: 0.0125rem;
-    text-transform: uppercase;
-  }
-  .primary-link:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: #fb5640;
-    box-shadow: 0px 3px 5px 2px rgba(0, 0, 0, 0.25);
-  }
-  .primary-link:active {
-    background: rgba(255, 255, 255, 0.1);
-
-    transform: scale(1.05);
-  }
-  .active-link {
-    color: #fb5640;
   }
 </style>
