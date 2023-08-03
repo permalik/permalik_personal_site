@@ -1,10 +1,14 @@
+---
+import CardHeader from './work/CardHeader.astro';
+---
+
 <ul class='github-list'>
   <li>
-    <h2>
-      <span> app</span>
-      permalik primary
-    </h2>
-    <p>Music Banking and Streaming App</p>
+    <CardHeader
+      category='app'
+      title='permalik primary'
+      description='Music Banking and Streaming App'
+    />
     <nav>
       <a href='/'>
         <img src='/site.svg' alt='External link icon' />
@@ -15,11 +19,11 @@
     </nav>
   </li>
   <li>
-    <h2>
-      <span> app</span>
-      permalik primary
-    </h2>
-    <p>Music Banking and Streaming App</p>
+    <CardHeader
+      category='app'
+      title='permalik primary'
+      description='Music Banking and Streaming App'
+    />
     <nav>
       <a href='/'>
         <img src='/site.svg' alt='External link icon' />
@@ -30,11 +34,11 @@
     </nav>
   </li>
   <li>
-    <h2>
-      <span> app</span>
-      permalik primary
-    </h2>
-    <p>Music Banking and Streaming App</p>
+    <CardHeader
+      category='app'
+      title='permalik primary'
+      description='Music Banking and Streaming App'
+    />
     <nav>
       <a href='/'>
         <img src='/site.svg' alt='External link icon' />
@@ -81,32 +85,6 @@
     & > li {
       display: flex;
       flex-flow: column nowrap;
-
-      & > h2 {
-        padding: 0.25rem 0 0;
-
-        & > span {
-          padding-right: 0.5rem;
-          margin-right: 0.5rem;
-          border-right: 1px solid;
-
-          color: #fb5640;
-        }
-
-        font-family: var(--sans-font);
-        font-weight: 400;
-        text-transform: uppercase;
-
-        word-wrap: normal;
-      }
-
-      & > p:first-of-type {
-        color: hsla(0, 60%, 99%, 0.75);
-
-        font-family: var(--sans-font);
-        font-size: clamp(0.75rem, 5vw, 0.9rem);
-        font-weight: 400;
-      }
 
       & > nav {
         padding-top: 0.5rem;

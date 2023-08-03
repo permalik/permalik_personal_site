@@ -1,0 +1,43 @@
+---
+const { category, title, description } = Astro.props;
+---
+
+<header>
+  <h2>
+    <span>
+      {category}
+    </span>
+    {title}
+  </h2>
+  <p>
+    {description}
+  </p>
+</header>
+
+<style>
+  h2 {
+    padding: 0.25rem 0 0;
+
+    & > span {
+      padding-right: 0.25rem;
+      margin-right: 0.5rem;
+      border-right: 1px solid;
+
+      color: #fb5640;
+    }
+
+    font-family: var(--sans-font);
+    font-weight: 400;
+    text-transform: uppercase;
+
+    word-wrap: normal;
+  }
+
+  p {
+    color: hsla(0, 60%, 99%, 0.75);
+
+    font-family: var(--sans-font);
+    font-size: clamp(0.75rem, 5vw, 0.9rem);
+    font-weight: 400;
+  }
+</style>
