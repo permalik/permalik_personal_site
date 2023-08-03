@@ -4,15 +4,6 @@ import Header from './Header.astro';
 ---
 
 <Header header="Hi, I'm Ty" />
-<div>
-  <img
-    class='profile'
-    src='/profile.jpg'
-    width='100'
-    height='100'
-    alt='Ty Malik'
-  />
-</div>
 <nav>
   <Button href='https://github.com/permalik/'>
     <img src='/icon-github.svg' alt='Github icon' contact-image />
@@ -24,6 +15,15 @@ import Header from './Header.astro';
     <img src='/icon-mail.svg' alt='Email icon' contact-image />
   </Button>
 </nav>
+<div>
+  <img
+    class='profile'
+    src='/profile.jpg'
+    width='100'
+    height='100'
+    alt='Ty Malik'
+  />
+</div>
 <h2>Who are you?</h2>
 <p>
   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
@@ -32,23 +32,10 @@ import Header from './Header.astro';
   Amet venenatis urna cursus eget nunc scelerisque. Interdum varius sit amet
   mattis vulputate.
 </p>
-<h2>What is your goal?</h2>
-<p>
-  Tincidunt dui ut ornare lectus sit amet est. Viverra accumsan in nisl nisi
-  scelerisque eu. Nunc scelerisque viverra mauris in aliquam sem fringilla ut
-  morbi. Porttitor leo a diam sollicitudin tempor id eu. Sed libero enim sed
-  faucibus turpis in eu mi. Arcu felis bibendum ut tristique et egestas.
-</p>
-<h2>What are some peripheral goals?</h2>
-<p>
-  Pellentesque habitant morbi tristique senectus et. Curabitur gravida arcu ac
-  tortor dignissim convallis aenean et. Tortor at auctor urna nunc id cursus.
-  Consequat semper viverra nam libero justo laoreet sit amet cursus.
-</p>
 
 <style lang='scss'>
   div {
-    padding: 10rem 0 0;
+    padding-top: 1.5rem;
   }
   h1,
   h2 {
@@ -65,7 +52,7 @@ import Header from './Header.astro';
     border-radius: 0.25rem;
   }
   nav {
-    padding-top: 1.5rem;
+    padding: 10rem 0 0;
     border: none;
     border-radius: 0.5rem;
 
@@ -75,29 +62,6 @@ import Header from './Header.astro';
     background-color: transparent;
 
     transition: background-color 250ms ease-in-out, transform 150ms ease;
-
-    & > a {
-      padding: 0.25rem;
-      border: none;
-      border-radius: 0.5rem;
-
-      opacity: 0.5;
-
-      & img {
-        height: 1.5rem;
-        width: 1.5rem;
-      }
-    }
-
-    & a:not(:last-child) {
-      margin-right: 1.5rem;
-    }
-
-    & > a:hover {
-      background-color: rgba(255, 255, 255, 0.1);
-      opacity: 1;
-      box-shadow: 0px 3px 5px 2px rgba(0, 0, 0, 0.25);
-    }
   }
   h2 {
     padding: 1.5rem 0 0;
