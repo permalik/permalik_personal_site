@@ -1,4 +1,5 @@
 ---
+import Button from '../global/Button.astro';
 import CardHeader from '../work/CardHeader.astro';
 ---
 
@@ -9,35 +10,56 @@ import CardHeader from '../work/CardHeader.astro';
       title='Particular CSS Animation'
       description='Details about this specific codepen'
     />
-    <iframe
-      scrolling='no'
-      title='001-100_days_css'
-      src='https://codepen.io/permalik/embed/jOQMOdO?default-tab=result&theme-id=dark'
-      frameborder='no'
-      loading='lazy'
-      allowtransparency='true'
-      allowfullscreen='true'
-    >
-      See the Pen <a href="https://codepen.io/permalik/pen/jOQMOdO">
-      001-100_days_css</a> by permalik (<a
-      href="https://codepen.io/permalik">@permalik</a>) on <a
-      href="https://codepen.io">CodePen</a>.
-    </iframe>
+    <nav>
+      <Button>
+        <img src='/codepen.svg' alt='Codepen icon' />
+      </Button>
+    </nav>
+  </li>
+  <li>
+    <CardHeader
+      category='pen'
+      title='Particular CSS Animation'
+      description='Details about this specific codepen'
+    />
+    <nav>
+      <Button>
+        <img src='/codepen.svg' alt='Codepen icon' />
+      </Button>
+    </nav>
+  </li>
+  <li>
+    <CardHeader
+      category='pen'
+      title='Particular CSS Animation'
+      description='Details about this specific codepen'
+    />
+    <nav>
+      <Button>
+        <img src='/codepen.svg' alt='Codepen icon' />
+      </Button>
+    </nav>
   </li>
 </ul>
 
 <style>
-  iframe {
-    margin: 0.5rem 0 0;
+  ul {
+    margin: 0 0 1.5rem;
 
-    height: 250px;
-    width: 250px;
-  }
+    display: flex;
+    flex-flow: column nowrap;
 
-  @media (max-width: 400px) {
-    & iframe {
-      height: 250px;
-      width: 250px;
+    & > li:not(:last-child) {
+      margin: 0 0 1.5rem;
     }
+  }
+  nav {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+  }
+  img {
+    height: 1.5rem;
+    width: 1.5rem;
   }
 </style>
