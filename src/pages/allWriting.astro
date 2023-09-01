@@ -45,12 +45,14 @@ const allPosts = await Astro.glob('./writing/*.md');
     position: absolute;
     bottom: -0.15rem;
     left: 0;
+
     height: 0;
     width: 100%;
+
     background-color: #fb5640;
-    /* transform: scaleY(0);
-    transform-origin: bottom; */
-    transition: bottom 0.3s ease; /* Add a transition for the transform property */
+    opacity: 0.75;
+
+    transition: bottom 0.3s ease;
   }
   h2:hover::after {
     bottom: -0.001rem;

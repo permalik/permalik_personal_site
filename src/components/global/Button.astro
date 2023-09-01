@@ -4,32 +4,19 @@ export interface Props {
   href: string;
 }
 
-const { content, href, propOne, propTwo } = Astro.props;
+const { href, content } = Astro.props;
 ---
 
-<a href={href} button>
+<a href={href}>
   {content}
-  <slot />
 </a>
-
-<script>
-  const Button = document.querySelector('[button]');
-
-  Button.addEventListener('click', () => {
-    Button.classList.add('active-button');
-  });
-</script>
 
 <style>
   a {
-    padding: 0.25rem 0.5rem;
     border: none;
     border-radius: 0.5rem;
 
     background-color: transparent;
-
-    transition: background-color 250ms ease-in-out, transform 150ms ease,
-      top 150ms;
 
     font-family: var(--sans-font);
     font-size: 0.9rem;
@@ -43,16 +30,9 @@ const { content, href, propOne, propTwo } = Astro.props;
     margin-right: 1rem;
   }
   a:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    opacity: 1;
-    box-shadow: 0px 3px 5px 2px rgba(0, 0, 0, 0.25);
+    color: #40fbb4;
   }
   a:active {
-    transform: translateY(0.075rem);
-
-    background: rgba(255, 255, 255, 0.1);
-  }
-  .active-link {
-    color: #fb5640;
+    opacity: 0.95;
   }
 </style>

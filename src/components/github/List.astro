@@ -3,7 +3,7 @@ import Button from '../global/Button.astro';
 import CardHeader from '../work/CardHeader.astro';
 ---
 
-<ul class='github-list'>
+<ul>
   <li>
     <CardHeader
       category='app'
@@ -11,12 +11,8 @@ import CardHeader from '../work/CardHeader.astro';
       description='Music Banking and Streaming App'
     />
     <nav>
-      <Button href='/'>
-        <img src='/site.svg' alt='External link icon' />
-      </Button>
-      <Button href='/'>
-        <img src='/code.svg' alt='Angle bracket icon' />
-      </Button>
+      <Button href='/' content='demo' />
+      <Button href='/' content='source' />
     </nav>
   </li>
   <li>
@@ -26,12 +22,8 @@ import CardHeader from '../work/CardHeader.astro';
       description='Music Banking and Streaming App'
     />
     <nav>
-      <Button href='/'>
-        <img src='/site.svg' alt='External link icon' />
-      </Button>
-      <Button href='/'>
-        <img src='/code.svg' alt='Angle bracket icon' />
-      </Button>
+      <Button href='/' content='demo' />
+      <Button href='/' content='source' />
     </nav>
   </li>
   <li>
@@ -41,15 +33,10 @@ import CardHeader from '../work/CardHeader.astro';
       description='Music Banking and Streaming App'
     />
     <nav>
-      <Button href='/'>
-        <img src='/site.svg' alt='External link icon' />
-      </Button>
-      <Button href='/'>
-        <img src='/code.svg' alt='Angle bracket icon' />
-      </Button>
+      <Button href='/' content='demo' />
+      <Button href='/' content='source' />
     </nav>
   </li>
-  <!-- TODO: Swap this production component upon deploy TODO: -->
   <!-- {
     data.map((repo) => (
       <li>
@@ -82,7 +69,7 @@ import CardHeader from '../work/CardHeader.astro';
 </ul>
 
 <style>
-  .github-list {
+  ul {
     margin: 0 0 1.5rem;
 
     & > li {
@@ -97,10 +84,6 @@ import CardHeader from '../work/CardHeader.astro';
     }
     & > li:not(:last-child) {
       margin: 0 0 1.5rem;
-    }
-    img {
-      width: 1.5rem;
-      height: 1.5rem;
     }
   }
 </style>

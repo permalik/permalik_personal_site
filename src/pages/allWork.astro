@@ -16,103 +16,13 @@ const octokit = new Octokit(); --><!-- const { data } = await octokit.request('G
   <Header header='Recent Work' />
   <section>
     <GithubList />
-    <CodepenList />
-    <!-- <div class='codepen-wrapper'>
-      <p
-        class='codepen'
-        data-height='400'
-        data-theme-id='dark'
-        data-slug-hash='jOQMOdO'
-        data-user='permalik'
-        style='height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;'
-      >
-        <span
-          >See the Pen <a href='https://codepen.io/permalik/pen/jOQMOdO'>
-            001-100_days_css</a
-          > by permalik (<a href='https://codepen.io/permalik'>@permalik</a>) on <a
-            href='https://codepen.io'>CodePen</a
-          >.</span
-        >
-      </p>
-    </div> -->
   </section>
 </BaseLayout>
-
-<script async src='https://cpwebassets.codepen.io/assets/embed/ei.js'>
-  const viewAll = document.querySelector('[view-all]');
-  const arrowRight = document.querySelector('[arrow-right]');
-
-  viewAll.addEventListener('mouseover', () => {
-    arrowRight.classList.add('viewAllAnimation');
-  });
-  viewAll.addEventListener('mouseout', () => {
-    arrowRight.classList.remove('viewAllAnimation');
-  });
-</script>
 
 <style>
   section {
     position: relative;
 
     padding: 2.5rem 0;
-
-    & > .view-all {
-      position: absolute;
-      right: 0;
-      bottom: 0;
-
-      padding: 0.25rem 0.5rem;
-      margin: 0;
-      border: none;
-      border-radius: 0.5rem;
-
-      display: inline-block;
-
-      background: transparent;
-      color: var(--base-light);
-
-      font-family: sans-serif;
-      font-size: 1rem;
-      font-weight: 500;
-      text-align: center;
-      text-decoration: none;
-
-      transition: background 250ms ease-in-out, transform 150ms ease;
-
-      cursor: pointer;
-
-      -webkit-appearance: none;
-      -moz-appearance: none;
-    }
-
-    & > .view-all:hover,
-    .view-all:focus {
-      background-color: rgba(255, 255, 255, 0.1);
-      box-shadow: 0px 3px 5px 2px rgba(0, 0, 0, 0.25);
-    }
-
-    & > .view-all:focus {
-      outline: 1px solid #fff;
-      outline-offset: -4px;
-    }
-
-    & > .view-all:active {
-      transform: scale(0.99);
-    }
-
-    .viewAllAnimation {
-      position: relative;
-      left: 0.2rem;
-    }
-  }
-
-  .codepen-wrapper {
-    width: 400px;
-  }
-
-  .the-body {
-    & nav {
-      display: none;
-    }
   }
 </style>

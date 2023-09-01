@@ -13,7 +13,9 @@ const { header } = Astro.props;
 </header>
 
 <style>
-  h1 {
-    font-family: var(--sans-font);
+  header {
+    & h1 {
+      font-family: var(--sans-font);
+    }
   }
 </style>

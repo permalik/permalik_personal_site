@@ -31,24 +31,24 @@ p, h1, h2, h3, h4, h5, h6 {
 
   overflow-wrap: break-word;
 }
-// Font Sizing
-// Minor Second
 h1 {
-  font-size: 1.913rem;
+  font-size: 2rem;
 }
-
 h2 {
-  font-size: 1.383rem;
+  font-size: 1.25rem;
 }
-
-h3 {font-size: 1.296rem;}
-
-h4 {font-size: 1.215rem;}
-
-h5, h6 {font-size: 1.138rem;}
-
-small, .text_small {font-size: 0.937rem;}
-
+h3 {
+  font-size: 1.296rem;
+}
+h4 {
+  font-size: 1.215rem;
+}
+h5, h6 {
+  font-size: 1.138rem;
+}
+small, .text_small {
+  font-size: 0.937rem;
+}
 p, a {
   font-size: clamp(1rem, 5vw, 1.125rem);
 }
@@ -64,12 +64,11 @@ ul {
 }
 .content {
   display: grid;
-
   & h2, h3, h4, h5, h6 {
     font-family: var(--sans-font);
   }
-  & h2, h3, h4, h5, h6 {
-    padding-top: 2.5rem;
+  & h2:not(:first-of-type), h3, h4, h5, h6 {
+    padding: 2.5rem 0 0;
   }
   & h4 {
     font-weight: 400;
@@ -91,10 +90,3 @@ ul {
     opacity: .85;
   }
 }
-
-/* Positioning */
-/* Box Model */
-/* Display */
-/* Color */
-/* Text */
-/* Other */

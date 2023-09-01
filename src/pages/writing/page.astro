@@ -24,7 +24,6 @@ const edition = () => {
       <h1>{frontmatter.title}</h1>
       <p class='description'>{frontmatter.description}</p>
     </header>
-    <img src={frontmatter.imageUrl} alt='' />
     <div class='metrics'>
       <p>
         {edition}
@@ -33,10 +32,6 @@ const edition = () => {
       <time datetime={frontmatter.createdAt.slice(0, 10)}>
         {frontmatter.createdAt.slice(0, 10).split('-').join('.')}
       </time>
-      <span>•</span>
-      <p>
-        {frontmatter.author}
-      </p>
     </div>
     <ul class='tags'>
       {
@@ -56,6 +51,7 @@ const edition = () => {
 <style>
   .writing-layout {
     & header {
+      margin: 0 0 0.75rem;
       & h1 {
         font-family: var(--sans-font);
       }
@@ -67,29 +63,19 @@ const edition = () => {
         font-weight: 600;
       }
     }
-    & img {
-      padding: 4rem 0;
-    }
     & .metrics {
       display: flex;
       align-items: baseline;
 
       & > * {
-        background: -webkit-linear-gradient(
-          180deg,
-          hsla(0, 60%, 99%, 0.75),
-          hsla(0, 60%, 99%, 0.45)
-        );
-
         font-family: Monaco, 'Courier New', Courier;
         font-size: 0.8rem;
         font-weight: 600;
         letter-spacing: 0.045rem;
 
-        white-space: nowrap;
+        opacity: 0.75;
 
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+        white-space: nowrap;
       }
       & > span {
         padding: 0 0.5rem;
@@ -99,7 +85,8 @@ const edition = () => {
       }
     }
     & .tags {
-      padding-top: 0.75rem;
+      margin: 0 0 5rem;
+      padding: 0.75rem 0 0;
 
       display: flex;
       flex-flow: row wrap;
@@ -112,7 +99,7 @@ const edition = () => {
       }
 
       & li:not(:last-child) {
-        margin-right: 0.85rem;
+        margin: 0 0.85rem 0 0;
       }
 
       & li > a {
