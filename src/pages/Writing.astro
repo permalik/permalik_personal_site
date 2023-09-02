@@ -1,0 +1,46 @@
+---
+import Header from './Header.astro';
+
+const allPosts = await Astro.glob('./writing/*.md');
+---
+
+<section>
+  <h2>writing</h2>
+  <ul>
+    {
+      allPosts.map((post) => (
+        <li>
+          <header>
+            <p>{post.frontmatter.type}</p>
+            <h3>{post.frontmatter.title}</h3>
+          </header>
+          <p>{post.frontmatter.description}</p>
+          <ul>{
+            Object.values(post.frontmatter.tags).map((tag) => (
+              <li>{tag}</li>
+            ))
+            }</ul>
+        </li>
+      ))
+    }
+  </ul>
+</section>
+
+<style>
+  /* h2 {
+    text-transform: capitalize;
+  }
+  ul {
+    padding-top: 2.5rem;
+  }
+  li:not(:first-child) {
+    padding-top: 1rem;
+  }
+  li:not(:last-child) {
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  p {
+    padding-top: 0.5rem;
+  } */
+</style>
