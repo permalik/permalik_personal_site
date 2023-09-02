@@ -1,21 +1,44 @@
----
-export interface Props {
-  header: string;
-}
-
-const { header } = Astro.props;
----
-
 <header>
-  <h1>
-    {header}
-  </h1>
+  <h1>Ty Malik</h1>
+  <p>
+    This is some text that describes perspective as a guy that types for a
+    living developer.
+  </p>
+  <nav>
+    <a href='https://github.com/permalik/'>
+      <img src='/icon-github.svg' alt='GitHub icon' />
+    </a>
+    <a href='https://www.linkedin.com/in/permalik/'>
+      <img src='/icon-linkedin.svg' alt='LinkedIn icon' />
+    </a>
+    <a href='mailto:tymalik@pm.me'>
+      <img src='/icon-mail.svg' alt='Mail icon' />
+    </a>
+  </nav>
 </header>
 
-<style>
+<style lang='scss'>
   header {
-    & h1 {
-      font-family: var(--sans-font);
+    margin: 0 0 5rem;
+
+    font-family: var(--sans-font);
+
+    & p {
+      margin: 0 0 1rem;
+      max-width: calc(10rem + 100px);
+    }
+
+    & nav {
+      display: flex;
+      flex-wrap: nowrap;
+
+      & a {
+        opacity: 0.5;
+
+        &:not(:last-child) {
+          margin: 0 2rem 0 0;
+        }
+      }
     }
   }
 </style>

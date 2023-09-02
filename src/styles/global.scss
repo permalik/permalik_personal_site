@@ -1,10 +1,7 @@
 :root {
   --base-light: #FEFBFB;
-  // Rufina: 400, 700
   --sans-font: 'Karla Variable', sans-serif;
-}
-html {
-  color: var(--base-light);
+  --serif-font: 'Merriweather', serif;
 }
 *, *::before, *::after {
   box-sizing: border-box;
@@ -13,10 +10,12 @@ html {
   margin: 0;
 }
 body {
-  // Oxygen: 300, 400, 700
-  font-family: 'Merriweather', serif;
+  color: var(--base-light);
+
+  font-family: var(--sans-font);
   font-weight: 300;
   line-height: 1.5;
+  overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
 }
 img, picture, video, canvas, svg {
@@ -25,11 +24,6 @@ img, picture, video, canvas, svg {
 }
 input, button, textarea, select {
   font: inherit;
-}
-p, h1, h2, h3, h4, h5, h6 {
-  letter-spacing: .03rem;
-
-  overflow-wrap: break-word;
 }
 h1 {
   font-size: 2rem;
@@ -47,10 +41,10 @@ h5, h6 {
   font-size: 1.138rem;
 }
 small, .text_small {
-  font-size: 0.937rem;
+  font-size: 0.75rem;
 }
 p, a {
-  font-size: clamp(1rem, 5vw, 1.125rem);
+  font-size: clamp(.8rem, 4.5vw, 1.125rem);
 }
 a {
   color: #FEFBFB;
@@ -85,6 +79,7 @@ ul {
 
     place-self: center;
 
+    font-family: var(--serif-font);
     font-size: 1.25rem;
 
     opacity: .85;
