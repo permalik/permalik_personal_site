@@ -1,0 +1,40 @@
+---
+import Header from './Header.astro';
+import WritingList from './List.astro';
+
+const allPosts = await Astro.glob('../../pages/writing/*.md');
+---
+
+<section>
+  <header>
+    <h2>writing</h2>
+    <img src='/icon-arrow-right.svg' alt='Right icon ' />
+  </header>
+  <WritingList posts={allPosts} />
+</section>
+
+<style>
+  section {
+    margin: 0 0 5rem;
+
+    & header {
+      margin: 0 0 1rem;
+
+      display: flex;
+
+      & h2 {
+        margin: 0 0.25rem 0 0;
+
+        text-transform: capitalize;
+      }
+    }
+    & ul {
+      & li {
+        & a {
+          height: 100%;
+          width: 100%;
+        }
+      }
+    }
+  }
+</style>

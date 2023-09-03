@@ -1,0 +1,58 @@
+---
+const { posts } = Astro.props;
+---
+
+<ul>
+  <li>
+    <header>
+      <small>portfolio</small>
+      <h3>001 Archive</h3>
+    </header>
+    <p class='text_small'>Development portfolio and writing archive</p>
+  </li>
+  <li>
+    <header>
+      <small>lab</small>
+      <h3>002 Style</h3>
+    </header>
+    <p class='text_small'>Design, Animations, and 3D</p>
+  </li>
+  <li>
+    <header>
+      <small>lab</small>
+      <h3>003 Utility</h3>
+    </header>
+    <p class='text_small'>Utilities, Tools, and Jobs</p>
+  </li>
+</ul>
+
+<style lang='scss'>
+  ul {
+    & li {
+      max-width: 37.5rem;
+      padding: 0.65rem 0;
+
+      & header {
+        & small {
+          color: var(--secondary-accent);
+
+          font-weight: 400;
+
+          text-transform: uppercase;
+        }
+      }
+
+      &:hover {
+        background-color: hsla(0, 60%, 99%, 0.01);
+        backdrop-filter: blur(1px);
+
+        cursor: pointer;
+      }
+    }
+    @media (min-width: 31.25rem) {
+      & li {
+        padding: 0.65rem 0.5rem;
+      }
+    }
+  }
+</style>
