@@ -1,5 +1,8 @@
 :root {
-  --base-light: #FEFBFB;
+  --primary-dark: #141414;
+  --primary-light: #FEFBFB;
+  --secondary-accent: #FB5640;
+  --tertiary-accent: #40FBB4;
   --sans-font: 'Karla Variable', sans-serif;
   --serif-font: 'Merriweather', serif;
 }
@@ -10,7 +13,7 @@
   margin: 0;
 }
 body {
-  color: var(--base-light);
+  color: var(--primary-light);
 
   font-family: var(--sans-font);
   font-weight: 300;
@@ -29,19 +32,19 @@ h1 {
   font-size: 2rem;
 }
 h2 {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
 }
 h3 {
-  font-size: 1.296rem;
+  font-size: 1.125rem;
 }
 h4 {
-  font-size: 1.215rem;
+  font-size: 1.125rem;
 }
 h5, h6 {
-  font-size: 1.138rem;
+  font-size: 1.05rem;
 }
 small, .text_small {
-  font-size: 0.75rem;
+  font-size: clamp(0.75rem, 3vw, .95rem);
 }
 p, a {
   font-size: clamp(.8rem, 4.5vw, 1.125rem);
@@ -50,6 +53,10 @@ a {
   color: #FEFBFB;
 
   text-decoration: none;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 ul {
   padding: 0;

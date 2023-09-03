@@ -2,19 +2,18 @@
 const { posts } = Astro.props;
 ---
 
-<ul>
+<ul class='post-list'>
   {
     posts.map((post) => (
-      <li>
-        <a href={post.frontmatter.url}>
+      <li class='post'>
+        <a href={post.url}>
           <header>
-            <p>{post.frontmatter.type}</p>
+            <small>{post.frontmatter.type}</small>
             <h3>{post.frontmatter.title}</h3>
           </header>
-          <p>{post.frontmatter.description}</p>
-          <ul>
+          <ul class='tag-list'>
             {Object.values(post.frontmatter.tags).map((tag) => (
-              <li>{tag}</li>
+              <li class='tag text_small'>{tag}</li>
             ))}
           </ul>
         </a>
@@ -22,3 +21,38 @@ const { posts } = Astro.props;
     ))
   }
 </ul>
+
+<style lang='scss'>
+  .post-list {
+    & .post {
+      padding: 0.65rem 1rem;
+
+      & a {
+        height: 100%;
+        width: 100%;
+
+        & header {
+          & small {
+            color: var(--secondary-accent);
+
+            font-weight: 400;
+
+            text-transform: uppercase;
+          }
+        }
+      }
+    }
+  }
+  .tag-list {
+    display: flex;
+    flex-wrap: wrap;
+
+    .tag {
+      text-transform: uppercase;
+    }
+
+    & .tag:not(:last-child) {
+      margin: 0 0.5rem 0 0;
+    }
+  }
+</style>
