@@ -1,0 +1,24 @@
+---
+const { posts } = Astro.props;
+---
+
+<ul>
+  {
+    posts.map((post) => (
+      <li>
+        <a href={post.frontmatter.url}>
+          <header>
+            <p>{post.frontmatter.type}</p>
+            <h3>{post.frontmatter.title}</h3>
+          </header>
+          <p>{post.frontmatter.description}</p>
+          <ul>
+            {Object.values(post.frontmatter.tags).map((tag) => (
+              <li>{tag}</li>
+            ))}
+          </ul>
+        </a>
+      </li>
+    ))
+  }
+</ul>

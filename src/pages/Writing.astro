@@ -1,5 +1,6 @@
 ---
 import Header from './Header.astro';
+import WritingList from './List.astro';
 
 const allPosts = await Astro.glob('./writing/*.md');
 ---
@@ -9,24 +10,7 @@ const allPosts = await Astro.glob('./writing/*.md');
     <h2>writing</h2>
     <img src='/icon-arrow-right.svg' alt='Right icon ' />
   </header>
-  <ul>
-    {
-      allPosts.map((post) => (
-        <li>
-          <header>
-            <p>{post.frontmatter.type}</p>
-            <h3>{post.frontmatter.title}</h3>
-          </header>
-          <p>{post.frontmatter.description}</p>
-          <ul>
-            {Object.values(post.frontmatter.tags).map((tag) => (
-              <li>{tag}</li>
-            ))}
-          </ul>
-        </li>
-      ))
-    }
-  </ul>
+  <WritingList posts={allPosts} />
 </section>
 
 <style>
@@ -42,18 +26,13 @@ const allPosts = await Astro.glob('./writing/*.md');
         text-transform: capitalize;
       }
     }
+    & ul {
+      & li {
+        & a {
+          height: 100%;
+          width: 100%;
+        }
+      }
+    }
   }
-  /* ul {
-    padding-top: 2.5rem;
-  }
-  li:not(:first-child) {
-    padding-top: 1rem;
-  }
-  li:not(:last-child) {
-    padding-bottom: 1rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  }
-  p {
-    padding-top: 0.5rem;
-  } */
 </style>
