@@ -1,6 +1,5 @@
 ---
 import PostList from './List.astro';
-const allPosts = await Astro.glob('../../pages/writing/*.md');
 ---
 
 <section>
@@ -10,7 +9,7 @@ const allPosts = await Astro.glob('../../pages/writing/*.md');
       <img src='/icon-arrow-right.svg' alt='Right icon ' />
     </a>
   </header>
-  <PostList posts={allPosts} />
+  <PostList />
 </section>
 
 <style>

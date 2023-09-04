@@ -2,13 +2,26 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 const { frontmatter } = Astro.props;
 
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts');
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post }
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+
 const edition = () => {
-  if (frontmatter.edition < 10) {
-    return `00${frontmatter.edition}`;
-  } else if (frontmatter.edition < 100) {
-    return `0${frontmatter.edition}`;
+  if (post.data.edition < 10) {
+    return `00${post.data.edition}`;
+  } else if (post.data.edition < 100) {
+    return `0${post.data.edition}`;
   } else {
-    return frontmatter.edition;
+    return post.data.edition;
   }
 };
 ---
@@ -16,21 +29,21 @@ const edition = () => {
 <BaseLayout>
   <div class='writing-layout'>
     <header>
-      <h1>{frontmatter.title}</h1>
-      <p>{frontmatter.description}</p>
+      <h1>{post.data.title}</h1>
+      <p>{post.data.description}</p>
     </header>
     <div class='metrics'>
       <p>
         {edition}
       </p>
       <span>|</span>
-      <time datetime={frontmatter.createdAt.slice(0, 10)}>
-        {frontmatter.createdAt.slice(0, 10).split('-').join('.')}
+      <time datetime={post.data.createdAt.slice(0, 10)}>
+        {post.data.createdAt.slice(0, 10).split('-').join('.')}
       </time>
     </div>
     <ul class='tags'>
       {
-        frontmatter.tags.map((tag) => (
+        post.data.tags.map((tag) => (
           <li>
             <a href='/'>{tag}</a>
           </li>
@@ -38,7 +51,7 @@ const edition = () => {
       }
     </ul>
     <div class='content'>
-      <slot />
+      <Content />
     </div>
   </div>
 </BaseLayout>

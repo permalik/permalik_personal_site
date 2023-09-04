@@ -1,13 +1,12 @@
 ---
 import FullPostList from './FullList.astro';
-const allPosts = await Astro.glob('../../pages/writing/*.md');
 ---
 
 <section>
   <header>
     <h2>all writing</h2>
   </header>
-  <FullPostList posts={allPosts} />
+  <FullPostList />
 </section>
 
 <style>
