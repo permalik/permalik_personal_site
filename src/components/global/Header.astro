@@ -1,5 +1,7 @@
 <header>
-  <h1>Ty Malik</h1>
+  <a href='/'>
+    <h1>Ty Malik</h1>
+  </a>
   <p>
     <span> I develop software, read, and write.</span>
     <span> This is an archive of my work.</span>
@@ -25,6 +27,12 @@
     font-family: var(--sans-font);
 
     padding: 1rem clamp(1.25rem, 3vw, 2rem);
+
+    & a {
+      & h1 {
+        display: inline-block;
+      }
+    }
 
     & p {
       margin: 0 0 1rem;
