@@ -1,8 +1,8 @@
 <header>
   <h1>Ty Malik</h1>
   <p>
-    This is some text that describes perspective as a guy that types for a
-    living developer.
+    <span> I develop software, read, and write.</span>
+    <span> This is an archive of my work.</span>
   </p>
   <nav>
     <a href='https://github.com/permalik/'>
@@ -26,6 +26,10 @@
     & p {
       margin: 0 0 1rem;
       max-width: calc(10rem + 100px);
+
+      & > span {
+        display: table;
+      }
     }
 
     & nav {
@@ -37,6 +41,11 @@
 
         &:not(:last-child) {
           margin: 0 2rem 0 0;
+        }
+
+        & img {
+          height: 1.5rem;
+          width: 1.5rem;
         }
       }
     }

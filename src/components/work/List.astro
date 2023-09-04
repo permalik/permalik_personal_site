@@ -1,29 +1,46 @@
 ---
-const { posts } = Astro.props;
+const redisURL = import.meta.env.PUBLIC_UPSTASH_REDIS_REST_URL;
+const redisToken = import.meta.env.PUBLIC_UPSTASH_REDIS_REST_TOKEN;
+const token = `Bearer ${redisToken}`;
+
+const allRepos = await fetch(
+  `${redisURL}/mget/001_archive/002_style/003_utility/004_js_and_ts/005_rust/ghmetrics`,
+  {
+    headers: { Authorization: token }
+  }
+)
+  .then((response) => response.json())
+  .then((data) => {
+    const result = data.result;
+    const repos = result.map((repo) => JSON.parse(repo));
+    return repos;
+  });
 ---
 
 <ul>
-  <li>
-    <header>
-      <small>portfolio</small>
-      <h3>001 Archive</h3>
-    </header>
-    <p class='text_small'>Development portfolio and writing archive</p>
-  </li>
-  <li>
-    <header>
-      <small>lab</small>
-      <h3>002 Style</h3>
-    </header>
-    <p class='text_small'>Design, Animations, and 3D</p>
-  </li>
-  <li>
-    <header>
-      <small>lab</small>
-      <h3>003 Utility</h3>
-    </header>
-    <p class='text_small'>Utilities, Tools, and Jobs</p>
-  </li>
+  {
+    allRepos.map((repo) => (
+      <li>
+        <header>
+          <small>
+            {repo.description != `n/a`
+              ? repo.description
+                  .split(`:`)
+                  .map((item) => item)
+                  .slice(0, -1)
+              : `project`}
+          </small>
+          <h3>{repo.name.split(`_`).join(` `)}</h3>
+        </header>
+        <p class='text_small'>
+          {repo.description
+            .split(`:`)
+            .map((item) => item)
+            .slice(1)}
+        </p>
+      </li>
+    ))
+  }
 </ul>
 
 <style lang='scss'>

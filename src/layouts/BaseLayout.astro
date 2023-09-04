@@ -25,18 +25,6 @@ const { title } = Astro.props;
   </body>
 </html>
 
-<script>
-  const url = new URL(window.location.href);
-
-  if (url.pathname === '/') {
-    document.querySelector('[home-link]').classList.add('active-link');
-  } else if (url.pathname === '/allWriting') {
-    document.querySelector('[writing-link]').classList.add('active-link');
-  } else if (url.pathname === '/allWork') {
-    document.querySelector('[work-link]').classList.add('active-link');
-  }
-</script>
-
 <style lang='scss'>
   body {
     min-height: 100vh;

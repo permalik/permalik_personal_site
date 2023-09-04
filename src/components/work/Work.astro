@@ -1,8 +1,5 @@
 ---
-import Header from './Header.astro';
 import List from './List.astro';
-
-const allPosts = await Astro.glob('../../pages/writing/*.md');
 ---
 
 <section>
@@ -10,7 +7,7 @@ const allPosts = await Astro.glob('../../pages/writing/*.md');
     <h2>work</h2>
     <img src='/icon-arrow-right.svg' alt='Right icon' />
   </header>
-  <List posts={allPosts} />
+  <List />
 </section>
 
 <style>
