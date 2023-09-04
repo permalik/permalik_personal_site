@@ -4,8 +4,10 @@ import List from './List.astro';
 
 <section>
   <header>
-    <h2>work</h2>
-    <img src='/icon-arrow-right.svg' alt='Right icon' />
+    <a href='/allwork'>
+      <h2>work</h2>
+      <img src='/icon-arrow-right.svg' alt='Right icon' />
+    </a>
   </header>
   <List />
 </section>
@@ -15,7 +17,9 @@ import List from './List.astro';
     & header {
       margin: 0 0 1rem;
 
-      display: flex;
+      & a {
+        display: flex;
+      }
 
       & h2 {
         margin: 0 0.25rem 0 0;

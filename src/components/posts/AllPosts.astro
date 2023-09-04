@@ -1,16 +1,13 @@
 ---
-import PostList from './List.astro';
+import FullPostList from './FullList.astro';
 const allPosts = await Astro.glob('../../pages/writing/*.md');
 ---
 
 <section>
   <header>
-    <a href='/allposts'>
-      <h2>writing</h2>
-      <img src='/icon-arrow-right.svg' alt='Right icon ' />
-    </a>
+    <h2>all writing</h2>
   </header>
-  <PostList posts={allPosts} />
+  <FullPostList posts={allPosts} />
 </section>
 
 <style>
@@ -19,10 +16,6 @@ const allPosts = await Astro.glob('../../pages/writing/*.md');
 
     & header {
       margin: 0 0 1rem;
-
-      & a {
-        display: flex;
-      }
 
       & h2 {
         margin: 0 0.25rem 0 0;

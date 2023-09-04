@@ -1,0 +1,62 @@
+---
+const { posts } = Astro.props;
+---
+
+<ul>
+  {
+    posts.map((post) => (
+      <li class='post'>
+        <small>{post.frontmatter.type}</small>
+        <a href={post.url}>
+          <header>
+            <h3>{post.frontmatter.title}</h3>
+          </header>
+        </a>
+        <p class='text_small'>{post.frontmatter.description}</p>
+      </li>
+    ))
+  }
+</ul>
+
+<style lang='scss'>
+  ul {
+    & li {
+      max-width: 37.5rem;
+      padding: 0.65rem 0;
+
+      & small {
+        color: var(--secondary-accent);
+
+        font-weight: 400;
+
+        text-transform: uppercase;
+      }
+
+      & a {
+        height: 100%;
+        width: 100%;
+
+        & header {
+          & h3 {
+            position: relative;
+            display: inline-block;
+          }
+          & h3::after {
+            content: '';
+            position: absolute;
+            bottom: -0.25rem;
+            left: 0;
+            height: 0;
+            width: 100%;
+            background-color: var(--tertiary-accent-750);
+            transition: bottom 0.3s ease;
+          }
+          & h3:hover::after {
+            bottom: -0.0125rem;
+            height: 0.125rem;
+          }
+        }
+      }
+    }
+  }
+</style>
