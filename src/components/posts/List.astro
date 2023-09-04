@@ -6,13 +6,13 @@ const { posts } = Astro.props;
   {
     posts.map((post) => (
       <li class='post'>
+        <small>{post.frontmatter.type}</small>
         <a href={post.url}>
-          <small>{post.frontmatter.type}</small>
           <header>
             <h3>{post.frontmatter.title}</h3>
           </header>
-          <p class='text_small'>{post.frontmatter.description}</p>
         </a>
+        <p class='text_small'>{post.frontmatter.description}</p>
       </li>
     ))
   }
@@ -24,17 +24,17 @@ const { posts } = Astro.props;
       max-width: 37.5rem;
       padding: 0.65rem 0;
 
+      & small {
+        color: var(--secondary-accent);
+
+        font-weight: 400;
+
+        text-transform: uppercase;
+      }
+
       & a {
         height: 100%;
         width: 100%;
-
-        & small {
-          color: var(--secondary-accent);
-
-          font-weight: 400;
-
-          text-transform: uppercase;
-        }
 
         & header {
           & h3 {
@@ -48,7 +48,7 @@ const { posts } = Astro.props;
             left: 0;
             height: 0;
             width: 100%;
-            background-color: #fb5640;
+            background-color: var(--tertiary-accent-750);
             transition: bottom 0.3s ease;
           }
           & h3:hover::after {
@@ -56,11 +56,6 @@ const { posts } = Astro.props;
             height: 0.125rem;
           }
         }
-      }
-    }
-    @media (min-width: 31.25rem) {
-      & li {
-        padding: 0.65rem 0.5rem;
       }
     }
   }

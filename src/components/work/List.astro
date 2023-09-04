@@ -15,22 +15,25 @@ const allRepos = await fetch(
     const repos = result.map((repo) => JSON.parse(repo));
     return repos;
   });
+let isControls = false;
 ---
 
 <ul>
   {
     allRepos.map((repo) => (
-      <li class='list-item'>
+      <li>
         <header>
-          <small>
-            {repo.description != `n/a`
-              ? repo.description
-                  .split(`:`)
-                  .map((item) => item)
-                  .slice(0, -1)
-              : `project`}
-          </small>
-          <h3>{repo.name.split(`_`).join(` `)}</h3>
+          <section>
+            <small>
+              {repo.description != `n/a`
+                ? repo.description
+                    .split(`:`)
+                    .map((item) => item)
+                    .slice(0, -1)
+                : `project`}
+            </small>
+          </section>
+          <h3 class='heading'>{repo.name.split(`_`).join(` `)}</h3>
         </header>
         <p class='text_small'>
           {repo.description
@@ -38,6 +41,16 @@ const allRepos = await fetch(
             .map((item) => item)
             .slice(1)}
         </p>
+        <nav>
+          <a class='text_small' href={repo.htmlURL}>
+            source
+          </a>
+          {repo.homepage != `n/a` ? (
+            <a class='text_small' href={repo.homepage}>
+              demo
+            </a>
+          ) : null}
+        </nav>
       </li>
     ))
   }
@@ -46,29 +59,43 @@ const allRepos = await fetch(
 <style lang='scss'>
   ul {
     & li {
+      position: relative;
+
       max-width: 37.5rem;
       padding: 0.65rem 0;
 
       & header {
-        & small {
-          color: var(--secondary-accent);
+        & section:first-of-type {
+          display: flex;
+          align-items: center;
 
-          font-weight: 400;
+          & small {
+            margin: 0 2rem 0 0;
 
-          text-transform: uppercase;
+            color: var(--secondary-accent);
+
+            font-weight: 400;
+
+            text-transform: uppercase;
+          }
         }
       }
 
-      &:hover {
-        background-color: hsla(0, 60%, 99%, 0.01);
-        backdrop-filter: blur(1px);
+      & nav {
+        & a {
+          color: var(--tertiary-accent-750);
 
-        cursor: pointer;
-      }
-    }
-    @media (min-width: 31.25rem) {
-      & li {
-        padding: 0.65rem 0.5rem;
+          font-weight: 600;
+          text-transform: uppercase;
+
+          &:hover {
+            color: var(--tertiary-accent);
+          }
+        }
+
+        & a:first-of-type {
+          margin: 0 1rem 0 0;
+        }
       }
     }
   }

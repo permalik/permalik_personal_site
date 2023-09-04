@@ -2,14 +2,17 @@
   --primary-dark: #141414;
   --primary-dark-100: hsla(0, 0%, 8%, .5);
   --primary-light: #FEFBFB;
+  --primary-light-750: hsla(0, 60%, 99%, .75);
   --primary-light-100: hsla(0, 60%, 99%, .05);
   --secondary-accent: #FB5640;
-  --tertiary-accent: #40FBB4;
+  --secondary-accent-800: hsla(7, 96%, 62%, .8);
+  --tertiary-accent: #40E5FB;
+  --tertiary-accent-750: hsla(187, 96%, 62%, .75);
   --sans-font: 'Karla Variable', sans-serif;
   --serif-font: 'Merriweather', serif;
-  --base-font: clamp(.8rem, 4.5vw, 1rem);
-  --heading-one: 2rem;
-  --heading-two: 1.5rem;
+  --base-font: clamp(.75rem, 4vw, 1rem);
+  --heading-one: clamp(1.75rem, 5vw, 2rem);
+  --heading-two: clamp(1.25rem, 5vw, 1.5rem);
   --heading-three: 1.125rem;
   --heading-four: 1.125rem;
   --heading-five: 1.05rem;
@@ -98,7 +101,7 @@ ul {
     padding: 0 0 .75rem 0;
 
     font-family: var(--serif-font);
-    font-size: 1.25rem;
+    font-size: clamp(.8rem, 5vw, 1.125rem);
 
     opacity: .85;
   }
