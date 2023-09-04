@@ -7,8 +7,8 @@ const { posts } = Astro.props;
     posts.map((post) => (
       <li class='post'>
         <a href={post.url}>
+          <small>{post.frontmatter.type}</small>
           <header>
-            <small>{post.frontmatter.type}</small>
             <h3>{post.frontmatter.title}</h3>
           </header>
           <p class='text_small'>{post.frontmatter.description}</p>
@@ -28,20 +28,34 @@ const { posts } = Astro.props;
         height: 100%;
         width: 100%;
 
+        & small {
+          color: var(--secondary-accent);
+
+          font-weight: 400;
+
+          text-transform: uppercase;
+        }
+
         & header {
-          & small {
-            color: var(--secondary-accent);
-
-            font-weight: 400;
-
-            text-transform: uppercase;
+          & h3 {
+            position: relative;
+            display: inline-block;
+          }
+          & h3::after {
+            content: '';
+            position: absolute;
+            bottom: -0.25rem;
+            left: 0;
+            height: 0;
+            width: 100%;
+            background-color: #fb5640;
+            transition: bottom 0.3s ease;
+          }
+          & h3:hover::after {
+            bottom: -0.0125rem;
+            height: 0.125rem;
           }
         }
-      }
-
-      &:hover {
-        background-color: hsla(0, 60%, 99%, 0.01);
-        backdrop-filter: blur(1px);
       }
     }
     @media (min-width: 31.25rem) {
