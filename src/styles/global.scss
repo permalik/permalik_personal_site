@@ -1,10 +1,19 @@
 :root {
   --primary-dark: #141414;
   --primary-light: #FEFBFB;
+  --primary-light-100: hsla(0, 60%, 99%, .05);
   --secondary-accent: #FB5640;
   --tertiary-accent: #40FBB4;
   --sans-font: 'Karla Variable', sans-serif;
   --serif-font: 'Merriweather', serif;
+  --base-font: clamp(.8rem, 4.5vw, 1rem);
+  --heading-one: 2rem;
+  --heading-two: 1.5rem;
+  --heading-three: 1.125rem;
+  --heading-four: 1.125rem;
+  --heading-five: 1.05rem;
+  --small-font: clamp(0.75rem, 3vw, .8rem);
+  --xs-font: clamp(0.5rem, 3vw, .65rem);
 }
 *, *::before, *::after {
   box-sizing: border-box;
@@ -29,31 +38,31 @@ input, button, textarea, select {
   font: inherit;
 }
 h1 {
-  font-size: 2rem;
+  font-size: var(--heading-one);
 }
 h2 {
-  font-size: 1.5rem;
+  font-size: var(--heading-two);
 }
 h3 {
-  font-size: 1.125rem;
+  font-size: var(--heading-three);
 }
 h4 {
-  font-size: 1.125rem;
+  font-size: var(--heading-four);
 }
 h5, h6 {
-  font-size: 1.05rem;
+  font-size: var(--heading-five);
 }
 small, .text_small {
-  font-size: clamp(0.75rem, 3vw, .8rem);
+  font-size: var(--small-font);
 }
 small, .text_xs_small {
-  font-size: clamp(0.5rem, 3vw, .65rem);
+  font-size: var(--xs-font);
 }
 p, a {
-  font-size: clamp(.8rem, 4.5vw, 1rem);
+  font-size: var(--base-font);
 }
 a {
-  color: #FEFBFB;
+  color: var(--primary-light);
 
   text-decoration: none;
 
@@ -71,8 +80,8 @@ ul {
   & h2, h3, h4, h5, h6 {
     font-family: var(--sans-font);
   }
-  & h2:not(:first-of-type), h3, h4, h5, h6 {
-    padding: 2.5rem 0 0;
+  & h2, h3, h4, h5, h6 {
+    padding: 2.5rem 0 1.5rem 0;
   }
   & h4 {
     font-weight: 400;
@@ -85,13 +94,36 @@ ul {
     text-transform: uppercase;
   }
   & p {
-    padding-top: .75rem;
-
-    place-self: center;
+    padding: 0 0 .75rem 0;
 
     font-family: var(--serif-font);
     font-size: 1.25rem;
 
     opacity: .85;
+  }
+  ol {
+    padding: 1rem 0 1rem 2rem;
+
+    & li:not(:last-child) {
+      margin: 0 0 .25rem 0;
+    }
+  }
+  ul {
+    padding: 1rem 0 1rem 2rem;
+
+    list-style-type: disc;
+
+    & li:not(:last-child) {
+      margin: 0 0 .25rem 0;
+    }
+  }
+  & blockquote {
+    margin: 1rem .75rem;
+
+    background-color: var(--primary-light-100);
+
+    & p {
+      padding: .5rem 0 .5rem 1rem;
+    }
   }
 }
