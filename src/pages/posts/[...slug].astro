@@ -42,13 +42,7 @@ const edition = () => {
       </time>
     </div>
     <ul class='tags'>
-      {
-        post.data.tags.map((tag) => (
-          <li>
-            <a href='/'>{tag}</a>
-          </li>
-        ))
-      }
+      {post.data.tags.map((tag) => <li>{tag}</li>)}
     </ul>
     <div class='content'>
       <Content />
