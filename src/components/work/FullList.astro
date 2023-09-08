@@ -12,8 +12,7 @@ const allRepos = await fetch(
   .then((response) => response.json())
   .then((data) => {
     const result = data.result;
-    const repos = result.map((repo) => JSON.parse(repo)).reverse();
-    return repos;
+    return result.map((repo) => JSON.parse(repo)).reverse();
   });
 ---
 

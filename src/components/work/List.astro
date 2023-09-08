@@ -3,7 +3,7 @@ const redisURL = import.meta.env.PUBLIC_UPSTASH_REDIS_REST_URL;
 const redisToken = import.meta.env.PUBLIC_UPSTASH_REDIS_REST_TOKEN;
 const token = `Bearer ${redisToken}`;
 
-const allRepos = await fetch(
+let allRepos = await fetch(
   `${redisURL}/mget/001_archive/002_style/003_utility/004_js_and_ts/005_rust/ghmetrics`,
   {
     headers: { Authorization: token }
@@ -11,17 +11,14 @@ const allRepos = await fetch(
 )
   .then((response) => response.json())
   .then((data) => {
-    const result = data.result;
-    const repos = result.map((repo) => JSON.parse(repo));
-    return repos;
+    let result = data.result;
+    return result.map((repo) => JSON.parse(repo)).reverse();
   });
-
-const prunedRepos = allRepos.slice(3).reverse();
 ---
 
 <ul>
   {
-    prunedRepos.map((repo) => (
+    allRepos.slice(0, -(allRepos.length - 3)).map((repo) => (
       <li>
         <header>
           <small>
