@@ -15,11 +15,13 @@ const allRepos = await fetch(
     const repos = result.map((repo) => JSON.parse(repo));
     return repos;
   });
+
+const prunedRepos = allRepos.slice(3).reverse();
 ---
 
 <ul>
   {
-    allRepos.map((repo) => (
+    prunedRepos.map((repo) => (
       <li>
         <header>
           <small>
