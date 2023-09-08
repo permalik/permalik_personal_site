@@ -37,8 +37,8 @@ const edition = () => {
         {edition}
       </p>
       <span>|</span>
-      <time datetime={post.data.createdAt.slice(0, 10)}>
-        {post.data.createdAt.slice(0, 10).split('-').join('.')}
+      <time datetime={post.data.createdAt}>
+        {post.data.createdAt.toString().slice(0, -42)}
       </time>
     </div>
     <ul class='tags'>
