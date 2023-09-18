@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import HoverLink from '../../components/global/HoverLink.astro';
 const { frontmatter } = Astro.props;
 
 import { getCollection } from 'astro:content';
@@ -42,7 +43,13 @@ const edition = () => {
       </time>
     </div>
     <ul class='tags'>
-      {post.data.tags.map((tag) => <li>{tag}</li>)}
+      {
+        post.data.tags.map((tag) => (
+          <li>
+            <HoverLink href='/' title={tag} />
+          </li>
+        ))
+      }
     </ul>
     <div class='content'>
       <Content />
@@ -96,31 +103,11 @@ const edition = () => {
       flex-flow: row wrap;
 
       & li {
-        display: flex;
-        justify-content: center;
-
         line-height: 2.5;
       }
 
       & li:not(:last-child) {
         margin: 0 0.85rem 0 0;
-      }
-
-      & li {
-        display: inline;
-
-        font-family: var(--sans-font);
-        font-size: 0.8rem;
-        font-weight: 600;
-        text-transform: uppercase;
-
-        color: var(--tertiary-accent-750);
-
-        white-space: nowrap;
-      }
-
-      & li > a:hover {
-        color: var(--tertiary-accent);
       }
 
       & li > a:active {

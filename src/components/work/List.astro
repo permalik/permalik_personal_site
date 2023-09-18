@@ -1,4 +1,5 @@
 ---
+import HoverLink from '../global/HoverLink.astro';
 const redisURL = import.meta.env.PUBLIC_UPSTASH_REDIS_REST_URL;
 const redisToken = import.meta.env.PUBLIC_UPSTASH_REDIS_REST_TOKEN;
 const token = `Bearer ${redisToken}`;
@@ -38,9 +39,7 @@ let allRepos = await fetch(
             .slice(1)}
         </p>
         <nav>
-          <a class='text_small' href={repo.htmlURL}>
-            source
-          </a>
+          <HoverLink href={repo.htmlURL} title='source' />
           {repo.homepage != `n/a` ? (
             <a class='text_small' href={repo.homepage}>
               demo
@@ -70,17 +69,6 @@ let allRepos = await fetch(
         }
       }
       & nav {
-        & a {
-          color: var(--tertiary-accent-750);
-
-          font-weight: 600;
-          text-transform: uppercase;
-
-          &:hover {
-            color: var(--tertiary-accent);
-          }
-        }
-
         & a:first-of-type {
           margin: 0 1rem 0 0;
         }
