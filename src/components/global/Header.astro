@@ -48,8 +48,6 @@
       flex-wrap: nowrap;
 
       & a {
-        opacity: 0.5;
-
         &:not(:last-child) {
           margin: 0 2rem 0 0;
         }
@@ -57,6 +55,14 @@
         & img {
           height: 1.5rem;
           width: 1.5rem;
+
+          opacity: 0.5;
+        }
+
+        & img:hover {
+          filter: invert(40%) sepia(61%) saturate(2913%) hue-rotate(309deg)
+            brightness(93%) contrast(94%);
+          opacity: 1;
         }
       }
     }
