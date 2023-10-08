@@ -5,7 +5,7 @@ const redisToken = import.meta.env.PUBLIC_UPSTASH_REDIS_REST_TOKEN;
 const token = `Bearer ${redisToken}`;
 
 let allRepos = await fetch(
-  `${redisURL}/mget/001_archive/002_style/003_utility/004_js_and_ts/005_rust/ghmetrics`,
+  `${redisURL}/mget/TextFlowClient/utility/archive`,
   {
     headers: { Authorization: token }
   }
@@ -18,40 +18,29 @@ let allRepos = await fetch(
 ---
 
 <ul>
-  {
-    allRepos.slice(0, -(allRepos.length - 3)).map((repo) => (
-      <li>
-        <header>
-          <small>
-            {repo.description != `n/a`
-              ? repo.description
-                  .split(`:`)
-                  .map((item) => item)
-                  .slice(0, -1)
-              : `project`}
-          </small>
-          <h3 class='heading'>{repo.name.split(`_`).join(` `)}</h3>
-        </header>
-        <p class='text_small'>
-          {repo.description
-            .split(`:`)
-            .map((item) => item)
-            .slice(1)}
-        </p>
-        <nav>
-          <HoverLink href={repo.htmlURL} title='source' />
-          {repo.homepage != `n/a` ? (
-            <a class='text_small' href={repo.homepage}>
-              demo
-            </a>
-          ) : null}
-        </nav>
-      </li>
-    ))
-  }
+  { allRepos.slice(0, -(allRepos.length - 2)).map((repo) => (
+  <li>
+    <header>
+      <small>
+        {repo.description != `n/a` ? repo.description .split(`:`) .map((item) =>
+        item) .slice(0, -1) : `project`}
+      </small>
+      <h3 class="heading">{repo.name.split(`_`).join(` `)}</h3>
+    </header>
+    <p class="text_small">
+      {repo.description .split(`:`) .map((item) => item) .slice(1)}
+    </p>
+    <nav>
+      <HoverLink href="{repo.htmlURL}" title="source" />
+      {repo.homepage != `n/a` ? (
+      <a class="text_small" href="{repo.homepage}"> demo </a>
+      ) : null}
+    </nav>
+  </li>
+  )) }
 </ul>
 
-<style lang='scss'>
+<style lang="scss">
   ul {
     & li {
       max-width: 37.5rem;
