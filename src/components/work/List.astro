@@ -33,7 +33,7 @@ let allRepos = await fetch(
     <nav>
       <HoverLink href="{repo.htmlURL}" title="source" />
       {repo.homepage != `n/a` ? (
-      <a class="text_small" href="{repo.homepage}"> demo </a>
+      <HoverLink href="{repo.homepage}" title="demo" />
       ) : null}
     </nav>
   </li>
@@ -55,11 +55,6 @@ let allRepos = await fetch(
           font-weight: 400;
 
           text-transform: uppercase;
-        }
-      }
-      & nav {
-        & a:first-of-type {
-          margin: 0 1rem 0 0;
         }
       }
     }
