@@ -31,9 +31,9 @@ const allRepos = await fetch(
       {repo.description .split(`:`) .map((item) => item) .slice(1)}
     </p>
     <nav>
-      <HoverLink href="{repo.htmlURL}" title="source" />
+      <HoverLink href={repo.htmlURL} title="source" />
       {repo.homepage != `n/a` ? (
-      <HoverLink href="{repo.homepage}" title="demo" />
+      <HoverLink href={repo.homepage} title="demo" />
       ) : null}
     </nav>
   </li>
