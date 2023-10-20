@@ -4,7 +4,8 @@ type: TechDoc
 title: What is JavaScript?
 description: "A synopsis of the JavaScript programming language"
 tags: ['software', 'javascript']
-createdAt: 2023-10-16
+publishedAt: 2023-10-16
+updatedAt: 2023-10-16
 ---
 ## JavaScript, In Short
 JavaScript is the programming language of the web and has reached the height of worldwide popularity.
@@ -56,7 +57,7 @@ Here's the life of JavaScript over the ages:
 | 2018 | ES6 | Full support for ES6 in all browsers |
 
 ## Executing JavaScript
-JavaScript can still be executed in the browser. However, the language has jumped a gap, whereby it can be run server-side, or on any JavaScript_engine_wielding device.
+JavaScript can be run inside a browser. However, the language takes another form; NodeJS, whereby it can be run server-side or on any JavaScript_engine_wielding device.
 
 Browser-embedded JavaScript engines, or JavaScript Virtual Machines, effectively parse the script, compiles the script to machine code, and runs the product of such compilation. These engines take on numerous monikers, respective of the browsing environment in which they live.
 

@@ -9,7 +9,7 @@ let posts = await getCollection('posts', ({ data }) => {
 <ul>
   {
     posts
-      .sort((a, b) => b.data.createdAt - a.data.createdAt)
+      .sort((a, b) => b.data.publishedAt - a.data.publishedAt)
       .map((post) => (
         <li class='post'>
           <small>{post.data.type}</small>

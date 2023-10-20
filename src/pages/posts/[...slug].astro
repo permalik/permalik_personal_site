@@ -35,12 +35,27 @@ const edition = () => {
     </header>
     <div class='metrics'>
       <p>
-        {edition}
+        <span>
+          Edition:
+        </span>
+        <span class='edition'>
+          {edition}
+        </span>
       </p>
-      <span>|</span>
-      <time datetime={post.data.createdAt}>
-        {post.data.createdAt.toString().slice(0, -42)}
-      </time>
+      <p>
+        <span>
+          Published At:
+        </span>
+        <time class='published-at' datetime={post.data.publishedAt}>
+          {post.data.publishedAt.toString().slice(0, -42)}
+        </time>
+      </p>
+      <p>
+        <span>Updated At: </span>
+        <time class='updated-at' datetime={post.data.updatedAt}>
+          {post.data.publishedAt.toString().slice(0, -42)}
+        </time>
+      </p>
     </div>
     <ul class='tags'>
       {
@@ -76,24 +91,23 @@ const edition = () => {
     }
     & .metrics {
       display: flex;
-      align-items: baseline;
+      flex-flow: column nowrap;
 
-      & > * {
-        font-family: Monaco, 'Courier New', Courier;
-        font-size: 0.8rem;
-        font-weight: 600;
-        letter-spacing: 0.045rem;
-
-        color: var(--primary-light-750);
-
-        white-space: nowrap;
-      }
       & > span {
         padding: 0 0.5rem;
       }
+
       & > p:last-of-type {
         letter-spacing: normal;
       }
+    }
+    .edition, .published-at, .updated-at {
+      font-family: Monaco, 'Courier New', Courier;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.045rem;
+
+      color: var(--primary-light-750);
     }
     & .tags {
       margin: 0 0 5rem;
