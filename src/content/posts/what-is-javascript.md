@@ -2,10 +2,10 @@
 edition: 1
 type: TechDoc
 title: What is JavaScript?
-description: "A synopsis of the JavaScript programming language"
+description: "A synopsis of the infamous programming language"
 tags: ['techDoc', 'software', 'javaScript']
-publishedAt: 2023-10-16
-updatedAt: 2023-10-16
+publishedAt: 2023-10-15
+updatedAt: 2023-10-15
 url: what-is-javascript
 ---
 ## JavaScript, In Short
