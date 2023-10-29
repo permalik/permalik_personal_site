@@ -37,7 +37,7 @@ const edition = () => {
       {
         post.data.tags.map((tag) => (
           <li>
-            <HoverLink href='/' title={tag} />
+            <HoverLink href={`/tags/${tag}`} title={tag} />
           </li>
         ))
       }

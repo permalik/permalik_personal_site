@@ -3,9 +3,10 @@ edition: 1
 type: TechDoc
 title: What is JavaScript?
 description: "A synopsis of the JavaScript programming language"
-tags: ['software', 'javascript']
+tags: ['techDoc', 'software', 'javaScript']
 publishedAt: 2023-10-16
 updatedAt: 2023-10-16
+url: what-is-javascript
 ---
 ## JavaScript, In Short
 JavaScript is the programming language of the web and has reached the height of worldwide popularity.
