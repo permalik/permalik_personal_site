@@ -1,5 +1,4 @@
 ---
-edition: 2
 type: TechDoc
 title: JavaScript Variables
 description: "Orchestrating a program's contained values"

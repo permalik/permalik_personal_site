@@ -1,5 +1,4 @@
 ---
-edition: 1
 type: TechDoc
 title: What is JavaScript?
 description: "A synopsis of the infamous programming language"

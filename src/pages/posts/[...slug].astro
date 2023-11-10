@@ -16,15 +16,6 @@ export async function getStaticPaths() {
 const { post } = Astro.props;
 const { Content } = await post.render();
 
-const edition = () => {
-  if (post.data.edition < 10) {
-    return `00${post.data.edition}`;
-  } else if (post.data.edition < 100) {
-    return `0${post.data.edition}`;
-  } else {
-    return post.data.edition;
-  }
-};
 ---
 
 <BaseLayout>
@@ -43,14 +34,6 @@ const edition = () => {
       }
     </ul>
     <section class='metrics'>
-      <p class='edition'>
-        <span class>
-          Edition:
-        </span>
-        <span>
-          {edition}
-        </span>
-      </p>
       <p class='published-at'>
         <span>
           Published:
