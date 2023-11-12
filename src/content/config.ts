@@ -6,8 +6,8 @@ const posts = defineCollection({
     title: z.string(),
     description: z.string(),
     tags: z.array(z.string()),
-    publishedAt: z.date(),
-    updatedAt: z.date(),
+    publishedAt: z.string().transform((str) => new Date(str)),
+    updatedAt: z.string().transform((str) => new Date(str)),
   })
 });
 export const collections = {

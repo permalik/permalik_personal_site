@@ -3,8 +3,8 @@ type: TechDoc
 title: JavaScript Variables
 description: "Orchestrating a program's contained values"
 tags: ['techDoc', 'software', 'javaScript']
-publishedAt: 2023-10-29
-updatedAt: 2023-10-29
+publishedAt: 10-29-2023
+updatedAt: 10-29-2023
 url: javascript-variables
 ---
 ## Variables and Declaration with var, let, and const
