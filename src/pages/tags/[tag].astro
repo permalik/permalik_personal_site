@@ -24,10 +24,9 @@ const { posts } = Astro.props;
 ---
 
 <BaseLayout title={tag}>
-  <h1>Posts tagged with {tag}</h1>
+  <h1><span>#{tag}</span> posts</h1>
   <ul>
-    {
-      posts.map(
+    { posts.map(
         (post) =>
         <li>
           <a href={`/posts/${post.frontmatter.url}`}>
@@ -38,3 +37,25 @@ const { posts } = Astro.props;
     }
   </ul>
 </BaseLayout>
+
+<style lang='scss'>
+  h1 {
+    & span {
+      color: var(--secondary-accent);
+    }
+  }
+
+  ul {
+    line-height: 1.75;
+
+    & li {
+      & a {
+        font-size: 1.125rem;
+      }
+
+      & a:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+</style>
