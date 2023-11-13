@@ -7,10 +7,9 @@ const posts = await getCollection('posts', ({ data }) => {
 ---
 
 <ul>
-  {
-    posts
+  { posts
       .sort((a, b) => b.data.publishedAt- a.data.publishedAt)
-      .slice(0, -(posts.length - 3))
+      .slice(-3, posts.length)
       .map((post) => (
         <li class='post'>
           <small>{post.data.type}</small>
