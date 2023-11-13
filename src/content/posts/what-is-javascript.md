@@ -6,6 +6,14 @@ tags: ['techDoc', 'software', 'javaScript']
 publishedAt: 10-15-2023
 updatedAt: 10-15-2023
 url: what-is-javascript
+sources: [
+  'Roadmap https://www.roadmap.sh/javascript',
+  'MozillaDeveloperNetwork https://developer.mozilla.org/en-US/',
+  'JavaScriptInfo https://javascript.info',
+  'W3Schools https://www.w3schools.com/js/default.asp',
+  'EloquentJavaScript https://eloquentjavascript.net/',
+  "YouDon'tKnowJS https://me.getify.com/"
+]
 ---
 ## JavaScript, In Short
 JavaScript is the programming language of the web and has reached the height of worldwide popularity.

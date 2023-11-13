@@ -19,39 +19,45 @@ const { Content } = await post.render();
 ---
 
 <BaseLayout>
-  <div class='writing-layout'>
+  <div class="writing-layout">
     <header>
       <h1>{post.data.title}</h1>
       <p>{post.data.description}</p>
     </header>
-    <ul class='tags'>
-      {
-        post.data.tags.map((tag) => (
-          <li>
-            <HoverLink href={`/tags/${tag}`} title={tag} />
-          </li>
-        ))
-      }
+    <ul class="tags">
+      { post.data.tags.map((tag) => (
+      <li><HoverLink href={`/tags/${tag}`} title={tag} /></li>
+      )) }
     </ul>
-    <section class='metrics'>
-      <p class='published-at'>
-        <span>
-          Published:
-        </span>
-        <time datetime={post.data.publishedAt}>
+    <section class="metrics">
+      <p class="published-at">
+        <span> Published: </span>
+        <time datetime="{post.data.publishedAt}">
           {post.data.publishedAt.toString().slice(0, -42)}
         </time>
       </p>
-      <p class='updated-at'>
+      <p class="updated-at">
         <span>Updated: </span>
-        <time datetime={post.data.updatedAt}>
+        <time datetime="{post.data.updatedAt}">
           {post.data.publishedAt.toString().slice(0, -42)}
         </time>
       </p>
     </section>
-    <div class='content'>
+    <div class="content">
       <Content />
     </div>
+    <section class="source-section">
+      <p>Sources</p>
+      <ul>
+        { post.data.sources.map((source) => (
+        <li>
+          <a href={source.split(' ')[1]} target='_blank'>
+            {source.split(' ')[0]}
+          </a>
+        </li>
+        )) }
+      </ul>
+    </section>
   </div>
 </BaseLayout>
 
@@ -109,13 +115,26 @@ const { Content } = await post.render();
           display: inline-block;
         }
 
-        & >:last-child {
-        font-family: Monaco, 'Courier New', Courier;
-        font-size: 0.8rem;
-        font-weight: 600;
+        & > :last-child {
+          font-family: Monaco, 'Courier New', Courier;
+          font-size: 0.8rem;
+          font-weight: 600;
 
-        color: var(--primary-light-750);
+          color: var(--primary-light-750);
+        }
       }
+    }
+    .source-section {
+      margin: 2.5rem 0 0;
+
+      & p {
+        font-size: 1.25rem;
+        font-weight: 500;
+        text-transform: uppercase;
+      }
+
+      & ul > li:hover {
+        text-decoration: underline;
       }
     }
   }

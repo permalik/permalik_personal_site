@@ -6,6 +6,14 @@ tags: ['techDoc', 'software', 'javaScript']
 publishedAt: 10-29-2023
 updatedAt: 10-29-2023
 url: javascript-variables
+sources: [
+  'Roadmap https://www.roadmap.sh/javascript',
+  'MozillaDeveloperNetwork https://developer.mozilla.org/en-US/',
+  'JavaScriptInfo https://javascript.info',
+  'W3Schools https://www.w3schools.com/js/default.asp',
+  'EloquentJavaScript https://eloquentjavascript.net/',
+  "YouDon'tKnowJS https://me.getify.com/"
+]
 ---
 ## Variables and Declaration with var, let, and const
 ### A Variable's Purpose

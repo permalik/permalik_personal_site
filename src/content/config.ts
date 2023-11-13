@@ -8,6 +8,7 @@ const posts = defineCollection({
     tags: z.array(z.string()),
     publishedAt: z.string().transform((str) => new Date(str)),
     updatedAt: z.string().transform((str) => new Date(str)),
+    sources: z.array(z.string()),
   })
 });
 export const collections = {
