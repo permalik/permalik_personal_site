@@ -5,7 +5,7 @@ const redisToken = import.meta.env.PUBLIC_UPSTASH_REDIS_REST_TOKEN;
 const token = `Bearer ${redisToken}`;
 
 const allRepos = await fetch(
-  `${redisURL}/mget/atria-note-webserver/terebellum-note-webserver/bid-classics/dsa/utility/nvim/systemysterio/archive`,
+  `${redisURL}/mget/bid-classics/go/javascript/aoc-archive/dsa/utility/nvim/archive`,
   {
     headers: { Authorization: token }
   }
