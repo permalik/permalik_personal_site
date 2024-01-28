@@ -1,5 +1,4 @@
 ---
-import HoverLink from '../global/HoverLink.astro';
 const redisURL = import.meta.env.PUBLIC_UPSTASH_REDIS_REST_URL;
 const redisToken = import.meta.env.PUBLIC_UPSTASH_REDIS_REST_TOKEN;
 const token = `Bearer ${redisToken}`;
@@ -18,6 +17,7 @@ const allRepos = await fetch(
 ---
 
 <ul>
+  projects
   { allRepos.map((repo) => (
   <li>
     <header>
@@ -37,26 +37,44 @@ const allRepos = await fetch(
 </ul>
 
 <style lang="scss">
-  ul {
+h3 {
+    position: relative;
+    display: inline-block;
+}
+h3::after {
+    content: '';
+    position: absolute;
+    bottom: -0.25rem;
+    left: 0;
+    height: 0;
+    width: 100%;
+    background-color: var(--tertiary-accent-750);
+    transition: bottom 0.3s ease;
+}
+h3:hover::after {
+    bottom: -0.0125rem;
+    height: 0.125rem;
+}
+ul {
     & li {
-      max-width: 37.5rem;
-      padding: 0.65rem 0;
+        max-width: 37.5rem;
+        padding: 0.65rem 0;
 
-      & header {
-        & small {
-          margin: 0 2rem 0 0;
-          
-          display: flex;
-          flex-flow: column nowrap;
+        & header {
+            & small {
+                margin: 0 2rem 0 0;
 
-          font-weight: 400;
-          text-transform: uppercase;
-          color: var(--secondary-accent);
+                display: flex;
+                flex-flow: column nowrap;
+
+                font-weight: 400;
+                text-transform: uppercase;
+                color: var(--secondary-accent);
+            }
         }
-      }
     }
-  }
-  .heading {
-      display: inline-block;
-  }
+}
+.heading {
+    display: inline-block;
+}
 </style>
