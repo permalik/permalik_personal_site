@@ -3,78 +3,113 @@ const redisURL = import.meta.env.PUBLIC_UPSTASH_REDIS_REST_URL;
 const redisToken = import.meta.env.PUBLIC_UPSTASH_REDIS_REST_TOKEN;
 const token = `Bearer ${redisToken}`;
 
-const allRepos = await fetch(
-  `${redisURL}/mget/bid-classics/aoc-archive/utility/nvim/archive`,
-  {
-    headers: { Authorization: token }
+async function keys() {
+  try {
+    let res = await fetch(
+      `${redisURL}/keys/*`,
+      {
+        headers: {Authorization: token}
+      }
+    );
+    let data = await res.json()
+    return data.result
+  } catch (err) {
+    console.error(err)
   }
-)
-  .then((response) => response.json())
-  .then((data) => {
-    const result = data.result;
-    return result.map((repo) => JSON.parse(repo));
-  });
----
+}
 
+let name: string
+async function oneRepo(name: string) {
+  try {
+    let res = await fetch(
+      `${redisURL}/mget/${name}`,
+      {
+        headers: {Authorization: token}
+      }
+    );
+    let data = await res.json()
+    return data.result
+  } catch (err) {
+    console.error(err)
+  }
+}
+
+async function manyRepos() {
+  let repos = []
+  let data = await keys()
+  for (let i = 0; i < data.length; i++) {
+    name = data[i]
+    let r = await oneRepo(data[i])
+    repos.push(JSON.parse(r))
+  }
+  return repos
+}
+
+let allRepos = await manyRepos()
+---
 <ul>
   projects
-  { allRepos.map((repo) => (
-  <li>
-    <header>
-      <small>
-        {repo.description != `n/a` ? repo.description .split(`:`) .map((item) =>
-        item) .slice(0, -1) : `project`}
-      </small>
-      <a href={repo.htmlURL}>
-        <h3 class="heading">{repo.name.split(`_`).join(` `)}</h3>
-      </a>
-    </header>
-    <p class="text_small">
-      {repo.description .split(`:`) .map((item) => item) .slice(1)}
-    </p>
-  </li>
-  )) }
+  {
+    allRepos.map((repo) => (
+      <li>
+        <header>
+          <small>
+            {repo.Description != `n/a` ? repo.Description.split(`:`).map((item) => item).slice(0, -1) : `project`}
+          </small>
+          <a href={repo.HTMLURL}>
+            <h3 class="heading">{repo.Name.split(`_`).join(` `)}</h3>
+          </a>
+        </header>
+        <p
+          class="text_small">{repo.Description.split(`:`).map((item) => item).slice(1)}</p>
+      </li>
+    ))
+  }
 </ul>
 
 <style lang="scss">
-h3 {
+  h3 {
     position: relative;
-    display: inline-block;
-}
-h3::after {
+    display: inline - block;
+  }
+
+  h3::after {
     content: '';
     position: absolute;
-    bottom: -0.25rem;
+    bottom: -0.25 rem;
     left: 0;
     height: 0;
     width: 100%;
     background-color: var(--tertiary-accent-750);
     transition: bottom 0.3s ease;
-}
-h3:hover::after {
-    bottom: -0.0125rem;
+  }
+
+  h3:hover::after {
+    bottom: -0.0125 rem;
     height: 0.125rem;
-}
-ul {
+  }
+
+  ul {
     & li {
-        max-width: 37.5rem;
-        padding: 0.65rem 0;
+      max-width: 37.5rem;
+      padding: 0.65rem 0;
 
-        & header {
-            & small {
-                margin: 0 2rem 0 0;
+      & header {
+        & small {
+          margin: 0 2rem 0 0;
 
-                display: flex;
-                flex-flow: column nowrap;
+          display: flex;
+          flex-flow: column nowrap;
 
-                font-weight: 400;
-                text-transform: uppercase;
-                color: var(--secondary-accent);
-            }
+          font-weight: 400;
+          text-transform: uppercase;
+          color: var(--secondary-accent);
         }
+      }
     }
-}
-.heading {
-    display: inline-block;
-}
+  }
+
+  .heading {
+    display: inline - block;
+  }
 </style>
