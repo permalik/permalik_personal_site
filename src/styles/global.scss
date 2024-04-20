@@ -78,6 +78,13 @@ ul {
 
   list-style: none;
 }
+.title {
+  margin: 1.5rem 0 0;
+
+  font-weight: bold;
+  opacity: 0.65;
+  text-transform: uppercase;
+}
 .content {
   display: grid;
   & h2, h3, h4, h5, h6 {

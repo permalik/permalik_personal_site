@@ -46,18 +46,6 @@ export async function getStaticPaths() {
     <div class="content">
       <Content />
     </div>
-    <section class="source-section">
-      <p>Sources</p>
-      <ul>
-        { post.data.sources.map((source) => (
-        <li>
-          <a href={source.split(' ')[1]} target='_blank'>
-            {source.split(' ')[0]}
-          </a>
-        </li>
-        )) }
-      </ul>
-    </section>
   </div>
 </BaseLayout>
 
@@ -122,19 +110,6 @@ export async function getStaticPaths() {
 
           color: var(--primary-light-750);
         }
-      }
-    }
-    .source-section {
-      margin: 2.5rem 0 0;
-
-      & p {
-        font-size: 1.25rem;
-        font-weight: 500;
-        text-transform: uppercase;
-      }
-
-      & ul > li:hover {
-        text-decoration: underline;
       }
     }
   }

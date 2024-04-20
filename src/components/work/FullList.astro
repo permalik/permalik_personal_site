@@ -48,7 +48,7 @@ async function manyRepos() {
 let allRepos = await manyRepos()
 ---
 <ul>
-  projects
+  <div class="title">projects</div>
   {
     allRepos.map((repo) => (
       <li>
@@ -57,7 +57,9 @@ let allRepos = await manyRepos()
             {repo.Description != `n/a` ? repo.Description.split(`:`).map((item) => item).slice(0, -1) : `project`}
           </small>
           <a href={repo.HTMLURL}>
-            <h3 class="heading">{repo.Name.split(`_`).join(` `)}</h3>
+            <h3
+              class="heading">{repo.FullName.split(`/`)[1].split(`_`).join(` `)}
+            </h3>
           </a>
         </header>
         <p
@@ -68,48 +70,48 @@ let allRepos = await manyRepos()
 </ul>
 
 <style lang="scss">
-  h3 {
-    position: relative;
-    display: inline - block;
-  }
+  li {
+    max-width: 37.5rem;
+    padding: 0.65rem 0;
 
-  h3::after {
-    content: '';
-    position: absolute;
-    bottom: -0.25 rem;
-    left: 0;
-    height: 0;
-    width: 100%;
-    background-color: var(--tertiary-accent-750);
-    transition: bottom 0.3s ease;
-  }
+    & header {
+      & small {
+        margin: 0 2rem 0 0;
 
-  h3:hover::after {
-    bottom: -0.0125 rem;
-    height: 0.125rem;
-  }
+        display: flex;
+        flex-flow: column nowrap;
 
-  ul {
-    & li {
-      max-width: 37.5rem;
-      padding: 0.65rem 0;
+        font-weight: 400;
+        text-transform: uppercase;
+        color: var(--secondary-accent);
+      }
 
-      & header {
-        & small {
-          margin: 0 2rem 0 0;
+      & a {
+        height: 100%;
+        width: 100%;
+      }
 
-          display: flex;
-          flex-flow: column nowrap;
 
-          font-weight: 400;
-          text-transform: uppercase;
-          color: var(--secondary-accent);
+      h3 {
+        position: relative;
+        display: inline-block;
+
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: -0.25rem;
+          left: 0;
+          height: 0;
+          width: 100%;
+          background-color: var(--tertiary-accent-750);
+          transition: bottom 0.3s ease;
+        }
+
+        &:hover::after {
+          bottom: -0.0125rem;
+          height: 0.125rem;
         }
       }
     }
-  }
-
-  .heading {
-    display: inline - block;
   }
 </style>
