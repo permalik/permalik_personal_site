@@ -1,70 +1,64 @@
 <header>
-  <a href="/">
-    <h1>Ty Malik</h1>
-  </a>
+    <a href="/">
+        <h1>Ty Malik</h1>
+    </a>
 
-  <p>programmer. vimmer. reader. hobbyist.</p>
-  <nav>
-    <a href="https://github.com/permalik/" target="_blank">
-      github
-    </a>
-    <a href="https://tymalik-swe.com/" target="_blank">
-      résumé
-    </a>
-    <a href="https://www.linkedin.com/in/permalik/" target="_blank">
-      linkedin
-    </a>
-    <a href="mailto:tymalik@pm.me" target="_blank">
-      email
-    </a>
-  </nav>
+    <p>programming. vim. nixos.</p>
+    <nav>
+        <a href="https://github.com/permalik/" target="_blank"> github</a>
+        <a href="https://tymalik-swe.com/" target="_blank"> résumé</a>
+        <a href="https://www.linkedin.com/in/permalik/" target="_blank">
+            linkedin
+        </a>
+        <a href="mailto:tymalik@pm.me" target="_blank"> email</a>
+    </nav>
 </header>
 
 <style lang="scss">
-  header {
-    max-width: 50rem;
-    margin: 0 auto 2.5rem;
+    header {
+        max-width: 50rem;
+        margin: 0 auto 2.5rem;
 
-    font-family: var(--sans-font);
+        font-family: var(--sans-font);
 
-    padding: 1rem clamp(1.25rem, 3vw, 2rem);
+        padding: 1rem clamp(1.25rem, 3vw, 2rem);
 
-    & a {
-      & h1 {
-        display: inline-block;
-      }
+        & a {
+            & h1 {
+                display: inline-block;
+            }
+        }
+
+        & p {
+            margin: 0 0 1rem;
+        }
+
+        & nav {
+            display: flex;
+            flex-wrap: nowrap;
+
+            & a {
+                &:not(:last-child) {
+                    margin: 0 2rem 0 0;
+                }
+
+                &:hover {
+                    text-decoration: underline;
+                }
+
+                & img {
+                    height: 1.5rem;
+                    width: 1.5rem;
+
+                    opacity: 0.5;
+                }
+
+                & img:hover {
+                    filter: invert(40%) sepia(61%) saturate(2913%)
+                        hue-rotate(309deg) brightness(93%) contrast(94%);
+                    opacity: 1;
+                }
+            }
+        }
     }
-
-    & p {
-      margin: 0 0 1rem;
-    }
-
-    & nav {
-      display: flex;
-      flex-wrap: nowrap;
-
-      & a {
-        &:not(:last-child) {
-          margin: 0 2rem 0 0;
-        }
-
-        &:hover {
-          text-decoration: underline;
-        }
-
-        & img {
-          height: 1.5rem;
-          width: 1.5rem;
-
-          opacity: 0.5;
-        }
-
-        & img:hover {
-          filter: invert(40%) sepia(61%) saturate(2913%) hue-rotate(309deg)
-            brightness(93%) contrast(94%);
-          opacity: 1;
-        }
-      }
-    }
-  }
 </style>
