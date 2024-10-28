@@ -4,9 +4,9 @@
   --primary-light: #FEFBFB;
   --primary-light-750: hsla(0, 60%, 99%, .75);
   --primary-light-100: hsla(0, 60%, 99%, .05);
-  --secondary-accent: #40FBAD;
-  --tertiary-accent: #FB408E;
-  --tertiary-accent-750: hsla(335, 96%, 62%, 0.9);
+  --secondary-accent: #FFC124;
+  --tertiary-accent: #FD0214;
+  --tertiary-accent-750: hsla(356, 95%, 50%, 1);
   --sans-font: 'Karla Variable', sans-serif;
   --serif-font: 'Merriweather', serif;
   --base-font: clamp(.75rem, 4vw, 1rem);
@@ -91,16 +91,17 @@ ul {
     font-family: var(--sans-font);
   }
   & h2, h3, h4, h5, h6 {
-    padding: 2.5rem 0 1.5rem 0;
+    padding: 1rem 0 ;
   }
   & h4 {
     font-weight: 400;
   }
   & h5 {
+    font-weight: 400;
     text-transform: uppercase;
   }
   & h6 {
-    font-weight: 400;
+    font-weight: 200;
     text-transform: uppercase;
   }
   & p {
@@ -112,14 +113,14 @@ ul {
     opacity: .85;
   }
   ol {
-    padding: 1rem 0 1rem 2rem;
+    padding: 0.5rem 0 0.5rem 2rem;
 
     & li:not(:last-child) {
       margin: 0 0 .25rem 0;
     }
   }
   ul {
-    padding: 1rem 0 1rem 2rem;
+    padding: 0.5rem 0 0.5rem 2rem;
 
     list-style-type: disc;
 
@@ -136,4 +137,10 @@ ul {
       padding: .5rem 0 .5rem 1rem;
     }
   }
+}
+
+pre {
+  padding: 1rem;
+
+  border-radius: 5px;
 }

@@ -1,14 +1,11 @@
 ---
 type: TechDoc
 title: Insertion Sort
-description: "Algorithm summary; polyglot implementation"
-tags: ['techDoc', 'software', 'dsa', 'go', 'insertion_sort']
+description: "Algorithm Summary and Implementation"
+tags: ['tech', 'dsa', 'insertion_sort', 'go']
 publishedAt: 07-14-2024
-updatedAt: 07-14-2024
+updatedAt: 10-27-2024
 url: dsa-insertion-sort
-sources: [
-  'Introduction to Algorithms https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/',
-]
 ---
 ## Summary
 Begin with a zero-indexed array containing integers `a[]`.  
@@ -20,8 +17,8 @@ Track an additional index which maps to that immediately before the primary inde
 Loop, shifting all higher value integers to the right.  
 Insert the temporary value into the remaining location.
 
-### Implementation
-#### V1: Go
+## Implementation
+`go`
 ```go
 func insertionSort(arr *[9]int, len int) {
     for i := 1; i < len; i++ {
@@ -40,6 +37,5 @@ func main() {
     array := [9]int{5, 7, 3, 6, 1, 4, 9, 8, 2}
     length := len(array)
     insertionSort(&array, length)
-    fmt.Println("Sorted Array:\n", array)
 }
 ```

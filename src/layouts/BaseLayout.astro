@@ -1,47 +1,47 @@
 ---
-import '../styles/global.scss';
-import Header from '../components/global/Header.astro';
+import "../styles/global.scss";
+import Header from "../components/global/Header.astro";
 
 export interface Props {
-  title: string;
+    title: string;
 }
 
 const { title } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang='en'>
-  <head>
-    <meta charset='UTF-8' />
-    <meta name='description' content='Astro description' />
-    <meta name='viewport' content='width=device-width' />
-    <link
-      rel='icon'
-      href='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍙</text></svg>'
-    />
-    <meta name='generator' content={Astro.generator} />
-    <title>{title}</title>
-  </head>
-  <body>
-    <Header />
-    <main>
-      <slot />
-    </main>
-  </body>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content="Astro description" />
+        <meta name="viewport" content="width=device-width" />
+        <link
+            rel="icon"
+            href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐦‍🔥</text></svg>"
+        />
+        <meta name="generator" content={Astro.generator} />
+        <title>{title}</title>
+    </head>
+    <body>
+        <Header />
+        <main>
+            <slot />
+        </main>
+    </body>
 </html>
 
-<style lang='scss'>
-  body {
-    position: relative;
+<style lang="scss">
+    body {
+        position: relative;
 
-    min-height: 100vh;
-    padding: 0 0 10rem 0;
+        min-height: 100vh;
+        padding: 0 0 10rem 0;
 
-    background-color: var(--primary-dark);
-  }
-  main {
-    max-width: 50rem;
-    margin: 0 auto;
-    padding: 1rem clamp(1.25rem, 3vw, 2rem);
-  }
+        background-color: var(--primary-dark);
+    }
+    main {
+        max-width: 50rem;
+        margin: 0 auto;
+        padding: 1rem clamp(1.25rem, 3vw, 2rem);
+    }
 </style>
