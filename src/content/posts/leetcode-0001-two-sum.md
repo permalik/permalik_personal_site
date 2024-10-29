@@ -68,3 +68,26 @@ func twoSum(nums []int, target int) []int {
 <!---->
 <!--main();-->
 <!--```-->
+
+<!--`rust (Iterative Brute Force)`-->
+<!--```rust-->
+<!--fn main() {-->
+<!--    let nums = vec![3, 8, 2, -12, 24];-->
+<!--    let target: i32 = 12;-->
+<!---->
+<!--    two_sum(&nums, &target);-->
+<!--}-->
+<!---->
+<!--fn two_sum(nums: &Vec<i32>, target: &i32) -> Vec<i32> {-->
+<!--    for i in 0..nums.len() {-->
+<!--        for j in (i + 1)..nums.len() {-->
+<!--            if nums[i] == target - nums[j] {-->
+<!--                let index_i: i32 = i.try_into().unwrap();-->
+<!--                let index_j: i32 = j.try_into().unwrap();-->
+<!--                return vec![index_i, index_j];-->
+<!--            }-->
+<!--        }-->
+<!--    }-->
+<!--    return Vec::new();-->
+<!--}-->
+<!--```-->
