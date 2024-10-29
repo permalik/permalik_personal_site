@@ -27,6 +27,78 @@ starting from index `1` until `nums_length - 1`
 **Space:** O(1)
 
 ## Implementation
+`zig (Iterative Brute Force)`
+```zig
+pub fn main() !void {
+    var nums = [5]i8{ 1, 8, 2, -12, 24 };
+    var target: i8 = 12;
+    const sol = try two_sum(&nums, &target);
+    std.debug.print("[{d} {d}]\n", .{ sol[0], sol[1] });
+}
+
+pub fn two_sum(nums: *[5]i8, target: *i8) ![2]i8 {
+    for (nums.*, 0..) |num_one, i| {
+        for (nums.*[1..], 1..) |num_two, j| {
+            if (num_one == target.* - num_two) {
+                return [2]i8{ @intCast(i), @intCast(j) };
+            }
+        }
+    }
+    return [2]i8{ 0, 0 };
+}
+```
+
+<br />
+
+`rust (Iterative Brute Force)`
+```rust
+fn main() {
+    let nums = vec![3, 8, 2, -12, 24];
+    let target: i32 = 12;
+
+    two_sum(&nums, &target);
+}
+
+fn two_sum(nums: &Vec<i32>, target: &i32) -> Vec<i32> {
+    for i in 0..nums.len() {
+        for j in (i + 1)..nums.len() {
+            if nums[i] == target - nums[j] {
+                let index_i: i32 = i.try_into().unwrap();
+                let index_j: i32 = j.try_into().unwrap();
+                return vec![index_i, index_j];
+            }
+        }
+    }
+    return Vec::new();
+}
+```
+
+<br />
+
+`javascript (Iterative Brute Force)`
+```js
+function main() {
+    let nums = [3, 8, 2, -12, 24];
+    let target = 12;
+
+    twoSum(nums, target);
+};
+
+function twoSum(nums, target) {
+    for (let i = 0; i < nums.length; i++) {
+        for (let j = i + 1; j < nums.length; j++) {
+            if (nums[j] === target - nums[i]) {
+                return [i, j];
+            }
+        }
+    }
+    return [];
+};
+
+main();
+```
+<br />
+
 `go (Iterative Brute Force)`
 ```go
 func main() {
@@ -46,48 +118,3 @@ func twoSum(nums []int, target int) []int {
 	return []int{}
 }
 ```
-<!--`js (Iterative Brute Force)`-->
-<!--```js-->
-<!--function main() {-->
-<!--    let nums = [3, 8, 2, -12, 24];-->
-<!--    let target = 12;-->
-<!---->
-<!--    twoSum(nums, target);-->
-<!--};-->
-<!---->
-<!--function twoSum(nums, target) {-->
-<!--    for (let i = 0; i < nums.length; i++) {-->
-<!--        for (let j = i + 1; j < nums.length; j++) {-->
-<!--            if (nums[j] === target - nums[i]) {-->
-<!--                return [i, j];-->
-<!--            }-->
-<!--        }-->
-<!--    }-->
-<!--    return [];-->
-<!--};-->
-<!---->
-<!--main();-->
-<!--```-->
-
-<!--`rust (Iterative Brute Force)`-->
-<!--```rust-->
-<!--fn main() {-->
-<!--    let nums = vec![3, 8, 2, -12, 24];-->
-<!--    let target: i32 = 12;-->
-<!---->
-<!--    two_sum(&nums, &target);-->
-<!--}-->
-<!---->
-<!--fn two_sum(nums: &Vec<i32>, target: &i32) -> Vec<i32> {-->
-<!--    for i in 0..nums.len() {-->
-<!--        for j in (i + 1)..nums.len() {-->
-<!--            if nums[i] == target - nums[j] {-->
-<!--                let index_i: i32 = i.try_into().unwrap();-->
-<!--                let index_j: i32 = j.try_into().unwrap();-->
-<!--                return vec![index_i, index_j];-->
-<!--            }-->
-<!--        }-->
-<!--    }-->
-<!--    return Vec::new();-->
-<!--}-->
-<!--```-->
