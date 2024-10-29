@@ -46,3 +46,25 @@ func twoSum(nums []int, target int) []int {
 	return []int{}
 }
 ```
+<!--`js (Iterative Brute Force)`-->
+<!--```js-->
+<!--function main() {-->
+<!--    let nums = [3, 8, 2, -12, 24];-->
+<!--    let target = 12;-->
+<!---->
+<!--    twoSum(nums, target);-->
+<!--};-->
+<!---->
+<!--function twoSum(nums, target) {-->
+<!--    for (let i = 0; i < nums.length; i++) {-->
+<!--        for (let j = i + 1; j < nums.length; j++) {-->
+<!--            if (nums[j] === target - nums[i]) {-->
+<!--                return [i, j];-->
+<!--            }-->
+<!--        }-->
+<!--    }-->
+<!--    return [];-->
+<!--};-->
+<!---->
+<!--main();-->
+<!--```-->
