@@ -195,6 +195,35 @@ func twoSum(nums []int, target int) []int {
 
 <br />
 
+`c# (Iterative Brute Force)`
+```csharp
+namespace Solution {
+    public class Program {
+        public static void Main(string[] args) {
+            int[] nums = new int[] { 3, 8, 2, -12, 24 };
+            int target = 12;
+
+            int[] solution = TwoSum(nums, target);
+
+            Console.WriteLine($"[{solution[0]} {solution[1]}]");
+        }
+
+        public static int[] TwoSum(int[] nums, int target) {
+            for (int i = 0; i < nums.Length; i++) {
+                for (int j = i +1; j < nums.Length; j++) {
+                    if (nums[i] == target - nums[j]) {
+                        return new int[] { i, j };
+                    }
+                }
+            }
+            return new int[] { 0, 0 };
+        }
+    }
+}
+```
+
+<br />
+
 `python3 (Iterative Brute Force)`
 ```py
 def main():
