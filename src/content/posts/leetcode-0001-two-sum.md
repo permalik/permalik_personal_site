@@ -27,24 +27,87 @@ starting from index `1` until `nums_length - 1`
 **Space:** O(1)
 
 ## Implementation
-`zig (Iterative Brute Force)`
-```zig
-pub fn main() !void {
-    var nums = [5]i8{ 1, 8, 2, -12, 24 };
-    var target: i8 = 12;
-    const sol = try two_sum(&nums, &target);
-    std.debug.print("[{d} {d}]\n", .{ sol[0], sol[1] });
+`c (Iterative Brute Force)`
+```c
+int* two_sum(int* nums, int nums_size, int target, int* return_size);
+
+int main(void) {
+    int nums[] = { 3, 8, 2, -12, 24 };
+    int nums_size = sizeof(nums) / sizeof(nums[0]);
+    int target = 12;
+    int return_size;
+
+    int* solution = two_sum(nums, nums_size, target, &return_size);
+
+    if (solution != NULL) {
+        printf("target %d matches: [%d %d]\n", target, solution[0], solution[1]);
+        free(solution);
+    } else {
+        printf("target %d: no matching combination\n", target);
+    }
+
+    return 0;
 }
 
-pub fn two_sum(nums: *[5]i8, target: *i8) ![2]i8 {
-    for (nums.*, 0..) |num_one, i| {
-        for (nums.*[1..], 1..) |num_two, j| {
-            if (num_one == target.* - num_two) {
-                return [2]i8{ @intCast(i), @intCast(j) };
+int* two_sum(int* nums, int nums_size, int target, int* return_size) {
+    *return_size = 2;
+
+    int* solution = malloc(*return_size * sizeof(int));
+    if (solution == NULL) {
+        *return_size = 0;
+        return NULL;
+    }
+
+    for (int i = 0; i < nums_size; i++) {
+        for (int j = i + 1; j < nums_size; j++) {
+            if (nums[i] + nums[j] == target) {
+                solution[0] = i;
+                solution[1] = j;
+                return solution;
             }
         }
     }
-    return [2]i8{ 0, 0 };
+
+    free(solution);
+    *return_size = 0;
+    return NULL;
+}
+```
+
+<br />
+
+`zig (Iterative Brute Force)`
+```zig
+pub fn main() !void {
+    var nums = [_]i8{ 3, 8, 2, -12, 24 };
+    const nums_size: usize = nums.len;
+    var target: i8 = 12;
+    const return_size: usize = 2;
+
+    var gpa = std.heap.GeneralPurposeAllocator(.{}){};
+    const allocator = gpa.allocator();
+    defer {
+        _ = gpa.deinit();
+    }
+    var solution = try allocator.alloc(i8, return_size);
+    defer allocator.free(solution);
+
+    _ = try two_sum(&nums, nums_size, &target, &solution);
+}
+
+pub fn two_sum(nums: []i8, nums_size: usize, target: *i8, solution: *[]i8) !void {
+    for (0..nums_size) |i| {
+        for (i + 1..nums_size) |j| {
+            if (nums[i] == target.* - nums[j]) {
+                solution.*[0] = @intCast(i);
+                solution.*[1] = @intCast(j);
+                return;
+            }
+        }
+    }
+    solution.*[0] = 0;
+    solution.*[1] = 0;
+    return;
 }
 ```
 
