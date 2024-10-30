@@ -40,10 +40,10 @@ int main(void) {
     int* solution = two_sum(nums, nums_size, target, &return_size);
 
     if (solution != NULL) {
-        printf("target %d matches: [%d %d]\n", target, solution[0], solution[1]);
+        printf("[%d %d]\n", solution[0], solution[1]);
         free(solution);
     } else {
-        printf("target %d: no matching combination\n", target);
+        printf("no matching combination\n");
     }
 
     return 0;
@@ -93,6 +93,7 @@ pub fn main() !void {
     defer allocator.free(solution);
 
     _ = try two_sum(&nums, nums_size, &target, &solution);
+    std.debug.print("[{d} {d}]\n", .{ solution[0], solution[1] });
 }
 
 pub fn two_sum(nums: []i8, nums_size: usize, target: *i8, solution: *[]i8) !void {
@@ -113,13 +114,46 @@ pub fn two_sum(nums: []i8, nums_size: usize, target: *i8, solution: *[]i8) !void
 
 <br />
 
+`c++ (Iterative Brute Force)`
+```cpp
+class Solution {
+    public:
+        std::vector<int> twoSum(std::vector<int>& nums, int target) {
+            for (size_t i = 0; i < nums.size(); i++) {
+                for (size_t j = i + 1; j < nums.size(); j++) {
+                    if (nums[i] == target - nums[j]) {
+                        return { static_cast<int>(i), static_cast<int>(j) };
+                    }
+                }
+            }
+
+            return {0, 0};
+        }
+};
+
+int main() {
+    std::vector<int> nums = { 3, 8, 2, -12, 24};
+    int target = 12;
+
+    Solution solution;
+
+    std::vector<int> result = solution.twoSum(nums, target);
+    std::cout << "[" << result.at(0) << " " << result.at(1) << "]" << std::endl;
+
+    return 0;
+}
+```
+
+<br />
+
 `rust (Iterative Brute Force)`
 ```rust
 fn main() {
     let nums = vec![3, 8, 2, -12, 24];
     let target: i32 = 12;
 
-    two_sum(&nums, &target);
+    let solution = two_sum(&nums, &target);
+    println!("{:?}", solution);
 }
 
 fn two_sum(nums: &Vec<i32>, target: &i32) -> Vec<i32> {
@@ -138,13 +172,37 @@ fn two_sum(nums: &Vec<i32>, target: &i32) -> Vec<i32> {
 
 <br />
 
+`go (Iterative Brute Force)`
+```go
+func main() {
+	nums := []int{3, 8, 2, -12, 24}
+	target := 12
+	solution := twoSum(nums, target)
+	fmt.Println(solution)
+}
+
+func twoSum(nums []int, target int) []int {
+	for i := 0; i < len(nums); i++ {
+		for j := i + 1; j < len(nums); j++ {
+			if nums[j] == target-nums[i] {
+				return []int{i, j}
+			}
+		}
+	}
+	return []int{}
+}
+```
+
+<br />
+
 `javascript (Iterative Brute Force)`
 ```js
 function main() {
-    let nums = [3, 8, 2, -12, 24];
-    let target = 12;
+    const nums = [3, 8, 2, -12, 24];
+    const target = 12;
 
-    twoSum(nums, target);
+    const solution = twoSum(nums, target);
+    console.log(solution);
 };
 
 function twoSum(nums, target) {
@@ -159,25 +217,4 @@ function twoSum(nums, target) {
 };
 
 main();
-```
-<br />
-
-`go (Iterative Brute Force)`
-```go
-func main() {
-	nums := []int{3, 8, 2, -12, 24}
-	target := 12
-	twoSum(nums, target)
-}
-
-func twoSum(nums []int, target int) []int {
-	for i := 0; i < len(nums); i++ {
-		for j := i + 1; j < len(nums); j++ {
-			if nums[j] == target-nums[i] {
-				return []int{i, j}
-			}
-		}
-	}
-	return []int{}
-}
 ```
