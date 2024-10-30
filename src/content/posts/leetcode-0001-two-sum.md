@@ -195,6 +195,25 @@ func twoSum(nums []int, target int) []int {
 
 <br />
 
+`python3 (Iterative Brute Force)`
+```py
+def main():
+    nums = [3, 8, 2, -12, 24]
+    target = 12
+    solution = Solution().twoSum(nums, target)
+    print(solution)
+
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        for i in range(0, len(nums)):
+            for j in range(i + 1, len(nums)):
+                if nums[i] == target - nums[j]:
+                    return [i,j]
+        return []
+```
+
+<br />
+
 `javascript (Iterative Brute Force)`
 ```js
 function main() {
@@ -217,4 +236,30 @@ function twoSum(nums, target) {
 };
 
 main();
+```
+
+<br />
+
+`lua (Iterative Brute Force)`
+```lua
+function main()
+	local nums = { 3, 8, 2, -12, 24 }
+	local target = 12
+
+	local solution = two_sum(nums, target)
+	print("[" .. solution[1] .. " " .. solution[2] .. "]")
+end
+
+function two_sum(nums, target)
+	for i = 1, #nums do
+		for j = i + 1, #nums do
+			if nums[i] == target - nums[j] then
+				return { i, j }
+			end
+		end
+	end
+	return { 0, 0 }
+end
+
+main()
 ```
