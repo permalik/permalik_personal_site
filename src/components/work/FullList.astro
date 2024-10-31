@@ -66,6 +66,9 @@ const allRepos: RepoProps[] = await repos();
 </ul>
 
 <style lang="scss">
+    ul {
+        margin: 0 0 2rem;
+    }
     li {
         max-width: 37.5rem;
         padding: 0.65rem 0;
@@ -73,10 +76,8 @@ const allRepos: RepoProps[] = await repos();
         & header {
             & small {
                 margin: 0 2rem 0 0;
-
                 display: flex;
                 flex-flow: column nowrap;
-
                 font-weight: 600;
                 text-transform: uppercase;
                 color: var(--secondary-accent);

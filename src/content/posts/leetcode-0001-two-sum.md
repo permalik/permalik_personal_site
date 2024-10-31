@@ -4,7 +4,7 @@ title: Two Sum
 description: "Dynamic Programming: LeetCode"
 tags: ['tech', 'dsa', 'leetcode', 'go']
 publishedAt: 10-27-2024
-updatedAt: 10-27-2024
+updatedAt: 10-30-2024
 url: leetcode-0001-two-sum
 ---
 ## Summary
@@ -60,7 +60,7 @@ int* two_sum(int* nums, int nums_size, int target, int* return_size) {
 
     for (int i = 0; i < nums_size; i++) {
         for (int j = i + 1; j < nums_size; j++) {
-            if (nums[i] + nums[j] == target) {
+            if (nums[i] == target - nums[j]) {
                 solution[0] = i;
                 solution[1] = j;
                 return solution;
@@ -184,7 +184,7 @@ func main() {
 func twoSum(nums []int, target int) []int {
 	for i := 0; i < len(nums); i++ {
 		for j := i + 1; j < len(nums); j++ {
-			if nums[j] == target-nums[i] {
+			if nums[i] == target-nums[j] {
 				return []int{i, j}
 			}
 		}
@@ -220,75 +220,4 @@ namespace Solution {
         }
     }
 }
-```
-
-<br />
-
-`python3 (Iterative Brute Force)`
-```py
-def main():
-    nums = [3, 8, 2, -12, 24]
-    target = 12
-    solution = Solution().twoSum(nums, target)
-    print(solution)
-
-class Solution:
-    def twoSum(self, nums: List[int], target: int) -> List[int]:
-        for i in range(0, len(nums)):
-            for j in range(i + 1, len(nums)):
-                if nums[i] == target - nums[j]:
-                    return [i,j]
-        return []
-```
-
-<br />
-
-`javascript (Iterative Brute Force)`
-```js
-function main() {
-    const nums = [3, 8, 2, -12, 24];
-    const target = 12;
-
-    const solution = twoSum(nums, target);
-    console.log(solution);
-};
-
-function twoSum(nums, target) {
-    for (let i = 0; i < nums.length; i++) {
-        for (let j = i + 1; j < nums.length; j++) {
-            if (nums[j] === target - nums[i]) {
-                return [i, j];
-            }
-        }
-    }
-    return [];
-};
-
-main();
-```
-
-<br />
-
-`lua (Iterative Brute Force)`
-```lua
-function main()
-	local nums = { 3, 8, 2, -12, 24 }
-	local target = 12
-
-	local solution = two_sum(nums, target)
-	print("[" .. solution[1] .. " " .. solution[2] .. "]")
-end
-
-function two_sum(nums, target)
-	for i = 1, #nums do
-		for j = i + 1, #nums do
-			if nums[i] == target - nums[j] then
-				return { i, j }
-			end
-		end
-	end
-	return { 0, 0 }
-end
-
-main()
 ```

@@ -8,8 +8,8 @@ updatedAt: 10-27-2024
 url: dsa-insertion-sort
 ---
 ## Summary
-Begin with a zero-indexed array containing integers `a[]`.  
-Store its length in a separate variable `n`.  
+Begin with an array of integers.  
+Instantiate a variable containing array's size.  
 Iterate the array from `a[1]` to `a[n]`.  
 Track the primary index at `a[1]` and increment its value with each iteration.  
 Store the value of the primary index in a variable which will be updated with each passing iteration.  
