@@ -18,6 +18,8 @@ async function repos(): Promise<RepoProps[]> {
     let data = await response.json();
     let allRepos: RepoProps[] = [];
     for (let i = 0; i < data.length; i++) {
+    let topics = data[i].topics.split(",");
+
         let repo: RepoProps = {
             Owner: data[i].owner,
             Name: data[i].name,
@@ -25,19 +27,12 @@ async function repos(): Promise<RepoProps[]> {
             Description: data[i].description,
             HTMLURL: data[i].htmlurl,
             Homepage: data[i].homepage,
-            Topics: [],
+            Topics: topics,
             CreatedAt: data[i].createdAt,
             UpdatedAt: data[i].updatedAt,
             UID: data[i].uid,
         };
 
-        if (data[i].topics.length < 1) {
-            for (let j = 0; j < data[i].topics; j++) {
-                repo.Topics.push(data[i].topics[j]);
-            }
-        } else {
-            repo.Topics.push("");
-        }
         allRepos.push(repo);
     }
     return allRepos;
@@ -60,6 +55,13 @@ const allRepos: RepoProps[] = await repos();
                     </a>
                 </header>
                 <p class="text_small">{repo.Description}</p>
+                <ul class="topics">
+                {
+                repo.Topics.map((topic) => (
+                    <li>{topic}</li>
+                ))
+                }
+                </ul>
             </li>
         ))
     }
@@ -108,6 +110,20 @@ const allRepos: RepoProps[] = await repos();
                     height: 0.125rem;
                 }
             }
+        }
+    }
+    .topics {
+        margin: 0.5rem 0 0;
+        & li {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            font-size: var(--xs-font);
+            text-transform: uppercase;
+            border: 1px solid var(--primary-light-400);
+            border-radius: 5px;
+        }
+        & li:not(:last-child) {
+            margin: 0 0.25rem 0 0;
         }
     }
 </style>
