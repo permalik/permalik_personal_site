@@ -17,7 +17,7 @@ export async function getStaticPaths() {
 }
 ---
 
-<BaseLayout>
+<BaseLayout title={post.data.title} description={post.data.description}>
     <div class="writing-layout">
         <header>
             <h1>{post.data.title}</h1>

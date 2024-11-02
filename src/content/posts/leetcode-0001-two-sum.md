@@ -2,7 +2,7 @@
 type: TechDoc
 title: Two Sum
 description: "Dynamic Programming: LeetCode"
-tags: ['tech', 'dsa', 'leetcode', 'go']
+tags: ['tech', 'dsa', 'leetcode', 'c', 'zig', 'cpp', 'rust', 'go', 'c#']
 publishedAt: 10-27-2024
 updatedAt: 10-30-2024
 url: leetcode-0001-two-sum
@@ -20,7 +20,7 @@ starting from index `1` until `nums_length - 1`
 - compare for equality the inner loop value of `nums[n]` with the difference of the outer loop 
 `nums[n]` subtracted from `target`
 - if these values are equivalent, return the two indexes of each respective loop
-- if both loops complete without a successful comparison, return a non-result
+- if both loops complete without a successful comparison, return empty
 
 ##### Complexity Analysis
 **Time:** O(n^2)  
