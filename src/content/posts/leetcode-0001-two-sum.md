@@ -114,38 +114,6 @@ pub fn two_sum(nums: []i8, nums_size: usize, target: *i8, solution: *[]i8) !void
 
 <br />
 
-`c++ (Iterative Brute Force)`
-```cpp
-class Solution {
-    public:
-        std::vector<int> twoSum(std::vector<int>& nums, int target) {
-            for (size_t i = 0; i < nums.size(); i++) {
-                for (size_t j = i + 1; j < nums.size(); j++) {
-                    if (nums[i] == target - nums[j]) {
-                        return { static_cast<int>(i), static_cast<int>(j) };
-                    }
-                }
-            }
-
-            return {0, 0};
-        }
-};
-
-int main() {
-    std::vector<int> nums = { 3, 8, 2, -12, 24};
-    int target = 12;
-
-    Solution solution;
-
-    std::vector<int> result = solution.twoSum(nums, target);
-    std::cout << "[" << result.at(0) << " " << result.at(1) << "]" << std::endl;
-
-    return 0;
-}
-```
-
-<br />
-
 `rust (Iterative Brute Force)`
 ```rust
 fn main() {
@@ -190,34 +158,5 @@ func twoSum(nums []int, target int) []int {
 		}
 	}
 	return []int{}
-}
-```
-
-<br />
-
-`c# (Iterative Brute Force)`
-```csharp
-namespace Solution {
-    public class Program {
-        public static void Main(string[] args) {
-            int[] nums = new int[] { 3, 8, 2, -12, 24 };
-            int target = 12;
-
-            int[] solution = TwoSum(nums, target);
-
-            Console.WriteLine($"[{solution[0]} {solution[1]}]");
-        }
-
-        public static int[] TwoSum(int[] nums, int target) {
-            for (int i = 0; i < nums.Length; i++) {
-                for (int j = i +1; j < nums.Length; j++) {
-                    if (nums[i] == target - nums[j]) {
-                        return new int[] { i, j };
-                    }
-                }
-            }
-            return new int[] { 0, 0 };
-        }
-    }
 }
 ```
