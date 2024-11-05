@@ -2,7 +2,7 @@
 type: TechDoc
 title: Two Sum
 description: "Dynamic Programming: LeetCode"
-tags: ['tech', 'dsa', 'leetcode', 'c', 'zig', 'cpp', 'rust', 'go', 'c#']
+tags: ['tech', 'dsa', 'leetcode', 'c', 'zig', 'rust', 'go']
 publishedAt: 10-27-2024
 updatedAt: 10-30-2024
 url: leetcode-0001-two-sum
