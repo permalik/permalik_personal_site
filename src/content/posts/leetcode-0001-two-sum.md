@@ -4,7 +4,7 @@ title: Two Sum
 description: "Dynamic Programming: LeetCode"
 tags: ['tech', 'dsa', 'leetcode', 'c', 'zig', 'rust', 'go']
 publishedAt: 10-27-2024
-updatedAt: 10-30-2024
+updatedAt: 11-06-2024
 url: leetcode-0001-two-sum
 ---
 ## Summary
@@ -31,24 +31,6 @@ starting from index `1` until `nums_length - 1`
 ```c
 int* two_sum(int* nums, int nums_size, int target, int* return_size);
 
-int main(void) {
-    int nums[] = { 3, 8, 2, -12, 24 };
-    int nums_size = sizeof(nums) / sizeof(nums[0]);
-    int target = 12;
-    int return_size;
-
-    int* solution = two_sum(nums, nums_size, target, &return_size);
-
-    if (solution != NULL) {
-        printf("[%d %d]\n", solution[0], solution[1]);
-        free(solution);
-    } else {
-        printf("no matching combination\n");
-    }
-
-    return 0;
-}
-
 int* two_sum(int* nums, int nums_size, int target, int* return_size) {
     *return_size = 2;
 
@@ -71,6 +53,24 @@ int* two_sum(int* nums, int nums_size, int target, int* return_size) {
     free(solution);
     *return_size = 0;
     return NULL;
+}
+
+int main(void) {
+    int nums[] = { 3, 8, 2, -12, 24 };
+    int nums_size = sizeof(nums) / sizeof(nums[0]);
+    int target = 12;
+    int return_size;
+
+    int* solution = two_sum(nums, nums_size, target, &return_size);
+
+    if (solution != NULL) {
+        printf("[%d %d]\n", solution[0], solution[1]);
+        free(solution);
+    } else {
+        printf("no matching combination\n");
+    }
+
+    return 0;
 }
 ```
 
