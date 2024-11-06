@@ -9,7 +9,7 @@ url: leetcode-0147-insertion-sort-list
 ---
 ## Summary
 **tldr;**  
-Iterate the original list with a temporary sorted list and a variable tracking the node fromt the 
+Iterate the original list with a temporary sorted list and a variable tracking the node from the 
 original list. Find the correct position for the current node and insert it. Once all nodes have 
 been inserted their sorted positions, return the sorted list.
 Define a node struct from which lists will be created.
