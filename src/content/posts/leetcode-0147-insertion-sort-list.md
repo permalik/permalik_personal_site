@@ -112,3 +112,70 @@ int main(void) {
     return 0;
 }
 ```
+
+<br />
+
+`go (Iterative and Intuitive)`
+```go
+type ListNode struct {
+	Val  int
+	Next *ListNode
+}
+
+func main() {
+	arr := []int{4, 2, 1, 3}
+	head := linkedList(arr)
+	solution := insertionSortList(head)
+
+	fmt.Printf("[")
+	curr := solution
+	for curr != nil {
+		fmt.Printf("%d", curr.Val)
+		curr = curr.Next
+		if curr != nil {
+			fmt.Printf(" ")
+		}
+	}
+	fmt.Printf("]\n")
+}
+
+func insertionSortList(head *ListNode) *ListNode {
+	if head == nil {
+		return head
+	}
+
+	sorted := &ListNode{}
+	curr := head
+
+	for curr != nil {
+		prev := sorted
+		next := curr.Next
+
+		for prev.Next != nil && prev.Next.Val < curr.Val {
+			prev = prev.Next
+		}
+
+		curr.Next = prev.Next
+		prev.Next = curr
+
+		curr = next
+	}
+	return sorted.Next
+}
+
+func linkedList(arr []int) *ListNode {
+	if len(arr) == 0 {
+		return nil
+	}
+
+	head := &ListNode{Val: arr[0]}
+	curr := head
+
+	for _, j := range arr[1:] {
+		curr.Next = &ListNode{Val: j}
+		curr = curr.Next
+	}
+
+	return head
+}
+```
