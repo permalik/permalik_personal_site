@@ -179,3 +179,94 @@ func linkedList(arr []int) *ListNode {
 	return head
 }
 ```
+
+<br />
+
+`c# (Iterative and Intuitive)`
+
+```csharp
+namespace Solution
+{
+    public class ListNode
+    {
+        public int val;
+        public ListNode? next;
+        public ListNode(int val = 0, ListNode? next = null)
+        {
+            this.val = val;
+            this.next = next;
+        }
+    }
+    public class Program
+    {
+        public static void Main()
+        {
+            int[] arr = new int[] { 4, 2, 1, 3 };
+            int len = arr.Length;
+
+            ListNode input_list = LinkedList(arr, len);
+            ListNode solution = InsertionSortList(input_list);
+
+            Console.Write("[");
+            ListNode curr = solution;
+            while (curr != null)
+            {
+                Console.Write(curr.val);
+                curr = curr.next!;
+                if (curr != null)
+                {
+                    Console.Write(", ");
+                }
+            }
+            Console.WriteLine("]");
+        }
+
+        public static ListNode LinkedList(int[] arr, int len)
+        {
+            if (len == 0)
+            {
+                return new ListNode();
+            }
+
+            ListNode head = new ListNode(arr[0]);
+            ListNode curr = head;
+            for (int i = 1; i < len; i++)
+            {
+                curr.next = new ListNode(arr[i]);
+                curr = curr.next;
+            }
+
+            return head;
+        }
+
+        public static ListNode InsertionSortList(ListNode head)
+        {
+            if (head == null || head.next == null)
+            {
+                return head!;
+            }
+
+            ListNode sorted_head = new ListNode(0);
+            ListNode curr = head;
+
+            while (curr != null)
+            {
+                ListNode next_node = curr.next!;
+
+                ListNode sorted_curr = sorted_head;
+                while (sorted_curr.next != null && sorted_curr.next.val < curr.val)
+                {
+                    sorted_curr = sorted_curr.next;
+                }
+
+                curr.next = sorted_curr.next;
+                sorted_curr.next = curr;
+
+                curr = next_node;
+            }
+
+            return sorted_head.next!;
+        }
+    }
+}
+```
