@@ -9,21 +9,21 @@ url: leetcode-0001-two-sum
 ---
 ## Summary
 ### Iterative Brute Force
-Beginning with the first element in the series, check each element against the remainder of 
-elements until all combinations have been evaluated.  
+Beginning with the first element in the series, check each element against the remainder of
+elements until all combinations have been evaluated.
 Return each index of the successful pair or empty if a pair is not found.
 
 #### Steps
 - loop through each element of the series `nums` from index `0` to index `nums_length - 1`
-- within the first loop, loop again through each element of the series `nums` this time 
+- within the first loop, loop again through each element of the series `nums` this time
 starting from index `1` until `nums_length - 1`
-- compare for equality the inner loop value of `nums[n]` with the difference of the outer loop 
+- compare for equality the inner loop value of `nums[n]` with the difference of the outer loop
 `nums[n]` subtracted from `target`
 - if these values are equivalent, return the two indexes of each respective loop
 - if both loops complete without a successful comparison, return empty
 
 ##### Complexity Analysis
-**Time:** O(n^2)  
+**Time:** O(n^2)
 **Space:** O(1)
 
 ## Implementation
@@ -143,20 +143,20 @@ fn two_sum(nums: &Vec<i32>, target: &i32) -> Vec<i32> {
 `go (Iterative Brute Force)`
 ```go
 func main() {
-	nums := []int{3, 8, 2, -12, 24}
-	target := 12
-	solution := twoSum(nums, target)
-	fmt.Println(solution)
+        nums := []int{3, 8, 2, -12, 24}
+        target := 12
+        solution := twoSum(nums, target)
+        fmt.Println(solution)
 }
 
 func twoSum(nums []int, target int) []int {
-	for i := 0; i < len(nums); i++ {
-		for j := i + 1; j < len(nums); j++ {
-			if nums[i] == target-nums[j] {
-				return []int{i, j}
-			}
-		}
-	}
-	return []int{}
+        for i := 0; i < len(nums); i++ {
+                for j := i + 1; j < len(nums); j++ {
+                        if nums[i] == target-nums[j] {
+                                return []int{i, j}
+                        }
+                }
+        }
+        return []int{}
 }
 ```
