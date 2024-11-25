@@ -1,5 +1,5 @@
 ---
-typ: TechDoc
+type: TechDoc
 title: Insertion Sort List
 description: "Dynamic Programming: LeetCode"
 tags: ['tech', 'dsa', 'leetcode', 'c', 'go', 'csharp']
