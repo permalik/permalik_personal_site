@@ -4,7 +4,7 @@ title: Binary Search
 description: "Dynamic Programming: LeetCode"
 tags: ['tech', 'dsa', 'binary_search', 'go']
 publishedAt: 11-25-2024
-updatedAt: 11-25-2024
+updatedAt: 11-26-2024
 url: leetcode-0704-binary-search
 ---
 ## Summary
