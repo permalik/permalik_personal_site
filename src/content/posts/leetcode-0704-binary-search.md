@@ -62,3 +62,48 @@ func search(nums []int, target int) int {
 	return -1
 }
 ```
+
+<br />
+
+`c# (Iterative)`
+```csharp
+namespace Solution
+{
+    public class Program
+    {
+        public static void Main()
+        {
+            int[] nums = new int[] { -1, 0, 3, 5, 9, 12 };
+            int target = 9;
+
+            int s = Search(nums, target);
+            Console.WriteLine(s);
+        }
+
+        public static int Search(int[] nums, int target)
+        {
+            int l = 0;
+            int h = nums.Length - 1;
+
+            while (l <= h)
+            {
+                int m = (h + l) / 2;
+                if (nums[m] == target)
+                {
+                    return m;
+                }
+                if (nums[m] > target)
+                {
+                    h = m - 1;
+                }
+                else
+                {
+                    l = m + 1;
+                }
+            };
+
+            return -1;
+        }
+    }
+}
+```
