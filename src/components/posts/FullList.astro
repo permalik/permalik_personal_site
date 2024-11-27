@@ -18,11 +18,11 @@ let posts = await getCollection("posts", ({ data }) => {
             .map((post) => (
                 <li class="post">
                     <small>{post.data.type}</small>
-                    <a href={`/posts/${post.slug}`}>
-                        <header>
+                    <header>
+                        <a href={`/posts/${post.slug}`}>
                             <h3>{post.data.title}</h3>
-                        </header>
-                    </a>
+                        </a>
+                    </header>
                     <p class="text_small">{post.data.description}</p>
                 </li>
             ))
@@ -47,8 +47,6 @@ let posts = await getCollection("posts", ({ data }) => {
     }
 
     header {
-        display: inline-block;
-
         & h3 {
             position: relative;
             display: inline-block;
