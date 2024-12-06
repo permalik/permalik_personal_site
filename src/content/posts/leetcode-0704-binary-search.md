@@ -34,6 +34,39 @@ return `-1`.
 **Space:** O(1)
 
 ### Implementation
+`c (Iterative)`
+```c
+int search(int nums[], int len, int target) {
+    int l = 0;
+    int h = len - 1;
+
+    while (l <= h) {
+        int m = (h + l) / 2;
+        if (nums[m] == target) {
+            return m;
+        }
+        if (nums[m] > target) {
+            h = m - 1;
+        } else {
+            l = m + 1;
+        }
+    }
+
+    return -1;
+}
+
+int main(void) {
+    int nums[] = { -1, 0, 3, 5, 9, 12 };
+    int target = 9;
+    int len = sizeof(nums) / sizeof(nums[0]);
+
+    int s = search(nums, len, target);
+    printf("%d\n", s);
+
+    return 0;
+}
+```
+
 `go (Iterative)`
 ```go
 func main() {
