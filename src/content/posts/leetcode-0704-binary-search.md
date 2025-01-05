@@ -4,30 +4,27 @@ title: Binary Search
 description: "Dynamic Programming: LeetCode"
 tags: ['tech', 'dsa', 'binary_search', 'go']
 publishedAt: 11-25-2024
-updatedAt: 11-26-2024
+updatedAt: 01-05-2025
 url: leetcode-0704-binary-search
 ---
 ## Summary
 ### Iterative
 Given an array of integers `nums` which is sorted in ascending order, 
-and an integer `target`, write a function to search `target` in `nums`. 
+and an integer `target`, write a function searching for `target` in `nums`. 
 If `target` exists, return its index. Otherwise, return `-1`.
 
 #### Steps
-Determine the two outermost indices of the sequence in a zero-based 
-collection.  
-- the first is the 0th index `low`
-- the second index is the length of the collection minus one `high`
-Iterate the sequence so long as `low` is less than or equal to `high`.
-Determine the middle index of the sequence.  
-If the middle item of the collection equals target, return the middle 
-index.  
-If the middle item is greater than target, `high` becomes the middle 
-index less one. 
-If the middle item is not greater than target, `low` becomes the 
-middle index plus one. 
-If the first condition never returns target as the middle index, 
-return `-1`.
+Store the indices of the first and last elements of the collection: `low`, `high`.
+
+Iterate while `low` is less than or equal to `high`.
+
+Store the index of the middle element: `mid`. Return `mid` if its value matches `target`.
+
+If the value of `mid` is greater than that of `target`, store the index of `mid` minus one in `high`.
+
+Else if the value of `mid` is less than that of `target`, store the index of `mid` plus one in `low`.
+
+If all iterations complete without returning `mid` as the solution, return `-1`.
 
 ##### Complexity Analysis
 **Time:** O(log n)
@@ -74,26 +71,25 @@ int main(void) {
 func main() {
 	nums := []int{-1, 0, 3, 5, 9, 12}
 	target := 9
-	s := search(nums, target)
+	s := binary_search(nums, target)
 	fmt.Println(s)
 }
 
-func search(nums []int, target int) int {
-	l := 0
-	h := len(nums) - 1
+func binary_search(nums []int, target int) int {
+	low := 0
+	high := len(nums) - 1
 
-	for l <= h {
-		m := (h + l) / 2
-		if nums[m] == target {
-			return m
+	for low <= high {
+		mid := (high + low) / 2
+		if nums[mid] == target {
+			return mid
 		}
-		if nums[m] > target {
-			h = m - 1
+		if nums[mid] > target {
+			high = mid - 1
 		} else {
-			l = m + 1
+			low = mid + 1
 		}
 	}
-
 	return -1
 }
 ```
