@@ -42,7 +42,7 @@ export async function getStaticPaths() {
             <p class="updated-at">
                 <span>Updated:</span>
                 <time datetime="{post.data.updatedAt}">
-                    {post.data.publishedAt.toString().slice(0, -42)}
+                    {post.data.updatedAt.toString().slice(0, -42)}
                 </time>
             </p>
         </section>
