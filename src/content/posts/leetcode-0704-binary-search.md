@@ -31,7 +31,7 @@ If all iterations complete without returning `mid` as the solution, return `-1`.
 **Space:** O(1)
 
 ### Implementation
-`c (Iterative)`
+**c (Iterative)**
 ```c
 int search(int nums[], int len, int target) {
     int l = 0;
@@ -66,7 +66,7 @@ int main(void) {
 
 <br />
 
-`go (Iterative)`
+**go (Iterative)**
 ```go
 func main() {
 	nums := []int{-1, 0, 3, 5, 9, 12}
@@ -96,7 +96,7 @@ func binary_search(nums []int, target int) int {
 
 <br />
 
-`c# (Iterative)`
+**c# (Iterative)**
 ```csharp
 namespace Solution
 {

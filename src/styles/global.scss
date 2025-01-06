@@ -145,3 +145,8 @@ pre {
 
   border-radius: 5px;
 }
+
+code {
+  font-size: clamp(0.75rem, 5vw, 1rem);
+  color: #FFC124;
+}

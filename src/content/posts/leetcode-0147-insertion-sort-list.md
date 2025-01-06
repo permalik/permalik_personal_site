@@ -45,7 +45,7 @@ A function sorts the linked list, accepting a pointer to the head of the unsorte
 **Space:** O(1)
 
 ## Implementation
-`c (Iterative and Intuitive)`
+**c (Iterative and Intuitive)**
 ```c
 struct ListNode {
     int val;
@@ -123,7 +123,7 @@ int main(void) {
 
 <br />
 
-`go (Iterative and Intuitive)`
+**go (Iterative and Intuitive)**
 ```go
 type ListNode struct {
         Val  int
@@ -190,7 +190,7 @@ func linkedList(arr []int) *ListNode {
 
 <br />
 
-`c# (Iterative and Intuitive)`
+**c# (Iterative and Intuitive)**
 
 ```csharp
 namespace Solution

@@ -27,7 +27,7 @@ starting from index `1` until `nums_length - 1`
 **Space:** O(1)
 
 ## Implementation
-`c (Iterative Brute Force)`
+**c (Iterative Brute Force)**
 ```c
 int* two_sum(int* nums, int nums_size, int target, int* return_size);
 
@@ -76,7 +76,7 @@ int main(void) {
 
 <br />
 
-`zig (Iterative Brute Force)`
+**zig (Iterative Brute Force)**
 ```zig
 pub fn main() !void {
     var nums = [_]i8{ 3, 8, 2, -12, 24 };
@@ -114,7 +114,7 @@ pub fn two_sum(nums: []i8, nums_size: usize, target: *i8, solution: *[]i8) !void
 
 <br />
 
-`rust (Iterative Brute Force)`
+**rust (Iterative Brute Force)**
 ```rust
 fn main() {
     let nums = vec![3, 8, 2, -12, 24];
@@ -140,7 +140,7 @@ fn two_sum(nums: &Vec<i32>, target: &i32) -> Vec<i32> {
 
 <br />
 
-`go (Iterative Brute Force)`
+**go (Iterative Brute Force)**
 ```go
 func main() {
         nums := []int{3, 8, 2, -12, 24}
