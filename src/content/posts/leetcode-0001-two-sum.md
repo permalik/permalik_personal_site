@@ -114,32 +114,6 @@ pub fn two_sum(nums: []i8, nums_size: usize, target: *i8, solution: *[]i8) !void
 
 <br />
 
-**rust (Iterative Brute Force)**
-```rust
-fn main() {
-    let nums = vec![3, 8, 2, -12, 24];
-    let target: i32 = 12;
-
-    let solution = two_sum(&nums, &target);
-    println!("{:?}", solution);
-}
-
-fn two_sum(nums: &Vec<i32>, target: &i32) -> Vec<i32> {
-    for i in 0..nums.len() {
-        for j in (i + 1)..nums.len() {
-            if nums[i] == target - nums[j] {
-                let index_i: i32 = i.try_into().unwrap();
-                let index_j: i32 = j.try_into().unwrap();
-                return vec![index_i, index_j];
-            }
-        }
-    }
-    return Vec::new();
-}
-```
-
-<br />
-
 **go (Iterative Brute Force)**
 ```go
 func main() {
